@@ -1,0 +1,10 @@
+print "Start";
+if(true){
+  print "if";
+  print true;
+}
+else{
+  print false;
+  print "else";
+}
+print "End";

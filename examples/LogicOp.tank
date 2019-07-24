@@ -1,0 +1,7 @@
+print true and true;
+print true or true;
+print true xor true;
+
+print true and false;
+print true or false;
+print true xor false;

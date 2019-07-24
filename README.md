@@ -6,6 +6,7 @@
 - this keyword
 - Methods
 - Functions
+- Local functions
 - Native Functions
 - Dynamic types val
 - If condition

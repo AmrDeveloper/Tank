@@ -10,8 +10,10 @@ import java.util.List;
 public class FuncCallable implements TankCallable {
 
     private FunctionStatement declaration;
+    private final Environment closure;
 
-    public FuncCallable(FunctionStatement declaration){
+    public FuncCallable(FunctionStatement declaration,Environment closure){
+        this.closure = closure;
         this.declaration = declaration;
     }
 
@@ -22,7 +24,7 @@ public class FuncCallable implements TankCallable {
 
     @Override
     public Object call(Interpreter interpreter, List<Object> arguments) {
-        Environment environment = new Environment(interpreter.getGlobalsEnvironment());
+        Environment environment = new Environment(closure);
         for(int i = 0 ; i < declaration.getParams().size() ; i++){
             environment.define(declaration.getParams().get(i).lexeme,arguments.get(i));
         }

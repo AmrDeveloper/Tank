@@ -268,7 +268,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
 
     @Override
     public Void visit(FunctionStatement statement) {
-        FuncCallable function = new FuncCallable(statement);
+        FuncCallable function = new FuncCallable(statement,environment);
         environment.define(statement.getName().lexeme, function);
         return null;
     }

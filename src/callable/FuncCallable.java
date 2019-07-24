@@ -3,7 +3,7 @@ package callable;
 import ast.FunctionStatement;
 import interpreter.Environment;
 import interpreter.Interpreter;
-import token.Token;
+import runtime.Return;
 
 import java.util.List;
 
@@ -26,7 +26,11 @@ public class FuncCallable implements TankCallable {
         for(int i = 0 ; i < declaration.getParams().size() ; i++){
             environment.define(declaration.getParams().get(i).lexeme,arguments.get(i));
         }
-        interpreter.executeBlock(declaration.getFunctionBody(),environment);
+        try {
+            interpreter.executeBlock(declaration.getFunctionBody(), environment);
+        } catch (Return returnValue) {
+            return returnValue.getValue();
+        }
         return null;
     }
 }

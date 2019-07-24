@@ -1,7 +1,6 @@
 package parser;
 
 import ast.*;
-import runtime.RuntimeError;
 import runtime.TankRuntime;
 import token.Token;
 import token.TokenType;
@@ -32,6 +31,18 @@ public class Parser {
             statements.add(declaration());
         }
         return statements;
+    }
+
+    private Statement statement() {
+        if (match(IF)) return ifStatement();
+        if (match(WHILE)) return whileStatement();
+        if (match(PRINT)) return printStatement();
+        if (match(RETURN)) return returnStatement();
+        if (match(LEFT_BRACE)) return new BlockStatement(block());
+        if (match(BREAK)) return breakStatement();
+        if (match(CONTINUE)) return continueStatement();
+        //TODO : if match [ return new ArrayStatement
+        return expressionStatement();
     }
 
     private Statement declaration() {
@@ -74,17 +85,6 @@ public class Parser {
 
         consume(SEMICOLON, "Expect ';' after variable declaration.");
         return new Var(name, initializer);
-    }
-
-    private Statement statement() {
-        if (match(IF)) return ifStatement();
-        if (match(WHILE)) return whileStatement();
-        if (match(PRINT)) return printStatement();
-        if (match(LEFT_BRACE)) return new BlockStatement(block());
-        if (match(BREAK)) return breakStatement();
-        if (match(CONTINUE)) return continueStatement();
-        //TODO : if match [ return new ArrayStatement
-        return expressionStatement();
     }
 
     private Statement breakStatement() {
@@ -139,6 +139,16 @@ public class Parser {
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
         consume(SEMICOLON, "Expect ';' after value.");
         return new PrintStatement(value);
+    }
+
+    private Statement returnStatement(){
+        Token keyword = previous();
+        Expression value = null;
+        if (!check(SEMICOLON)) {
+            value = expression();
+        }
+        consume(SEMICOLON, "Expect ';' after return value.");
+        return new ReturnStatement(keyword, value);
     }
 
     private Statement expressionStatement() {

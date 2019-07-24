@@ -4,6 +4,7 @@ import ast.*;
 import callable.FuncCallable;
 import callable.TankCallable;
 import nativefunc.NativePackage;
+import runtime.Return;
 import runtime.RuntimeError;
 import runtime.TankRuntime;
 import token.Token;
@@ -244,6 +245,15 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         }
         environment.define(statement.getName().lexeme, value);
         return null;
+    }
+
+    @Override
+    public Void visit(ReturnStatement statement) {
+        Object value = null;
+        if (statement.getValue() != null) {
+            value = evaluate(statement.getValue());
+        }
+        throw new Return(value);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package interpreter;
 
 import ast.*;
+import callable.FuncCallable;
 import callable.TankCallable;
 import nativefunc.NativePackage;
 import runtime.RuntimeError;
@@ -14,8 +15,8 @@ import java.util.List;
 
 public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<Void> {
 
-    private final Environment nativeFuncEnvironment = new Environment();
-    private Environment environment = nativeFuncEnvironment;
+    public final Environment globalsEnvironment = new Environment();
+    private Environment environment = globalsEnvironment;
 
     public Interpreter(){
 
@@ -255,12 +256,15 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         return null;
     }
 
-    private Object evaluate(Expression expr) {
-        return expr.accept(this);
+    @Override
+    public Void visit(FunctionStatement statement) {
+        FuncCallable function = new FuncCallable(statement);
+        environment.define(statement.getName().lexeme, function);
+        return null;
     }
 
-    private void executeStatement(Statement stmt) {
-        stmt.accept(this);
+    private Object evaluate(Expression expr) {
+        return expr.accept(this);
     }
 
     private boolean isTruthy(Object object) {
@@ -301,7 +305,11 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         throw new RuntimeError(operator, "Operands must the same type -> number.");
     }
 
-    private void executeBlock(List<Statement> statementList, Environment localEnvironment) {
+    private void executeStatement(Statement stmt) {
+        stmt.accept(this);
+    }
+
+    public void executeBlock(List<Statement> statementList, Environment localEnvironment) {
         Environment previous = this.environment;
         try {
             //Make current environment is block local not global
@@ -316,9 +324,13 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         }
     }
 
+    public Environment getGlobalsEnvironment(){
+        return globalsEnvironment;
+    }
+
     public void bindNativePagckages(NativePackage...packages){
         for(NativePackage nativePackage : packages){
-            nativePackage.bindNativeFunction(nativeFuncEnvironment);
+            nativePackage.bindNativeFunction(globalsEnvironment);
         }
     }
 }

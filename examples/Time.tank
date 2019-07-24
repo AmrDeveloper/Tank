@@ -1,0 +1,2 @@
+var time = currentTime();
+print(time);

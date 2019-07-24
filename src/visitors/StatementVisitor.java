@@ -8,8 +8,8 @@ public interface StatementVisitor<R>{
     R visit(BlockStatement statement);
     R visit(IfStatement statement);
     R visit(WhileStatement statement);
-    R visit(Var statement);
-
     R visit(BreakStatement statement);
     R visit(ContinueStatement statement);
+    R visit(FunctionStatement statement);
+    R visit(Var statement);
 }

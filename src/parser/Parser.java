@@ -36,13 +36,32 @@ public class Parser {
 
     private Statement declaration() {
         try {
+            if (match(FUN)) return funcDeclaration("function");
             if (match(VAR)) return varDeclaration();
-
+            //TODO : support class, list and map --> maybe struct :D
             return statement();
         } catch (ParseError error) {
             synchronize();
             return null;
         }
+    }
+
+    private Statement funcDeclaration(String kind) {
+        Token name = consume(IDENTIFIER, "Expect " + kind + " name.");
+        consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
+        List<Token> parameters = new ArrayList<>();
+        if (!check(RIGHT_PAREN)) {
+            do {
+                if (parameters.size() >= MAX_NUM_OF_ARGUMENTS) {
+                    error(peek(), "Cannot have more than " + MAX_NUM_OF_ARGUMENTS + " parameters.");
+                }
+                parameters.add(consume(IDENTIFIER, "Expect parameter name."));
+            } while (match(COMMA));
+        }
+        consume(RIGHT_PAREN, "Expect ')' after parameters.");
+        consume(LEFT_BRACE, "Expect '{' before " + kind + " body.");
+        List<Statement> body = block();
+        return new FunctionStatement(name, parameters, body);
     }
 
     private Statement varDeclaration() {
@@ -68,12 +87,12 @@ public class Parser {
         return expressionStatement();
     }
 
-    private Statement breakStatement(){
+    private Statement breakStatement() {
         consume(SEMICOLON, "Expect ';' after value.");
         return new BreakStatement();
     }
 
-    private Statement continueStatement(){
+    private Statement continueStatement() {
         consume(SEMICOLON, "Expect ';' after value.");
         return new ContinueStatement();
     }
@@ -101,7 +120,7 @@ public class Parser {
         return new IfStatement(condition, thenBranch, elseBranch);
     }
 
-    private Statement whileStatement(){
+    private Statement whileStatement() {
         consume(LEFT_PAREN, "Expect '(' after 'while'.");
         Expression condition = expression();
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
@@ -111,7 +130,7 @@ public class Parser {
             loopBodyStmts.add(declaration());
         }
         consume(RIGHT_BRACE, "Expect '}' to end while body.");
-        return new WhileStatement(condition,loopBodyStmts);
+        return new WhileStatement(condition, loopBodyStmts);
     }
 
     private Statement printStatement() {
@@ -170,7 +189,7 @@ public class Parser {
         return expr;
     }
 
-    private Expression xor(){
+    private Expression xor() {
         Expression expr = and();
 
         while (match(XOR)) {
@@ -277,7 +296,7 @@ public class Parser {
         return call();
     }
 
-    private Expression call(){
+    private Expression call() {
         Expression expr = primary();
         while (true) {
             if (match(LEFT_PAREN)) {
@@ -289,14 +308,14 @@ public class Parser {
         return expr;
     }
 
-    private Expression finishCall(Expression callee){
+    private Expression finishCall(Expression callee) {
         List<Expression> arguments = new ArrayList<>();
         //For zero Arguments
         if (!check(RIGHT_PAREN)) {
             do {
                 if (arguments.size() >= MAX_NUM_OF_ARGUMENTS) {
                     //For now just report error but not throws it
-                    error(peek(), "Cannot have more than " + MAX_NUM_OF_ARGUMENTS +" arguments.");
+                    error(peek(), "Cannot have more than " + MAX_NUM_OF_ARGUMENTS + " arguments.");
                 }
                 arguments.add(expression());
             } while (match(COMMA));

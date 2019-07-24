@@ -5,7 +5,9 @@ import interpreter.Interpreter;
 import lexer.TankLexer;
 import nativefunc.Packages;
 import parser.Parser;
+import semantic.Resolver;
 import token.Token;
+import token.TokenType;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,11 +55,30 @@ public class TankRuntime {
         List<Token> tokens = tankLexer.scanTokens();
         Parser parser = new Parser(tokens);
         List<Statement> statements = parser.parse();
+
+        // Stop if there was a syntax error.
+        if (hadError) return;
+
+        Resolver resolver = new Resolver(interpreter);
+        resolver.resolve(statements);
+
+        // Stop if there was a semantic error.
+        if (hadError) return;
+
+        //Start Tank Interpreter
         interpreter.interpret(statements);
     }
 
     public static void error(int line, String message) {
         report(line, "", message);
+    }
+
+    public static void error(Token token, String message) {
+        if (token.type == TokenType.EOF) {
+            report(token.line, " at end", message);
+        } else {
+            report(token.line, " at '" + token.lexeme + "'", message);
+        }
     }
 
     private static void report(int line, String where, String message) {

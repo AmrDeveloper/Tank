@@ -12,12 +12,15 @@ import visitors.ExpressionVisitor;
 import visitors.StatementVisitor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<Void> {
 
-    public final Environment globalsEnvironment = new Environment();
-    private Environment environment = globalsEnvironment;
+    public final Environment globals = new Environment();
+    private Environment environment = globals;
+    private final Map<Expression, Integer> locals = new HashMap<>();
 
     public Interpreter(){
 
@@ -117,7 +120,13 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     public Object visit(AssignExp expr) {
         Token name = expr.getName();
         Object value = evaluate(expr.getValue());
-        environment.assign(name, value);
+
+        Integer distance = locals.get(expr);
+        if (distance != null) {
+            environment.assignAt(distance, name, value);
+        } else {
+            globals.assign(name, value);
+        }
         return value;
     }
 
@@ -184,7 +193,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
 
     @Override
     public Object visit(Variable expr) {
-        return environment.get(expr.getName());
+        return lookUpVariable(expr.getName(), expr);
     }
 
     @Override
@@ -356,13 +365,24 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
             }
     }
 
-    public Environment getGlobalsEnvironment(){
-        return globalsEnvironment;
-    }
-
     public void bindNativePackages(NativePackage...packages){
         for(NativePackage nativePackage : packages){
-            nativePackage.bindNativeFunction(globalsEnvironment);
+            nativePackage.bindNativeFunction(globals);
         }
+    }
+
+    private Object lookUpVariable(Token name, Expression expr) {
+        Integer distance = locals.get(expr);
+        if (distance != null) {
+            //find variable value in locales score
+            return environment.getAt(distance, name.lexeme);
+        } else {
+            //If can't find distance in locales so it must be global variable
+            return globals.get(name);
+        }
+    }
+
+    public void resolve(Expression expr, int depth) {
+        locals.put(expr, depth);
     }
 }

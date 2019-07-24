@@ -43,6 +43,7 @@ public class TankLexer {
         keywords.put("while", WHILE);
         keywords.put("break", BREAK);
         keywords.put("continue", CONTINUE);
+        keywords.put("extends",EXTENDS);
     }
 
     public TankLexer(String source) {

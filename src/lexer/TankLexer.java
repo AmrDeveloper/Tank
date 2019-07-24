@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static token.TokenType.*;
 
-public class Scanner {
+public class TankLexer {
 
     private String source;
     private final List<Token> tokens = new ArrayList<>();
@@ -45,7 +45,7 @@ public class Scanner {
         keywords.put("continue", CONTINUE);
     }
 
-    public Scanner(String source) {
+    public TankLexer(String source) {
         this.source = source;
     }
 

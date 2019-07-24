@@ -1,6 +1,7 @@
 package parser;
 
 import ast.*;
+import runtime.RuntimeError;
 import runtime.TankRuntime;
 import token.Token;
 import token.TokenType;
@@ -18,6 +19,8 @@ public class Parser {
 
     private int current = 0;
     private final List<Token> tokens;
+
+    private static final int MAX_NUM_OF_ARGUMENTS = 8;
 
     public Parser(List<Token> tokens) {
         this.tokens = tokens;
@@ -271,7 +274,35 @@ public class Parser {
             Expression right = unary();
             return new UnaryExp(operator, right);
         }
-        return primary();
+        return call();
+    }
+
+    private Expression call(){
+        Expression expr = primary();
+        while (true) {
+            if (match(LEFT_PAREN)) {
+                expr = finishCall(expr);
+            } else {
+                break;
+            }
+        }
+        return expr;
+    }
+
+    private Expression finishCall(Expression callee){
+        List<Expression> arguments = new ArrayList<>();
+        //For zero Arguments
+        if (!check(RIGHT_PAREN)) {
+            do {
+                if (arguments.size() >= MAX_NUM_OF_ARGUMENTS) {
+                    //For now just report error but not throws it
+                    error(peek(), "Cannot have more than " + MAX_NUM_OF_ARGUMENTS +" arguments.");
+                }
+                arguments.add(expression());
+            } while (match(COMMA));
+        }
+        Token paren = consume(RIGHT_PAREN, "Expect ')' after arguments.");
+        return new CallExp(callee, paren, arguments);
     }
 
     private Expression primary() {

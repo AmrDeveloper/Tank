@@ -6,7 +6,7 @@ public class Tank {
 
     public static void main(String[] args) throws IOException{
         String courceCode = "D:\\Software\\Tank\\examples\\While.tank";
-        TankRuntime.runTankFile(courceCode);
-        //runtime.TankRuntime.runTankTerminal();
+        //TankRuntime.runTankFile(courceCode);
+        TankRuntime.runTankTerminal();
     }
 }

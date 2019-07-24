@@ -1,5 +1,6 @@
-package runtime;
+package interpreter;
 
+import runtime.RuntimeError;
 import token.Token;
 
 import java.util.HashMap;

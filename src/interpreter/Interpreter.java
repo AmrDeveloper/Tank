@@ -1,15 +1,25 @@
-package runtime;
+package interpreter;
 
 import ast.*;
+import callable.TankCallable;
+import nativefunc.NativePackage;
+import runtime.RuntimeError;
+import runtime.TankRuntime;
 import token.Token;
 import visitors.ExpressionVisitor;
 import visitors.StatementVisitor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<Void> {
 
-    private Environment environment = new Environment();
+    private final Environment nativeFuncEnvironment = new Environment();
+    private Environment environment = nativeFuncEnvironment;
+
+    public Interpreter(){
+
+    }
 
     public void interpret(List<Statement> statements) {
         try {
@@ -147,6 +157,30 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     }
 
     @Override
+    public Object visit(CallExp expr) {
+        Object callee = evaluate(expr.getCallee());
+
+        List<Object> arguments = new ArrayList<>();
+        for (Expression argument : expr.getArguments()) {
+            arguments.add(evaluate(argument));
+            //Make sure this is callable type
+            if (!(callee instanceof TankCallable)) {
+                throw new RuntimeError(expr.getClosingParenthesis(), "Can only call functions and classes.");
+            }
+        }
+
+        TankCallable function = (TankCallable)callee;
+
+        if (arguments.size() != function.arity()) {
+            throw new RuntimeError(expr.getClosingParenthesis(), "Expected " +
+                    function.arity() + " arguments but got " +
+                    arguments.size() + ".");
+        }
+
+        return function.call(this,arguments);
+    }
+
+    @Override
     public Object visit(Variable expr) {
         return environment.get(expr.getName());
     }
@@ -267,11 +301,11 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         throw new RuntimeError(operator, "Operands must the same type -> number.");
     }
 
-    private void executeBlock(List<Statement> statementList, Environment localEnviroment) {
+    private void executeBlock(List<Statement> statementList, Environment localEnvironment) {
         Environment previous = this.environment;
         try {
             //Make current environment is block local not global
-            this.environment = localEnviroment;
+            this.environment = localEnvironment;
             //Execute every statement in block
             for (Statement statement : statementList) {
                 executeStatement(statement);
@@ -279,6 +313,12 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         } finally {
             //Same like pop environment from stack
             this.environment = previous;
+        }
+    }
+
+    public void bindNativePagckages(NativePackage...packages){
+        for(NativePackage nativePackage : packages){
+            nativePackage.bindNativeFunction(nativeFuncEnvironment);
         }
     }
 }

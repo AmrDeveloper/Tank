@@ -1,4 +1,7 @@
+package runtime;
+
 import ast.Statement;
+import lexer.Scanner;
 import parser.Parser;
 import token.Token;
 

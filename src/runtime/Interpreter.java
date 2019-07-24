@@ -1,3 +1,5 @@
+package runtime;
+
 import ast.*;
 import token.Token;
 import visitors.ExpressionVisitor;
@@ -127,16 +129,16 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     @Override
     public Object visit(LogicalExp expr) {
         Object left = evaluate(expr.getLeftExp());
-        switch (expr.getOperator().type){
-            case AND:{
+        switch (expr.getOperator().type) {
+            case AND: {
                 Object right = evaluate(expr.getRightExp());
                 return isTruthy(left) && isTruthy(right);
             }
-            case OR:{
+            case OR: {
                 Object right = evaluate(expr.getRightExp());
                 return isTruthy(left) || isTruthy(right);
             }
-            case XOR:{
+            case XOR: {
                 Object right = evaluate(expr.getRightExp());
                 return isTruthy(left) ^ isTruthy(right);
             }
@@ -172,9 +174,9 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     public Void visit(IfStatement statement) {
         Object conditionResult = evaluate(statement.getCondition());
         if (isTruthy(conditionResult)) {
-             executeBlock(statement.getThenBranch(),new Environment(environment) );
-        }else if(statement.getElseBranch() != null){
-            executeBlock(statement.getElseBranch(),new Environment(environment) );
+            executeBlock(statement.getThenBranch(), new Environment(environment));
+        } else if (statement.getElseBranch() != null) {
+            executeBlock(statement.getElseBranch(), new Environment(environment));
         }
         return null;
     }
@@ -184,13 +186,12 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         Environment whileEnvironment = new Environment(environment);
         Environment previous = this.environment;
         this.environment = whileEnvironment;
-        while (isTruthy(evaluate(statement.getCondition()))){
-            for(Statement statementLine : statement.getLoopBody()){
-                if(statementLine instanceof BreakStatement){
+        while (isTruthy(evaluate(statement.getCondition()))) {
+            for (Statement statementLine : statement.getLoopBody()) {
+                if (statementLine instanceof BreakStatement) {
                     this.environment = previous;
                     return null;
-                }
-                else if(statementLine instanceof ContinueStatement){
+                } else if (statementLine instanceof ContinueStatement) {
                     break;
                 }
                 executeStatement(statementLine);
@@ -272,7 +273,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
             //Make current environment is block local not global
             this.environment = localEnviroment;
             //Execute every statement in block
-            for(Statement statement : statementList){
+            for (Statement statement : statementList) {
                 executeStatement(statement);
             }
         } finally {

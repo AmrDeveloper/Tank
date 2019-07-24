@@ -1,10 +1,10 @@
-print "Start";
+print ("Start");
 if(true){
-  print "if";
-  print true;
+  print ("if");
+  print (true);
 }
 else{
-  print false;
-  print "else";
+  print (false);
+  print ("else");
 }
-print "End";
+print ("End");

@@ -1,9 +1,9 @@
 var i = 0;
-print "Start Loop";
+print ("Start Loop");
 while(i < 10){
    i = i + 1;
-   print i;
+   print (i);
    continue;
-   print "after continue";
+   print("after continue");
 }
-print "End Loop";
+print ("End Loop");

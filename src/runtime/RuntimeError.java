@@ -1,3 +1,5 @@
+package runtime;
+
 import token.Token;
 
 public class RuntimeError extends RuntimeException {

@@ -1,6 +1,7 @@
 package parser;
 
 import ast.*;
+import runtime.TankRuntime;
 import token.Token;
 import token.TokenType;
 
@@ -111,7 +112,9 @@ public class Parser {
     }
 
     private Statement printStatement() {
+        consume(LEFT_PAREN, "Expect '(' after 'while'.");
         Expression value = expression();
+        consume(RIGHT_PAREN, "Expect ')' after while condition.");
         consume(SEMICOLON, "Expect ';' after value.");
         return new PrintStatement(value);
     }
@@ -293,7 +296,7 @@ public class Parser {
     }
 
     private ParseError error(Token token, String message) {
-        error(token, message);
+        TankRuntime.error(token.line, message);
         return new ParseError();
     }
 

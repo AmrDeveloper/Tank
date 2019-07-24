@@ -15,6 +15,21 @@
 - Scope and Block
 - Break and Continue keyword for loops
 - Logical operators AND, OR, XOR
+- Runtime error
 - Arity simpler to Python that throw error if developer pass less or more than function arguments
 
 ## For Examples see examples directory
+
+
+## Native Functions in Tank
+
+# String package :
+- len : take string and return length of it
+- charAt : take string and index and return char in this index from string
+
+# Scan package :
+- scanString : scan string and return it
+- scanNumber : scan number and return it as double
+
+# Time package :
+time : return current system time

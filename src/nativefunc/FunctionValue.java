@@ -1,6 +1,8 @@
 package nativefunc;
 
+import java.util.List;
+
 @FunctionalInterface
 public interface FunctionValue {
-    Object createTask(Object...args);
+    Object createTask(List<Object> args);
 }

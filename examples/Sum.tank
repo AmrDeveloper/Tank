@@ -1,0 +1,5 @@
+func sum(x,y){
+   print(x + y);
+}
+
+sum(5,5);

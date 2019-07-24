@@ -1,0 +1,8 @@
+print("Start");
+var i = 0;
+//Must run once because while condition is false :D
+do{
+  i = i + 1;
+  print(i);
+}
+while(i == 10);

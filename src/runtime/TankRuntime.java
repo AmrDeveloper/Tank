@@ -26,7 +26,7 @@ public class TankRuntime {
     }
 
     private static void setInterpreterSetup(){
-        interpreter.bindNativePagckages(Packages.getNativePackages());
+        interpreter.bindNativePackages(Packages.getNativePackages());
     }
 
     public static void runTankFile(String path) throws IOException {

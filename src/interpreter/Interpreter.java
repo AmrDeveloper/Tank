@@ -222,18 +222,28 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         Environment whileEnvironment = new Environment(environment);
         Environment previous = this.environment;
         this.environment = whileEnvironment;
-        while (isTruthy(evaluate(statement.getCondition()))) {
-            for (Statement statementLine : statement.getLoopBody()) {
-                if (statementLine instanceof BreakStatement) {
-                    this.environment = previous;
-                    return null;
-                } else if (statementLine instanceof ContinueStatement) {
-                    break;
-                }
-                executeStatement(statementLine);
-            }
+
+        while(isTruthy(evaluate(statement.getCondition()))){
+            executeWhileStatement(statement.getLoopBody(),previous);
         }
+
         this.environment = previous;
+        return null;
+    }
+
+    @Override
+    public Void visit(DoWhileStatement statement) {
+        Environment whileEnvironment = new Environment(environment);
+        Environment previous = this.environment;
+        this.environment = whileEnvironment;
+
+        //Execute once
+        executeWhileStatement(statement.getLoopBody(),previous);
+
+        while(isTruthy(evaluate(statement.getCondition()))){
+            executeWhileStatement(statement.getLoopBody(),previous);
+        }
+
         return null;
     }
 
@@ -334,11 +344,23 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         }
     }
 
+    private void executeWhileStatement(List<Statement> statementList, Environment previous){
+            for (Statement statementLine : statementList) {
+                if (statementLine instanceof BreakStatement) {
+                    this.environment = previous;
+                    return;
+                } else if (statementLine instanceof ContinueStatement) {
+                    break;
+                }
+                executeStatement(statementLine);
+            }
+    }
+
     public Environment getGlobalsEnvironment(){
         return globalsEnvironment;
     }
 
-    public void bindNativePagckages(NativePackage...packages){
+    public void bindNativePackages(NativePackage...packages){
         for(NativePackage nativePackage : packages){
             nativePackage.bindNativeFunction(globalsEnvironment);
         }

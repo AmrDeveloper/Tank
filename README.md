@@ -11,6 +11,7 @@
 - Dynamic types val
 - If condition
 - While loop
+- Do While Loop
 - Scope and Block
 - Break and Continue keyword for loops
 - Logical operators AND, OR, XOR

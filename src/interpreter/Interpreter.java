@@ -49,14 +49,14 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
                     return (double) left + (double) right;
                 }
                 //String Addition
-                if (left instanceof String && right instanceof String) {
-                    return (String) left + right;
+                if (left instanceof String || right instanceof String) {
+                    return left.toString() + right.toString();
                 }
-                //String + Character || Character + String
-                if ((left instanceof Character || left instanceof String) &&
-                        (right instanceof Character || right instanceof String)) {
+                //Character + Character
+                if ((left instanceof Character && right instanceof Character)) {
                     return String.valueOf(left) + right;
                 }
+                //TODO : add Character with number
                 throw new RuntimeError(expr.getOperator(), "Operands must be two numbers or two strings.");
             }
             case MINUS: {

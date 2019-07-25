@@ -13,6 +13,7 @@
 - While loop
 - Do While Loop
 - Scope and Block
+- super, this keywords for oop
 - Break and Continue keyword for loops
 - Logical operators AND, OR, XOR
 - Function can take other Function as Parameter

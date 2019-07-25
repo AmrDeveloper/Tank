@@ -81,6 +81,18 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     }
 
     @Override
+    public Void visit(GetExp expr) {
+        return null;
+    }
+
+    @Override
+    public Void visit(SetExp expr) {
+        resolve(expr.getValue());
+        resolve(expr.getObject());
+        return null;
+    }
+
+    @Override
     public Void visit(Variable expr) {
         if (!scopes.isEmpty() &&
                 scopes.peek().get(expr.getName().lexeme) == Boolean.FALSE) {
@@ -174,6 +186,13 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
         if (statement.getValue() != null) {
             resolve(statement.getValue());
         }
+        return null;
+    }
+
+    @Override
+    public Void visit(ClassStatement statement) {
+        declare(statement.getName());
+        define(statement.getName());
         return null;
     }
 

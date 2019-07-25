@@ -1,0 +1,7 @@
+class ClassTestValue {
+  func serveOn() {
+    return "Scones";
+  }
+}
+
+print(ClassTestValue);

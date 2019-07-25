@@ -50,6 +50,7 @@ public class Parser {
         try {
             if (match(FUN)) return funcDeclaration("function");
             if (match(VAR)) return varDeclaration();
+            if (match(CLASS)) return classDeclaration();
             //TODO : support class, list and map --> maybe struct :D
             return statement();
         } catch (ParseError error) {
@@ -58,7 +59,40 @@ public class Parser {
         }
     }
 
-    private Statement funcDeclaration(String kind) {
+    private Statement classDeclaration() {
+        Token name = consume(IDENTIFIER, "Expect class name.");
+        consume(LEFT_BRACE, "Expect '{' before class body.");
+
+        List<FunctionStatement> methods = new ArrayList<>();
+        while (!check(RIGHT_BRACE) && !isAtEnd()) {
+            methods.add(methodDeclaration("method"));
+        }
+
+        consume(RIGHT_BRACE, "Expect '}' after class body.");
+
+        return new ClassStatement(name, methods);
+    }
+
+    private FunctionStatement methodDeclaration(String kind) {
+        consume(FUN, "Expect func keyword");
+        Token name = consume(IDENTIFIER, "Expect " + kind + " name.");
+        consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
+        List<Token> parameters = new ArrayList<>();
+        if (!check(RIGHT_PAREN)) {
+            do {
+                if (parameters.size() >= MAX_NUM_OF_ARGUMENTS) {
+                    error(peek(), "Cannot have more than " + MAX_NUM_OF_ARGUMENTS + " parameters.");
+                }
+                parameters.add(consume(IDENTIFIER, "Expect parameter name."));
+            } while (match(COMMA));
+        }
+        consume(RIGHT_PAREN, "Expect ')' after parameters.");
+        consume(LEFT_BRACE, "Expect '{' before " + kind + " body.");
+        List<Statement> body = block();
+        return new FunctionStatement(name, parameters, body);
+    }
+
+    private FunctionStatement funcDeclaration(String kind) {
         Token name = consume(IDENTIFIER, "Expect " + kind + " name.");
         consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
         List<Token> parameters = new ArrayList<>();
@@ -134,7 +168,7 @@ public class Parser {
         return new WhileStatement(condition, loopBodyStmts);
     }
 
-    private Statement doWhileStatement(){
+    private Statement doWhileStatement() {
         consume(LEFT_BRACE, "Expect '{' to start do while body.");
         List<Statement> loopBodyStmts = new ArrayList<>();
         while (!check(RIGHT_BRACE) && !isAtEnd()) {
@@ -146,7 +180,7 @@ public class Parser {
         Expression condition = expression();
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
         consume(SEMICOLON, "Expect ';' after do while condition.");
-        return new DoWhileStatement(condition,loopBodyStmts);
+        return new DoWhileStatement(condition, loopBodyStmts);
     }
 
     private Statement printStatement() {
@@ -157,7 +191,7 @@ public class Parser {
         return new PrintStatement(value);
     }
 
-    private Statement returnStatement(){
+    private Statement returnStatement() {
         Token keyword = previous();
         Expression value = null;
         if (!check(SEMICOLON)) {
@@ -198,6 +232,11 @@ public class Parser {
                 Token name = ((Variable) expr).getName();
                 return new AssignExp(name, value);
             }
+            else if (expr instanceof GetExp) {
+                GetExp get = (GetExp)expr;
+                return new SetExp(get.getObject(), get.getName(), value);
+            }
+
             error(equals, "Invalid assignment target.");
         }
         return expr;
@@ -327,6 +366,9 @@ public class Parser {
         while (true) {
             if (match(LEFT_PAREN)) {
                 expr = finishCall(expr);
+            } else if (match(DOT)) {
+                Token name = consume(IDENTIFIER, "Expect property name after '.'.");
+                expr = new GetExp(name, expr);
             } else {
                 break;
             }

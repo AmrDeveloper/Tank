@@ -1,8 +1,10 @@
 package interpreter;
 
 import ast.*;
+import callable.ClassCallable;
 import callable.FuncCallable;
 import callable.TankCallable;
+import callable.TankInstance;
 import nativefunc.NativePackage;
 import runtime.Return;
 import runtime.RuntimeError;
@@ -18,7 +20,7 @@ import java.util.Map;
 
 public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<Void> {
 
-    public final Environment globals = new Environment();
+    final Environment globals = new Environment();
     private Environment environment = globals;
     private final Map<Expression, Integer> locals = new HashMap<>();
 
@@ -192,6 +194,28 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     }
 
     @Override
+    public Object visit(GetExp expr) {
+        Object object = evaluate(expr.getObject());
+        if (object instanceof TankInstance) {
+            return ((TankInstance) object).get(expr.getName());
+        }
+        throw new RuntimeError(expr.getName(), "Only instances have properties.");
+    }
+
+    @Override
+    public Object visit(SetExp expr) {
+        Object object = evaluate(expr.getObject());
+
+        if (!(object instanceof TankInstance)) {
+            throw new RuntimeError(expr.getName(), "Only instances have fields.");
+        }
+
+        Object value = evaluate(expr.getValue());
+        ((TankInstance)object).set(expr.getName(), value);
+        return value;
+    }
+
+    @Override
     public Object visit(Variable expr) {
         return lookUpVariable(expr.getName(), expr);
     }
@@ -273,6 +297,14 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
             value = evaluate(statement.getValue());
         }
         throw new Return(value);
+    }
+
+    @Override
+    public Void visit(ClassStatement statement) {
+        environment.define(statement.getName().lexeme, null);
+        ClassCallable tankClass = new ClassCallable(statement.getName().lexeme);
+        environment.assign(statement.getName(), tankClass);
+        return null;
     }
 
     @Override

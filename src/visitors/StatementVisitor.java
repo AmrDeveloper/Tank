@@ -14,4 +14,5 @@ public interface StatementVisitor<R>{
     R visit(FunctionStatement statement);
     R visit(Var statement);
     R visit(ReturnStatement statement);
+    R visit(ClassStatement statement);
 }

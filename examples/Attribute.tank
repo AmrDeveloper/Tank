@@ -1,0 +1,7 @@
+class Vector {}
+
+var vector = Vector();
+vector.x = 10;
+vector.y = 20;
+
+print(vector.x + vector.y); 

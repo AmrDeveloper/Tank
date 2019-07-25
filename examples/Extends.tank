@@ -1,0 +1,13 @@
+class MathSum{
+
+    func sum(x,y){
+       return x + y;
+    }
+}
+
+class Math extends MathSum{
+
+}
+
+var math = Math();
+print(math.sum(10,10));

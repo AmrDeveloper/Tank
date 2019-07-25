@@ -29,12 +29,13 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     private enum FunctionType {
         NONE,
         FUNCTION,
-        METHOD
+        METHOD,
+        INITIALIZER
     }
 
     private enum ClassType {
         NONE,
-        CLASS
+        CLASS,
     }
 
     private ClassType currentClass = ClassType.NONE;
@@ -104,7 +105,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     @Override
     public Void visit(ThisExp expr) {
         if (currentClass == ClassType.NONE) {
-            TankRuntime.error(expr.getKeyword(),"Cannot use 'this' outside of a class.");
+            TankRuntime.error(expr.getKeyword(), "Cannot use 'this' outside of a class.");
             return null;
         }
         resolveLocal(expr, expr.getKeyword());
@@ -115,7 +116,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     public Void visit(Variable expr) {
         if (!scopes.isEmpty() &&
                 scopes.peek().get(expr.getName().lexeme) == Boolean.FALSE) {
-            TankRuntime.error(expr.getName(),"Cannot read local variable in its own initializer.");
+            TankRuntime.error(expr.getName(), "Cannot read local variable in its own initializer.");
         }
         resolveLocal(expr, expr.getName());
         return null;
@@ -203,6 +204,9 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
             TankRuntime.error(statement.getKeyword(), "Cannot return from top-level code.");
         }
         if (statement.getValue() != null) {
+            if (currentFunction == FunctionType.INITIALIZER) {
+                TankRuntime.error(statement.getKeyword(), "Cannot return a value from an initializer.");
+            }
             resolve(statement.getValue());
         }
         return null;
@@ -213,10 +217,25 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
         ClassType enclosingClass = currentClass;
         currentClass = ClassType.CLASS;
         declare(statement.getName());
+
+        //Class must not extends same class
+        if (statement.getSuperClass() != null &&
+                statement.getName().lexeme.equals(statement.getSuperClass().getName().lexeme)) {
+            TankRuntime.error(statement.getSuperClass().getName(), "A class cannot inherit from itself.");
+        }
+
+        //for Inheritance
+        if (statement.getSuperClass() != null) {
+            resolve(statement.getSuperClass());
+        }
+
         beginScope();
         scopes.peek().put("this", true);
         for (FunctionStatement method : statement.getMethods()) {
             FunctionType declaration = FunctionType.METHOD;
+            if (method.getName().lexeme.equals("init")) {
+                declaration = FunctionType.INITIALIZER;
+            }
             resolveFunction(method, declaration);
         }
         define(statement.getName());
@@ -257,7 +276,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
         // Not found. Assume it is global.
     }
 
-    private void resolveFunction(FunctionStatement func, FunctionType type){
+    private void resolveFunction(FunctionStatement func, FunctionType type) {
         FunctionType enclosingFunction = currentFunction;
         currentFunction = type;
 
@@ -279,7 +298,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
         //Never declare variable twice in same scope
         if (scope.containsKey(name.lexeme)) {
-            TankRuntime.error(name,"Variable with this name already declared in this scope.");
+            TankRuntime.error(name, "Variable with this name already declared in this scope.");
         }
         scope.put(name.lexeme, false);
     }

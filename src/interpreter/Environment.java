@@ -52,7 +52,7 @@ public class Environment {
         ancestor(distance).valuesMap.put(name.lexeme, value);
     }
 
-    Object getAt(int distance, String name) {
+    public Object getAt(int distance, String name) {
         return ancestor(distance).valuesMap.get(name);
     }
 

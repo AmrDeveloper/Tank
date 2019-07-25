@@ -61,6 +61,13 @@ public class Parser {
 
     private Statement classDeclaration() {
         Token name = consume(IDENTIFIER, "Expect class name.");
+
+        Variable superclass = null;
+        if (match(EXTENDS)) {
+            consume(IDENTIFIER, "Expect superclass name.");
+            superclass = new Variable(previous());
+        }
+
         consume(LEFT_BRACE, "Expect '{' before class body.");
 
         List<FunctionStatement> methods = new ArrayList<>();
@@ -70,7 +77,7 @@ public class Parser {
 
         consume(RIGHT_BRACE, "Expect '}' after class body.");
 
-        return new ClassStatement(name, methods);
+        return new ClassStatement(name, superclass, methods);
     }
 
     private FunctionStatement methodDeclaration(String kind) {

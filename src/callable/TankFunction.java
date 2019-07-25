@@ -12,9 +12,12 @@ public class TankFunction implements TankCallable {
     private FunctionStatement declaration;
     private final Environment closure;
 
-    public TankFunction(FunctionStatement declaration, Environment closure){
+    private final boolean isInitializer;
+
+    public TankFunction(FunctionStatement declaration, Environment closure,boolean isInitializer){
         this.closure = closure;
         this.declaration = declaration;
+        this.isInitializer = isInitializer;
     }
 
     @Override
@@ -25,7 +28,7 @@ public class TankFunction implements TankCallable {
     public TankFunction bind(TankInstance instance) {
         Environment environment = new Environment(closure);
         environment.define("this", instance);
-        return new TankFunction(declaration, environment);
+        return new TankFunction(declaration, environment,isInitializer);
     }
 
     @Override
@@ -37,8 +40,10 @@ public class TankFunction implements TankCallable {
         try {
             interpreter.executeBlock(declaration.getFunctionBody(), environment);
         } catch (Return returnValue) {
+            if (isInitializer) return closure.getAt(0, "this");
             return returnValue.getValue();
         }
+        if (isInitializer) return closure.getAt(0, "this");
         return null;
     }
 }

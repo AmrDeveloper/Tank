@@ -306,17 +306,27 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
 
     @Override
     public Void visit(ClassStatement statement) {
+        Object superclass = null;
+        //Because superclass is variable expression assert it class not any other knid of expressions
+        if (statement.getSuperClass() != null) {
+            superclass = evaluate(statement.getSuperClass());
+            if (!(superclass instanceof TankClass)) {
+                throw new RuntimeError(statement.getSuperClass().getName(),"Superclass must be a class.");
+            }
+        }
+
         environment.define(statement.getName().lexeme, null);
 
         Map<String, TankFunction> methods = new HashMap<>();
 
         //Bind all method into the class to call them with this leter
-        for (FunctionStatement func : statement.getMethods()) {
-            TankFunction function = new TankFunction(func, this.environment);
-            methods.put(func.getName().lexeme, function);
+        for (FunctionStatement method : statement.getMethods()) {
+            TankFunction function = new TankFunction(method, environment,
+                    method.getName().lexeme.equals("init"));
+            methods.put(method.getName().lexeme, function);
         }
 
-        TankClass tankClass = new TankClass(statement.getName().lexeme, methods);
+        TankClass tankClass = new TankClass(statement.getName().lexeme, (TankClass)superclass,methods);
         environment.assign(statement.getName(), tankClass);
         return null;
     }
@@ -333,7 +343,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
 
     @Override
     public Void visit(FunctionStatement statement) {
-        TankFunction function = new TankFunction(statement, environment);
+        TankFunction function = new TankFunction(statement, environment, false);
         environment.define(statement.getName().lexeme, function);
         return null;
     }

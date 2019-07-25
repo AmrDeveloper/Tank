@@ -15,6 +15,7 @@
 - Scope and Block
 - Break and Continue keyword for loops
 - Logical operators AND, OR, XOR
+- Function can take other Function as Parameter
 - Runtime error
 - Semantic analysis
 - Arity simpler to Python that throw error if developer pass less or more than function arguments

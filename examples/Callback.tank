@@ -1,0 +1,12 @@
+func printCallback()
+{
+   print("Callback is run :D");
+}
+
+func testCallback(callback)
+{
+    callback();
+}
+
+var callback = printCallback;
+testCallback(printCallback);

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1902cc8a-5505-429b-90f6-b24b3a58e2aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/examples/Attribute.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Attribute.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/callable/ClassCallable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/callable/ClassCallable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,95 +18,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/interpreter/Interpreter.java">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="58" column="50" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
-              <folding>
-                <element signature="method#Interpreter#0;class#Interpreter#0" />
-                <element signature="method#interpret#0;class#Interpreter#0" />
-                <element signature="e#819#942#0" />
-                <element signature="e#872#932#1" />
-                <element signature="e#970#1026#0" />
-                <element signature="e#1361#1439#1" />
-                <element signature="e#2055#2195#1" />
-                <element signature="e#2219#2771#1" />
-                <element signature="e#2347#2632#1" />
-                <element signature="e#2489#2568#1" />
-                <element signature="e#2796#3098#1" />
-                <element signature="e#2909#3029#1" />
-                <element signature="e#3125#3265#1" />
-                <element signature="e#3298#3439#1" />
-                <element signature="e#3463#3603#1" />
-                <element signature="e#3633#3774#1" />
-                <element signature="e#3804#3865#1" />
-                <element signature="e#3896#3956#1" />
-                <element signature="method#visit#3;class#Interpreter#0" />
-                <element signature="e#4406#4474#1" />
-                <element signature="e#4480#4532#1" />
-                <element signature="method#visit#4;class#Interpreter#0" />
-                <element signature="e#4711#4990#0" />
-                <element signature="e#4737#4855#1" />
-                <element signature="e#4879#4935#1" />
-                <element signature="method#visit#5;class#Interpreter#0" />
-                <element signature="e#5192#5672#0" />
-                <element signature="e#5216#5350#1" />
-                <element signature="e#5372#5506#1" />
-                <element signature="e#5529#5662#1" />
-                <element signature="method#visit#6;class#Interpreter#0" />
-                <element signature="e#5917#6198#1" />
-                <element signature="e#6063#6188#1" />
-                <element signature="e#6305#6503#1" />
-                <element signature="method#visit#7;class#Interpreter#0" />
-                <element signature="e#6707#6782#1" />
-                <element signature="method#visit#8;class#Interpreter#0" />
-                <element signature="e#7026#7120#1" />
-                <element signature="method#visit#10;class#Interpreter#0" />
-                <element signature="method#visit#11;class#Interpreter#0" />
-                <element signature="method#visit#12;class#Interpreter#0" />
-                <element signature="method#visit#13;class#Interpreter#0" />
-                <element signature="e#8058#8152#1" />
-                <element signature="e#8197#8291#1" />
-                <element signature="method#visit#14;class#Interpreter#0" />
-                <element signature="e#8607#8687#1" />
-                <element signature="method#visit#15;class#Interpreter#0" />
-                <element signature="e#9132#9212#1" />
-                <element signature="method#visit#16;class#Interpreter#0" />
-                <element signature="e#9372#9441#1" />
-                <element signature="method#visit#17;class#Interpreter#0" />
-                <element signature="e#9669#9732#1" />
-                <element signature="method#visit#18;class#Interpreter#0" />
-                <element signature="method#visit#21;class#Interpreter#0" />
-                <element signature="method#isTruthy#0;class#Interpreter#0" />
-                <element signature="method#isEqual#0;class#Interpreter#0" />
-                <element signature="method#stringify#0;class#Interpreter#0" />
-                <element signature="e#11165#11360#1" />
-                <element signature="e#11249#11325#1" />
-                <element signature="method#checkNumberOperand#0;class#Interpreter#0" />
-                <element signature="method#checkNumberOperands#0;class#Interpreter#0" />
-                <element signature="method#executeBlock#0;class#Interpreter#0" />
-                <element signature="e#12081#12368#0" />
-                <element signature="e#12298#12358#1" />
-                <element signature="e#12377#12480#0" />
-                <element signature="method#executeWhileStatement#0;class#Interpreter#0" />
-                <element signature="e#12639#12961#1" />
-                <element signature="e#12702#12798#1" />
-                <element signature="e#12852#12898#1" />
-                <element signature="method#bindNativePackages#0;class#Interpreter#0" />
-                <element signature="e#13082#13148#1" />
-                <element signature="method#lookUpVariable#0;class#Interpreter#0" />
-                <element signature="e#13296#13419#1" />
-                <element signature="e#13425#13552#1" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/Attribute.tank">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+            <state relative-caret-position="289">
+              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -141,8 +55,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/callable/TankCallable.java" />
-        <option value="$PROJECT_DIR$/src/nativefunc/Task.java" />
         <option value="$PROJECT_DIR$/src/nativefunc/Function.java" />
         <option value="$PROJECT_DIR$/src/nativefunc/NativeFunctions.java" />
         <option value="$PROJECT_DIR$/src/nativefunc/FunctionBinder.java" />
@@ -173,7 +85,6 @@
         <option value="$PROJECT_DIR$/src/Resolver.java" />
         <option value="$PROJECT_DIR$/src/interpreter/Environment.java" />
         <option value="$PROJECT_DIR$/src/runtime/TankRuntime.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/visitors/StatementVisitor.java" />
         <option value="$PROJECT_DIR$/src/ast/ClassStatement.java" />
         <option value="$PROJECT_DIR$/src/ast/TankClass.java" />
@@ -186,12 +97,15 @@
         <option value="$PROJECT_DIR$/examples/Class1.tank" />
         <option value="$PROJECT_DIR$/examples/Instance.tank" />
         <option value="$PROJECT_DIR$/src/parser/Parser.java" />
-        <option value="$PROJECT_DIR$/src/Tank.java" />
         <option value="$PROJECT_DIR$/src/lexer/TankLexer.java" />
         <option value="$PROJECT_DIR$/src/token/TokenType.java" />
         <option value="$PROJECT_DIR$/src/callable/ClassCallable.java" />
         <option value="$PROJECT_DIR$/examples/Attribute.tank" />
         <option value="$PROJECT_DIR$/src/interpreter/Interpreter.java" />
+        <option value="$PROJECT_DIR$/examples/FuncBind.tank" />
+        <option value="$PROJECT_DIR$/src/Tank.java" />
+        <option value="$PROJECT_DIR$/examples/Callback.tank" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -219,18 +133,7 @@
             <path>
               <item name="Tank" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tank" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tank" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tank" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="interpreter" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -294,14 +197,14 @@
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17475729" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16100323" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295325" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.336374" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5667047" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990878" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -346,20 +249,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/nativefunc/NativePackage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/Time.tank">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/Scan.tank">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -546,16 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/packages/StringPackage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runtime/RuntimeError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -591,13 +470,6 @@
             <element signature="method#report#0;class#TankRuntime#0" />
             <element signature="method#runtimeError#0;class#TankRuntime#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -756,16 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -949,6 +811,50 @@
             <element signature="e#13296#13419#1" />
             <element signature="e#13425#13552#1" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/packages/StringPackage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#278#466#0" />
+            <element signature="e#543#838#0" />
+            <element signature="method#bindNativeFunction#0;class#StringPackage#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/ClassThis.tank">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/Callback.tank">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
         </state>
       </provider>
     </entry>

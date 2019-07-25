@@ -317,6 +317,11 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
 
         environment.define(statement.getName().lexeme, null);
 
+        if (statement.getSuperClass() != null) {
+            environment = new Environment(environment);
+            environment.define("super", superclass);
+        }
+
         Map<String, TankFunction> methods = new HashMap<>();
 
         //Bind all method into the class to call them with this leter
@@ -327,6 +332,11 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         }
 
         TankClass tankClass = new TankClass(statement.getName().lexeme, (TankClass)superclass,methods);
+
+        if (superclass != null) {
+            environment = environment.enclosing;
+        }
+
         environment.assign(statement.getName(), tankClass);
         return null;
     }
@@ -346,6 +356,22 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         TankFunction function = new TankFunction(statement, environment, false);
         environment.define(statement.getName().lexeme, function);
         return null;
+    }
+
+    @Override
+    public Object visit(SuperExp expr) {
+        int distance = locals.get(expr);
+        TankClass superclass = (TankClass)environment.getAt( distance, "super");
+        TankInstance object = (TankInstance)environment.getAt(distance - 1, "this");
+        TankFunction method = superclass.findMethod(expr.getMethod().lexeme);
+
+        //Can't find this property in super class so throw Runtime Exception
+        if (method == null) {
+            throw new RuntimeError(expr.getMethod()
+                    ,"Undefined property '" + expr.getMethod().lexeme + "'.");
+        }
+
+        return method.bind(object);
     }
 
     private Object evaluate(Expression expr) {

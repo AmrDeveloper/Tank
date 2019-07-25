@@ -411,6 +411,12 @@ public class Parser {
             consume(RIGHT_PAREN, "Expect ')' after expression.");
             return new GroupingExp(expr);
         }
+        if (match(SUPER)) {
+            Token keyword = previous();
+            consume(DOT, "Expect '.' after 'super'.");
+            Token method = consume(IDENTIFIER,"Expect superclass method name.");
+            return new SuperExp(keyword, method);
+        }
         throw error(peek(), "Expect expression.");
     }
 

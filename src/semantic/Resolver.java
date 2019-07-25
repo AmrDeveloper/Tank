@@ -21,7 +21,6 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     private final Interpreter interpreter;
     private final Stack<Map<String, Boolean>> scopes = new Stack<>();
 
-
     public Resolver(Interpreter interpreter) {
         this.interpreter = interpreter;
     }
@@ -36,6 +35,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     private enum ClassType {
         NONE,
         CLASS,
+        SUBCLASS
     }
 
     private ClassType currentClass = ClassType.NONE;
@@ -226,7 +226,14 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
         //for Inheritance
         if (statement.getSuperClass() != null) {
+            currentClass = ClassType.SUBCLASS;
             resolve(statement.getSuperClass());
+        }
+
+        //Support super keyword
+        if (statement.getSuperClass() != null) {
+            beginScope();
+            scopes.peek().put("super", true);
         }
 
         beginScope();
@@ -240,7 +247,19 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
         }
         define(statement.getName());
         endScope();
+        if (statement.getSuperClass() != null) endScope();
         currentClass = enclosingClass;
+        return null;
+    }
+
+    @Override
+    public Void visit(SuperExp expr) {
+        if (currentClass == ClassType.NONE) {
+            TankRuntime.error(expr.getKeyword(),"Cannot use 'super' outside of a class.");
+        } else if (currentClass != ClassType.SUBCLASS) {
+            TankRuntime.error(expr.getKeyword(),"Cannot use 'super' in a class with no superclass.");
+        }
+        resolveLocal(expr, expr.getKeyword());
         return null;
     }
 

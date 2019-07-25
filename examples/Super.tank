@@ -1,0 +1,15 @@
+class Human{
+   func printType(){
+      print("I am a Human");
+   }
+}
+
+class Engineer extends Human{
+   func printType(){
+      super.printType();
+      print("I am an Engineer");
+   }
+}
+
+var eng = Engineer();
+eng.printType();

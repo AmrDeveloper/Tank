@@ -20,7 +20,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
     private final Interpreter interpreter;
     private final Stack<Map<String, Boolean>> scopes = new Stack<>();
-    private FunctionType currentFunction = FunctionType.NONE;
+
 
     public Resolver(Interpreter interpreter) {
         this.interpreter = interpreter;
@@ -31,6 +31,14 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
         FUNCTION,
         METHOD
     }
+
+    private enum ClassType {
+        NONE,
+        CLASS
+    }
+
+    private ClassType currentClass = ClassType.NONE;
+    private FunctionType currentFunction = FunctionType.NONE;
 
     @Override
     public Void visit(BinaryExp expr) {
@@ -95,6 +103,10 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
     @Override
     public Void visit(ThisExp expr) {
+        if (currentClass == ClassType.NONE) {
+            TankRuntime.error(expr.getKeyword(),"Cannot use 'this' outside of a class.");
+            return null;
+        }
         resolveLocal(expr, expr.getKeyword());
         return null;
     }
@@ -198,6 +210,8 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
     @Override
     public Void visit(ClassStatement statement) {
+        ClassType enclosingClass = currentClass;
+        currentClass = ClassType.CLASS;
         declare(statement.getName());
         beginScope();
         scopes.peek().put("this", true);
@@ -207,6 +221,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
         }
         define(statement.getName());
         endScope();
+        currentClass = enclosingClass;
         return null;
     }
 

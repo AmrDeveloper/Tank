@@ -216,6 +216,11 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     }
 
     @Override
+    public Object visit(ThisExp expr) {
+        return lookUpVariable(expr.getKeyword(), expr);
+    }
+
+    @Override
     public Object visit(Variable expr) {
         return lookUpVariable(expr.getName(), expr);
     }

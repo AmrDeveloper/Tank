@@ -396,15 +396,9 @@ public class Parser {
         if (match(FALSE)) return new LiteralExp(false);
         if (match(TRUE)) return new LiteralExp(true);
         if (match(NIL)) return new LiteralExp(null);
-
-        if (match(NUMBER, STRING, CHAR)) {
-            return new LiteralExp(previous().literal);
-        }
-
-        if (match(IDENTIFIER)) {
-            return new Variable(previous());
-        }
-
+        if (match(THIS)) return new ThisExp(previous());
+        if (match(NUMBER, STRING, CHAR)) return new LiteralExp(previous().literal);
+        if (match(IDENTIFIER)) return new Variable(previous());
         if (match(LEFT_PAREN)) {
             Expression expr = expression();
             consume(RIGHT_PAREN, "Expect ')' after expression.");

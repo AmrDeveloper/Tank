@@ -22,6 +22,12 @@ public class TankFunction implements TankCallable {
         return declaration.getParams().size();
     }
 
+    public TankFunction bind(TankInstance instance) {
+        Environment environment = new Environment(closure);
+        environment.define("this", instance);
+        return new TankFunction(declaration, environment);
+    }
+
     @Override
     public Object call(Interpreter interpreter, List<Object> arguments) {
         Environment environment = new Environment(closure);

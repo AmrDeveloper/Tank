@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Tank {
 
     public static void main(String[] args) throws IOException{
-        String sourceFile = "D:\\Software\\Tank\\examples\\Method.tank";
+        String sourceFile = "D:\\Software\\Tank\\examples\\This.tank";
         TankRuntime.runTankFile(sourceFile);
         //TankRuntime.runTankTerminal();
     }

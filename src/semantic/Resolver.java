@@ -94,6 +94,12 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     }
 
     @Override
+    public Void visit(ThisExp expr) {
+        resolveLocal(expr, expr.getKeyword());
+        return null;
+    }
+
+    @Override
     public Void visit(Variable expr) {
         if (!scopes.isEmpty() &&
                 scopes.peek().get(expr.getName().lexeme) == Boolean.FALSE) {
@@ -193,11 +199,14 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     @Override
     public Void visit(ClassStatement statement) {
         declare(statement.getName());
+        beginScope();
+        scopes.peek().put("this", true);
         for (FunctionStatement method : statement.getMethods()) {
             FunctionType declaration = FunctionType.METHOD;
             resolveFunction(method, declaration);
         }
         define(statement.getName());
+        endScope();
         return null;
     }
 

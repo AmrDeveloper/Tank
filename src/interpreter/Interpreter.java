@@ -1,8 +1,8 @@
 package interpreter;
 
 import ast.*;
-import callable.ClassCallable;
-import callable.FuncCallable;
+import callable.TankClass;
+import callable.TankFunction;
 import callable.TankCallable;
 import callable.TankInstance;
 import nativefunc.NativePackage;
@@ -24,7 +24,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     private Environment environment = globals;
     private final Map<Expression, Integer> locals = new HashMap<>();
 
-    public Interpreter(){
+    public Interpreter() {
 
     }
 
@@ -182,7 +182,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
             }
         }
 
-        TankCallable function = (TankCallable)callee;
+        TankCallable function = (TankCallable) callee;
 
         if (arguments.size() != function.arity()) {
             throw new RuntimeError(expr.getClosingParenthesis(), "Expected " +
@@ -190,7 +190,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
                     arguments.size() + ".");
         }
 
-        return function.call(this,arguments);
+        return function.call(this, arguments);
     }
 
     @Override
@@ -211,7 +211,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         }
 
         Object value = evaluate(expr.getValue());
-        ((TankInstance)object).set(expr.getName(), value);
+        ((TankInstance) object).set(expr.getName(), value);
         return value;
     }
 
@@ -256,8 +256,8 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         Environment previous = this.environment;
         this.environment = whileEnvironment;
 
-        while(isTruthy(evaluate(statement.getCondition()))){
-            executeWhileStatement(statement.getLoopBody(),previous);
+        while (isTruthy(evaluate(statement.getCondition()))) {
+            executeWhileStatement(statement.getLoopBody(), previous);
         }
 
         this.environment = previous;
@@ -271,10 +271,10 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         this.environment = whileEnvironment;
 
         //Execute once
-        executeWhileStatement(statement.getLoopBody(),previous);
+        executeWhileStatement(statement.getLoopBody(), previous);
 
-        while(isTruthy(evaluate(statement.getCondition()))){
-            executeWhileStatement(statement.getLoopBody(),previous);
+        while (isTruthy(evaluate(statement.getCondition()))) {
+            executeWhileStatement(statement.getLoopBody(), previous);
         }
 
         return null;
@@ -302,7 +302,16 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
     @Override
     public Void visit(ClassStatement statement) {
         environment.define(statement.getName().lexeme, null);
-        ClassCallable tankClass = new ClassCallable(statement.getName().lexeme);
+
+        Map<String, TankFunction> methods = new HashMap<>();
+
+        //Bind all method into the class to call them with this leter
+        for (FunctionStatement func : statement.getMethods()) {
+            TankFunction function = new TankFunction(func, this.environment);
+            methods.put(func.getName().lexeme, function);
+        }
+
+        TankClass tankClass = new TankClass(statement.getName().lexeme, methods);
         environment.assign(statement.getName(), tankClass);
         return null;
     }
@@ -319,7 +328,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
 
     @Override
     public Void visit(FunctionStatement statement) {
-        FuncCallable function = new FuncCallable(statement,environment);
+        TankFunction function = new TankFunction(statement, environment);
         environment.define(statement.getName().lexeme, function);
         return null;
     }
@@ -385,20 +394,20 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         }
     }
 
-    private void executeWhileStatement(List<Statement> statementList, Environment previous){
-            for (Statement statementLine : statementList) {
-                if (statementLine instanceof BreakStatement) {
-                    this.environment = previous;
-                    return;
-                } else if (statementLine instanceof ContinueStatement) {
-                    break;
-                }
-                executeStatement(statementLine);
+    private void executeWhileStatement(List<Statement> statementList, Environment previous) {
+        for (Statement statementLine : statementList) {
+            if (statementLine instanceof BreakStatement) {
+                this.environment = previous;
+                return;
+            } else if (statementLine instanceof ContinueStatement) {
+                break;
             }
+            executeStatement(statementLine);
+        }
     }
 
-    public void bindNativePackages(NativePackage...packages){
-        for(NativePackage nativePackage : packages){
+    public void bindNativePackages(NativePackage... packages) {
+        for (NativePackage nativePackage : packages) {
             nativePackage.bindNativeFunction(globals);
         }
     }

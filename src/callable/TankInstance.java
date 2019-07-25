@@ -8,15 +8,15 @@ import java.util.Map;
 
 public class TankInstance {
 
-    private ClassCallable classCallable;
+    private TankClass tankClass;
     private final Map<String, Object> fields = new HashMap<>();
 
-    public TankInstance(ClassCallable classCallable) {
-        this.classCallable = classCallable;
+    public TankInstance(TankClass tankClass) {
+        this.tankClass = tankClass;
     }
 
-    public ClassCallable getClassCallable() {
-        return classCallable;
+    public TankClass getTankClass() {
+        return tankClass;
     }
 
     public void set(Token name,Object value){
@@ -27,11 +27,13 @@ public class TankInstance {
         if (fields.containsKey(name.lexeme)) {
             return fields.get(name.lexeme);
         }
+        TankFunction method = tankClass.findMethod(name.lexeme);
+        if (method != null) return method;
         throw new RuntimeError(name,"Undefined property '" + name.lexeme + "'.");
     }
 
     @Override
     public String toString() {
-        return classCallable.getName() + " instance";
+        return tankClass.getName() + " instance";
     }
 }

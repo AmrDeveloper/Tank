@@ -28,7 +28,8 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
     private enum FunctionType {
         NONE,
-        FUNCTION
+        FUNCTION,
+        METHOD
     }
 
     @Override
@@ -192,6 +193,10 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     @Override
     public Void visit(ClassStatement statement) {
         declare(statement.getName());
+        for (FunctionStatement method : statement.getMethods()) {
+            FunctionType declaration = FunctionType.METHOD;
+            resolveFunction(method, declaration);
+        }
         define(statement.getName());
         return null;
     }

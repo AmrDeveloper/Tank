@@ -7,12 +7,12 @@ import runtime.Return;
 
 import java.util.List;
 
-public class FuncCallable implements TankCallable {
+public class TankFunction implements TankCallable {
 
     private FunctionStatement declaration;
     private final Environment closure;
 
-    public FuncCallable(FunctionStatement declaration,Environment closure){
+    public TankFunction(FunctionStatement declaration, Environment closure){
         this.closure = closure;
         this.declaration = declaration;
     }

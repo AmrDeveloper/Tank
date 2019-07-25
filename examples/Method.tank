@@ -1,0 +1,7 @@
+class Bacon {
+  func eat() {
+    print("Crunch crunch crunch!");
+  }
+}
+var bacon = Bacon();
+bacon.eat();

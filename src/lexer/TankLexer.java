@@ -125,14 +125,6 @@ public class TankLexer {
             case '\'':
                 scanChar();
                 break;
-                /*
-            case 'o':
-                if (getCurrentChar() == 'r') {
-                    //Check if next getCurrentChar == ' '
-                    addToken(OR);
-                }
-                break;
-             */
             default:
                 if (isDigit(c)) {
                     scanNumber();

@@ -166,6 +166,13 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     }
 
     @Override
+    public Void visit(RepeatStatement statement) {
+        resolve(statement.getValue());
+        resolve(statement.getStatementList());
+        return null;
+    }
+
+    @Override
     public Void visit(BreakStatement statement) {
         //TODO : add this case inside semantic to make sure it inside loop
         return null;

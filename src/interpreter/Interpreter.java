@@ -262,7 +262,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         this.environment = whileEnvironment;
 
         while (isTruthy(evaluate(statement.getCondition()))) {
-            executeWhileStatement(statement.getLoopBody(), previous);
+            executeStatementList(statement.getLoopBody(), previous);
         }
 
         this.environment = previous;
@@ -276,12 +276,31 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         this.environment = whileEnvironment;
 
         //Execute once
-        executeWhileStatement(statement.getLoopBody(), previous);
+        executeStatementList(statement.getLoopBody(), previous);
 
         while (isTruthy(evaluate(statement.getCondition()))) {
-            executeWhileStatement(statement.getLoopBody(), previous);
+            executeStatementList(statement.getLoopBody(), previous);
         }
 
+        return null;
+    }
+
+    @Override
+    public Void visit(RepeatStatement statement) {
+        Environment repeatEnvironment = new Environment(environment);
+        Environment previous = this.environment;
+        this.environment = repeatEnvironment;
+
+        Object value = evaluate(statement.getValue());
+
+        boolean isNotDouble = !(value instanceof Double);
+        if (isNotDouble) {
+            throw new RuntimeException("Repeat Counter must be number");
+        }
+
+        int counter = (int) Double.parseDouble(value.toString());
+        for(int i = 0 ; i < counter ; i++)
+            executeStatementList(statement.getStatementList(),previous);
         return null;
     }
 
@@ -435,7 +454,7 @@ public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<
         }
     }
 
-    private void executeWhileStatement(List<Statement> statementList, Environment previous) {
+    private void executeStatementList(List<Statement> statementList, Environment previous) {
         for (Statement statementLine : statementList) {
             if (statementLine instanceof BreakStatement) {
                 this.environment = previous;

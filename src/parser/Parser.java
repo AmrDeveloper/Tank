@@ -37,6 +37,7 @@ public class Parser {
         if (match(IF)) return ifStatement();
         if (match(DO)) return doWhileStatement();
         if (match(WHILE)) return whileStatement();
+        if (match(REPEAT)) return repeatStatement();
         if (match(PRINT)) return printStatement();
         if (match(RETURN)) return returnStatement();
         if (match(LEFT_BRACE)) return new BlockStatement(block());
@@ -188,6 +189,19 @@ public class Parser {
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
         consume(SEMICOLON, "Expect ';' after do while condition.");
         return new DoWhileStatement(condition, loopBodyStmts);
+    }
+
+    private Statement repeatStatement(){
+        consume(LEFT_PAREN, "Expect '(' after 'repeat'.");
+        Expression value = expression();
+        consume(RIGHT_PAREN, "Expect ')' after repeat value.");
+        consume(LEFT_BRACE, "Expect '{' to start do while body.");
+        List<Statement> repeatStatementList = new ArrayList<>();
+        while (!check(RIGHT_BRACE) && !isAtEnd()) {
+            repeatStatementList.add(declaration());
+        }
+        consume(RIGHT_BRACE, "Expect '}' to end do while body.");
+        return new RepeatStatement(value,repeatStatementList);
     }
 
     private Statement printStatement() {

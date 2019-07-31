@@ -41,6 +41,7 @@ public class TankLexer {
         keywords.put("var", VAR);
         keywords.put("do", DO);
         keywords.put("while", WHILE);
+        keywords.put("repeat", REPEAT);
         keywords.put("break", BREAK);
         keywords.put("continue", CONTINUE);
         keywords.put("extends",EXTENDS);

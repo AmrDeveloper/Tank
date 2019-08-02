@@ -187,12 +187,8 @@ public class Parser {
         consume(LEFT_PAREN, "Expect '(' after 'repeat'.");
         Expression value = expression();
         consume(RIGHT_PAREN, "Expect ')' after repeat value.");
-        consume(LEFT_BRACE, "Expect '{' to start do while body.");
-        List<Statement> repeatStatementList = new ArrayList<>();
-        while (!check(RIGHT_BRACE) && !isAtEnd()) {
-            repeatStatementList.add(declaration());
-        }
-        consume(RIGHT_BRACE, "Expect '}' to end do while body.");
+        consume(LEFT_BRACE, "Expect '{' to start do loop body.");
+        List<Statement> repeatStatementList = block();
         return new RepeatStatement(value,repeatStatementList);
     }
 

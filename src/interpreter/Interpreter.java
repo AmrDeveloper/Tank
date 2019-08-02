@@ -265,9 +265,15 @@ public class Interpreter implements
         this.environment = whileEnvironment;
 
         while (isTruthy(evaluate(statement.getCondition()))) {
-            executeStatementList(statement.getLoopBody(), previous);
+            try{
+                executeStatementList(statement.getLoopBody());
+            }catch (MoveKeyword moveKeyword){
+                //Break;
+                if(moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK){
+                    break;
+                }
+            }
         }
-
         this.environment = previous;
         return null;
     }
@@ -278,13 +284,18 @@ public class Interpreter implements
         Environment previous = this.environment;
         this.environment = whileEnvironment;
 
-        //Execute once
-        executeStatementList(statement.getLoopBody(), previous);
+        do{
+            try{
+                executeStatementList(statement.getLoopBody());
+            }catch (MoveKeyword moveKeyword){
+                //Break;
+                if(moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK){
+                    break;
+                }
+            }
+        }while (isTruthy(evaluate(statement.getCondition())));
 
-        while (isTruthy(evaluate(statement.getCondition()))) {
-            executeStatementList(statement.getLoopBody(), previous);
-        }
-
+        this.environment = previous;
         return null;
     }
 
@@ -302,8 +313,17 @@ public class Interpreter implements
         }
 
         int counter = (int) Double.parseDouble(value.toString());
-        for(int i = 0 ; i < counter ; i++)
-            executeStatementList(statement.getStatementList(),previous);
+        for(int i = 0 ; i < counter ; i++) {
+            try{
+                executeStatementList(statement.getStatementList());
+            }catch (MoveKeyword moveKeyword){
+                //Break;
+                if(moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK){
+                    break;
+                }
+            }
+        }
+        this.environment = previous;
         return null;
     }
 
@@ -365,12 +385,12 @@ public class Interpreter implements
 
     @Override
     public Void visit(BreakStatement statement) {
-        return null;
+        throw new MoveKeyword(MoveKeyword.MoveType.BREAK);
     }
 
     @Override
     public Void visit(ContinueStatement statement) {
-        return null;
+        throw new MoveKeyword(MoveKeyword.MoveType.CONTINUE);
     }
 
     @Override
@@ -457,15 +477,15 @@ public class Interpreter implements
         }
     }
 
-    private void executeStatementList(List<Statement> statementList, Environment previous) {
+    private void executeStatementList(List<Statement> statementList) {
         for (Statement statementLine : statementList) {
-            if (statementLine instanceof BreakStatement) {
-                this.environment = previous;
-                return;
-            } else if (statementLine instanceof ContinueStatement) {
-                break;
+            try{
+                executeStatement(statementLine);
+            }catch (MoveKeyword type){
+                if(type.getMoveType() == MoveKeyword.MoveType.CONTINUE){
+                    break;
+                }
             }
-            executeStatement(statementLine);
         }
     }
 

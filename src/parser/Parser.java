@@ -168,21 +168,13 @@ public class Parser {
         Expression condition = expression();
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
         consume(LEFT_BRACE, "Expect '{' to start while body.");
-        List<Statement> loopBodyStmts = new ArrayList<>();
-        while (!check(RIGHT_BRACE) && !isAtEnd()) {
-            loopBodyStmts.add(declaration());
-        }
-        consume(RIGHT_BRACE, "Expect '}' to end while body.");
+        List<Statement> loopBodyStmts = block();
         return new WhileStatement(condition, loopBodyStmts);
     }
 
     private Statement doWhileStatement() {
         consume(LEFT_BRACE, "Expect '{' to start do while body.");
-        List<Statement> loopBodyStmts = new ArrayList<>();
-        while (!check(RIGHT_BRACE) && !isAtEnd()) {
-            loopBodyStmts.add(declaration());
-        }
-        consume(RIGHT_BRACE, "Expect '}' to end do while body.");
+        List<Statement> loopBodyStmts = block();
         consume(WHILE, "Expect while keyword.");
         consume(LEFT_PAREN, "Expect '(' after 'while'.");
         Expression condition = expression();

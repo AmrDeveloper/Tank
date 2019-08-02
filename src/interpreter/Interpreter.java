@@ -18,7 +18,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Interpreter implements ExpressionVisitor<Object>, StatementVisitor<Void> {
+public class Interpreter implements
+        ExpressionVisitor<Object>,
+        StatementVisitor<Void>
+   {
 
     final Environment globals = new Environment();
     private Environment environment = globals;

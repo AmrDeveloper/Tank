@@ -275,6 +275,13 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     }
 
     @Override
+    public Void visit(ElvisExp statement) {
+        resolve(statement.getCondition());
+        resolve(statement.getRightExp());
+        return null;
+    }
+
+    @Override
     public Void visit(SuperExp expr) {
         if (currentClass == ClassType.NONE) {
             TankRuntime.error(expr.getKeyword(), "Cannot use 'super' outside of a class.");

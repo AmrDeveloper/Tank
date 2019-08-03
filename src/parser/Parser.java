@@ -229,7 +229,7 @@ public class Parser {
 
     private Expression assignment() {
         //equality lower than || lower than &&
-        Expression expr = or();
+        Expression expr = elvisExp();
 
         if (match(EQUAL)) {
             Token equals = previous();
@@ -249,12 +249,22 @@ public class Parser {
         return expr;
     }
 
+    private Expression elvisExp(){
+        Expression expr = or();
+        if (match(ELVIS)) {
+            Token equals = previous();
+            Expression rightExp = or();
+            expr =  new ElvisExp(expr,equals,rightExp);
+        }
+        return expr;
+    }
+
     private Expression or() {
         Expression expr = xor();
 
         while (match(OR)) {
             Token operator = previous();
-            Expression right = and();
+            Expression right = xor();
             expr = new LogicalExp(expr, operator, right);
         }
 

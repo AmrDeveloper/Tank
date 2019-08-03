@@ -172,6 +172,15 @@ public class Interpreter implements
     }
 
     @Override
+    public Object visit(ElvisExp expr) {
+        Object condition = evaluate(expr.getCondition());
+        if(isTruthy(condition)){
+            return condition;
+        }
+        return evaluate(expr.getRightExp());
+    }
+
+    @Override
     public Object visit(CallExp expr) {
         Object callee = evaluate(expr.getCallee());
 
@@ -225,6 +234,22 @@ public class Interpreter implements
     @Override
     public Object visit(Variable expr) {
         return lookUpVariable(expr.getName(), expr);
+    }
+
+    @Override
+    public Object visit(SuperExp expr) {
+        int distance = locals.get(expr);
+        TankClass superclass = (TankClass) environment.getAt(distance, "super");
+        TankInstance object = (TankInstance) environment.getAt(distance - 1, "this");
+        TankFunction method = superclass.findMethod(expr.getMethod().lexeme);
+
+        //Can't find this property in super class so throw Runtime Exception
+        if (method == null) {
+            throw new RuntimeError(expr.getMethod()
+                    , "Undefined property '" + expr.getMethod().lexeme + "'.");
+        }
+
+        return method.bind(object);
     }
 
     @Override
@@ -397,22 +422,6 @@ public class Interpreter implements
         TankFunction function = new TankFunction(statement, environment, false);
         environment.define(statement.getName().lexeme, function);
         return null;
-    }
-
-    @Override
-    public Object visit(SuperExp expr) {
-        int distance = locals.get(expr);
-        TankClass superclass = (TankClass) environment.getAt(distance, "super");
-        TankInstance object = (TankInstance) environment.getAt(distance - 1, "this");
-        TankFunction method = superclass.findMethod(expr.getMethod().lexeme);
-
-        //Can't find this property in super class so throw Runtime Exception
-        if (method == null) {
-            throw new RuntimeError(expr.getMethod()
-                    , "Undefined property '" + expr.getMethod().lexeme + "'.");
-        }
-
-        return method.bind(object);
     }
 
     private Object evaluate(Expression expr) {

@@ -19,7 +19,7 @@ public enum TokenType {
     PLUS_EQUAL, MINUS_EQUAL, STAR_EQUAL, SLASH_EQUAL, STAR_STAR_EQUAL,
 
     //Conditional
-    QUESTION_MARK, COLON,
+    QUESTION_MARK, COLON,ELVIS,
 
     // Literals.
     IDENTIFIER, STRING, NUMBER, CHAR, LIST,

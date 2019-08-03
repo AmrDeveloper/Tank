@@ -3,20 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="1902cc8a-5505-429b-90f6-b24b3a58e2aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/DoWhile.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/DoWhile.tank" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/ast/DoWhileStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/ast/DoWhileStatement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/ast/RepeatStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/ast/RepeatStatement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/ast/WhileStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/ast/WhileStatement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/visitors/ExpressionVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/visitors/ExpressionVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/DoWhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/DoWhileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/WhileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/callable/TankFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/callable/TankFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lexer/TankLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexer/TankLexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/semantic/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/semantic/Resolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/token/TokenType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visitors/ExpressionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visitors/ExpressionVisitor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,12 +38,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="5" />
-    <option name="y" value="209" />
-    <option name="width" value="1296" />
-    <option name="height" value="1010" />
   </component>
   <component name="ProjectId" id="1OuIEVvGGZwxyCXOKsacD9XNbRc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

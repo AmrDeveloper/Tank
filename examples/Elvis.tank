@@ -1,0 +1,7 @@
+var elvis = true ?: false;
+
+print(elvis);
+
+var elvis2 = false ?: true;
+
+print(elvis2);

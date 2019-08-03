@@ -94,7 +94,7 @@ public class TankLexer {
                 addToken(STAR);
                 break;
             case '?':
-                addToken(QUESTION_MARK);
+                addToken(match(':') ? ELVIS : QUESTION_MARK);
                 break;
             case ':':
                 addToken(COLON);

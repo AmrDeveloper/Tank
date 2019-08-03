@@ -15,4 +15,6 @@ public interface ExpressionVisitor<R> {
     R visit(ThisExp expr);
     R visit(SuperExp expr);
     R visit(Variable expr);
+    R visit(ElvisExp statement);
+
 }

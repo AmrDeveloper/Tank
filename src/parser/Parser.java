@@ -131,13 +131,15 @@ public class Parser {
     }
 
     private Statement breakStatement() {
+        Token keyword = previous();
         consume(SEMICOLON, "Expect ';' after value.");
-        return new BreakStatement();
+        return new BreakStatement(keyword);
     }
 
     private Statement continueStatement() {
+        Token keyword = previous();
         consume(SEMICOLON, "Expect ';' after value.");
-        return new ContinueStatement();
+        return new ContinueStatement(keyword);
     }
 
     //TODO : improve if to work with multi time of else if before get else

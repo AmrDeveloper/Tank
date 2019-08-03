@@ -2,7 +2,6 @@ package semantic;
 
 import ast.*;
 import interpreter.Interpreter;
-import runtime.RuntimeError;
 import runtime.TankRuntime;
 import token.Token;
 import visitors.ExpressionVisitor;
@@ -40,6 +39,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
     private ClassType currentClass = ClassType.NONE;
     private FunctionType currentFunction = FunctionType.NONE;
+    private MoveKeyword.ScopeType currentScopeType = MoveKeyword.ScopeType.NONE;
 
     @Override
     public Void visit(BinaryExp expr) {
@@ -153,34 +153,49 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
 
     @Override
     public Void visit(WhileStatement statement) {
+        MoveKeyword.ScopeType enclosingType = currentScopeType;
+        currentScopeType =  MoveKeyword.ScopeType.LOOP;
         resolve(statement.getCondition());
         resolve(statement.getLoopBody());
+        currentScopeType = enclosingType;
         return null;
     }
 
     @Override
     public Void visit(DoWhileStatement statement) {
+        MoveKeyword.ScopeType enclosingType = currentScopeType;
+        currentScopeType =  MoveKeyword.ScopeType.LOOP;
         resolve(statement.getCondition());
         resolve(statement.getLoopBody());
+        currentScopeType = enclosingType;
         return null;
     }
 
     @Override
     public Void visit(RepeatStatement statement) {
+        MoveKeyword.ScopeType enclosingType = currentScopeType;
+        currentScopeType =  MoveKeyword.ScopeType.LOOP;
         resolve(statement.getValue());
         resolve(statement.getStatementList());
+        currentScopeType = enclosingType;
         return null;
     }
 
     @Override
     public Void visit(BreakStatement statement) {
         //TODO : add this case inside semantic to make sure it inside loop
+        if (currentScopeType == MoveKeyword.ScopeType.NONE) {
+            TankRuntime.error(statement.getKeyword(), "Continue can only used be inside loops.");
+        }
         return null;
     }
 
     @Override
     public Void visit(ContinueStatement statement) {
         //TODO : add this case inside semantic to make sure it inside loop
+        if (currentScopeType == MoveKeyword.ScopeType.NONE) {
+            TankRuntime.error(statement.getKeyword(), "Break can only used be inside loops.");
+        }
         return null;
     }
 
@@ -262,9 +277,9 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     @Override
     public Void visit(SuperExp expr) {
         if (currentClass == ClassType.NONE) {
-            TankRuntime.error(expr.getKeyword(),"Cannot use 'super' outside of a class.");
+            TankRuntime.error(expr.getKeyword(), "Cannot use 'super' outside of a class.");
         } else if (currentClass != ClassType.SUBCLASS) {
-            TankRuntime.error(expr.getKeyword(),"Cannot use 'super' in a class with no superclass.");
+            TankRuntime.error(expr.getKeyword(), "Cannot use 'super' in a class with no superclass.");
         }
         resolveLocal(expr, expr.getKeyword());
         return null;

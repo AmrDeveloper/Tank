@@ -38,4 +38,4 @@
 - scanNumber : scan number and return it as double
 
 # Time package :
-time : return current system time
+- time : return current system time

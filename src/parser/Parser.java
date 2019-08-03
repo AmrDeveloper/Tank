@@ -250,11 +250,27 @@ public class Parser {
     }
 
     private Expression elvisExp(){
-        Expression expr = or();
+        Expression expr = ternaryExp();
         if (match(ELVIS)) {
-            Token equals = previous();
-            Expression rightExp = or();
-            expr =  new ElvisExp(expr,equals,rightExp);
+            Token elvis = previous();
+            Expression rightExp = ternaryExp();
+            return  new ElvisExp(expr,elvis,rightExp);
+        }
+        return expr;
+    }
+
+    private Expression ternaryExp(){
+        Expression expr = or();
+
+        if (match(QUESTION_MARK)) {
+            Token question = previous();
+            Expression firstExp = or();
+            Token colon = peek();
+            if(match(COLON)){
+                Expression secondExp = or();
+                return new TernaryExp(expr,question,firstExp,colon,secondExp);
+            }
+            TankRuntime.error(colon,"Expected Expression after COLON");
         }
         return expr;
     }

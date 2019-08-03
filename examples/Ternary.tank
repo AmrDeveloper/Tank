@@ -1,0 +1,5 @@
+var x = true ? 0 : 2;
+print(x);
+
+x = false ? 0 : 2;
+print(x);

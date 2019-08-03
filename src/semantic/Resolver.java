@@ -15,7 +15,9 @@ import java.util.Stack;
 /**
  * Class to do Semantic Analysis and type checking if Tank converted to static type language
  */
-public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void> {
+public class Resolver implements
+        ExpressionVisitor<Void>,
+        StatementVisitor<Void> {
 
     private final Interpreter interpreter;
     private final Stack<Map<String, Boolean>> scopes = new Stack<>();
@@ -278,6 +280,14 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
     public Void visit(ElvisExp statement) {
         resolve(statement.getCondition());
         resolve(statement.getRightExp());
+        return null;
+    }
+
+    @Override
+    public Void visit(TernaryExp statement) {
+        resolve(statement.getCondition());
+        resolve(statement.getFirstExp());
+        resolve(statement.getSecondExp());
         return null;
     }
 

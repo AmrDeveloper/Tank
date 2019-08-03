@@ -181,6 +181,15 @@ public class Interpreter implements
     }
 
     @Override
+    public Object visit(TernaryExp expr) {
+        Object condition = evaluate(expr.getCondition());
+        if(isTruthy(condition)){
+            return evaluate(expr.getFirstExp());
+        }
+        return evaluate(expr.getSecondExp());
+    }
+
+    @Override
     public Object visit(CallExp expr) {
         Object callee = evaluate(expr.getCallee());
 

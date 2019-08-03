@@ -8,7 +8,7 @@
 - Functions
 - Local functions
 - Native Functions
-- Dynamic types val
+- Ternary (X ? Y : Z) and Elvis (X ? Y) Operators
 - If condition
 - While loop
 - Do While Loop
@@ -20,7 +20,7 @@
 - Function can take other Function as Parameter
 - Runtime error
 - Semantic analysis
-- Arity simler to Python that throw error if developer pass less or more than function arguments
+- Arity Similar to Python that throw error if developer pass less or more than function arguments
 
 ## For Examples see examples directory
 

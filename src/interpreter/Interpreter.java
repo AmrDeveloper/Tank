@@ -23,7 +23,7 @@ public class Interpreter implements
         StatementVisitor<Void>
    {
 
-    final Environment globals = new Environment();
+    private final Environment globals = new Environment();
     private Environment environment = globals;
     private final Map<Expression, Integer> locals = new HashMap<>();
 

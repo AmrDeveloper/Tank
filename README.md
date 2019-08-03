@@ -1,4 +1,7 @@
-# Tank is Dynamic type Object oriented and scripting language written in Java
+# Tank
+
+## It's Dynamic type Object oriented and scripting language written in Java
+## Porting version of Jlox
 
 ## Features
 - Classes

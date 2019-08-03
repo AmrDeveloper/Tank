@@ -20,8 +20,7 @@ import java.util.Map;
 
 public class Interpreter implements
         ExpressionVisitor<Object>,
-        StatementVisitor<Void>
-   {
+        StatementVisitor<Void> {
 
     private final Environment globals = new Environment();
     private Environment environment = globals;
@@ -265,11 +264,11 @@ public class Interpreter implements
         this.environment = whileEnvironment;
 
         while (isTruthy(evaluate(statement.getCondition()))) {
-            try{
+            try {
                 executeStatementList(statement.getLoopBody());
-            }catch (MoveKeyword moveKeyword){
+            } catch (MoveKeyword moveKeyword) {
                 //Break;
-                if(moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK){
+                if (moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK) {
                     break;
                 }
             }
@@ -284,16 +283,16 @@ public class Interpreter implements
         Environment previous = this.environment;
         this.environment = whileEnvironment;
 
-        do{
-            try{
+        do {
+            try {
                 executeStatementList(statement.getLoopBody());
-            }catch (MoveKeyword moveKeyword){
+            } catch (MoveKeyword moveKeyword) {
                 //Break;
-                if(moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK){
+                if (moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK) {
                     break;
                 }
             }
-        }while (isTruthy(evaluate(statement.getCondition())));
+        } while (isTruthy(evaluate(statement.getCondition())));
 
         this.environment = previous;
         return null;
@@ -313,12 +312,12 @@ public class Interpreter implements
         }
 
         int counter = (int) Double.parseDouble(value.toString());
-        for(int i = 0 ; i < counter ; i++) {
-            try{
-                executeStatementList(statement.getStatementList());
-            }catch (MoveKeyword moveKeyword){
+        for (int i = 0; i < counter; i++) {
+            try {
+                executeStatement(statement.getLoopBody());
+            } catch (MoveKeyword moveKeyword) {
                 //Break;
-                if(moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK){
+                if (moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK) {
                     break;
                 }
             }
@@ -353,7 +352,7 @@ public class Interpreter implements
         if (statement.getSuperClass() != null) {
             superclass = evaluate(statement.getSuperClass());
             if (!(superclass instanceof TankClass)) {
-                throw new RuntimeError(statement.getSuperClass().getName(),"Superclass must be a class.");
+                throw new RuntimeError(statement.getSuperClass().getName(), "Superclass must be a class.");
             }
         }
 
@@ -373,7 +372,7 @@ public class Interpreter implements
             methods.put(method.getName().lexeme, function);
         }
 
-        TankClass tankClass = new TankClass(statement.getName().lexeme, (TankClass)superclass,methods);
+        TankClass tankClass = new TankClass(statement.getName().lexeme, (TankClass) superclass, methods);
 
         if (superclass != null) {
             environment = environment.enclosing;
@@ -403,14 +402,14 @@ public class Interpreter implements
     @Override
     public Object visit(SuperExp expr) {
         int distance = locals.get(expr);
-        TankClass superclass = (TankClass)environment.getAt( distance, "super");
-        TankInstance object = (TankInstance)environment.getAt(distance - 1, "this");
+        TankClass superclass = (TankClass) environment.getAt(distance, "super");
+        TankInstance object = (TankInstance) environment.getAt(distance - 1, "this");
         TankFunction method = superclass.findMethod(expr.getMethod().lexeme);
 
         //Can't find this property in super class so throw Runtime Exception
         if (method == null) {
             throw new RuntimeError(expr.getMethod()
-                    ,"Undefined property '" + expr.getMethod().lexeme + "'.");
+                    , "Undefined property '" + expr.getMethod().lexeme + "'.");
         }
 
         return method.bind(object);
@@ -479,10 +478,10 @@ public class Interpreter implements
 
     private void executeStatementList(List<Statement> statementList) {
         for (Statement statementLine : statementList) {
-            try{
+            try {
                 executeStatement(statementLine);
-            }catch (MoveKeyword type){
-                if(type.getMoveType() == MoveKeyword.MoveType.CONTINUE){
+            } catch (MoveKeyword type) {
+                if (type.getMoveType() == MoveKeyword.MoveType.CONTINUE) {
                     break;
                 }
             }

@@ -44,7 +44,7 @@ public class TankLexer {
         keywords.put("repeat", REPEAT);
         keywords.put("break", BREAK);
         keywords.put("continue", CONTINUE);
-        keywords.put("extends",EXTENDS);
+        keywords.put("extends", EXTENDS);
     }
 
     public TankLexer(String source) {
@@ -92,6 +92,12 @@ public class TankLexer {
                 break;
             case '*':
                 addToken(STAR);
+                break;
+            case '?':
+                addToken(QUESTION_MARK);
+                break;
+            case ':':
+                addToken(COLON);
                 break;
             case '!':
                 addToken(match('=') ? BANG_EQUAL : BANG);

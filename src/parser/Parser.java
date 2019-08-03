@@ -43,7 +43,6 @@ public class Parser {
         if (match(LEFT_BRACE)) return new BlockStatement(block());
         if (match(BREAK)) return breakStatement();
         if (match(CONTINUE)) return continueStatement();
-        //TODO : if match [ return new ArrayStatement
         return expressionStatement();
     }
 
@@ -170,28 +169,27 @@ public class Parser {
         Expression condition = expression();
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
         consume(LEFT_BRACE, "Expect '{' to start while body.");
-        List<Statement> loopBodyStmts = block();
-        return new WhileStatement(condition, loopBodyStmts);
+        List<Statement> loopBody = block();
+        return new WhileStatement(condition, loopBody);
     }
 
     private Statement doWhileStatement() {
         consume(LEFT_BRACE, "Expect '{' to start do while body.");
-        List<Statement> loopBodyStmts = block();
+        List<Statement> loopBody = block();
         consume(WHILE, "Expect while keyword.");
         consume(LEFT_PAREN, "Expect '(' after 'while'.");
         Expression condition = expression();
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
         consume(SEMICOLON, "Expect ';' after do while condition.");
-        return new DoWhileStatement(condition, loopBodyStmts);
+        return new DoWhileStatement(condition, loopBody);
     }
 
     private Statement repeatStatement(){
         consume(LEFT_PAREN, "Expect '(' after 'repeat'.");
         Expression value = expression();
         consume(RIGHT_PAREN, "Expect ')' after repeat value.");
-        consume(LEFT_BRACE, "Expect '{' to start do loop body.");
-        List<Statement> repeatStatementList = block();
-        return new RepeatStatement(value,repeatStatementList);
+        Statement loopBody = statement();
+        return new RepeatStatement(value,loopBody);
     }
 
     private Statement printStatement() {

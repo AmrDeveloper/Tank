@@ -176,7 +176,7 @@ public class Resolver implements ExpressionVisitor<Void>, StatementVisitor<Void>
         MoveKeyword.ScopeType enclosingType = currentScopeType;
         currentScopeType =  MoveKeyword.ScopeType.LOOP;
         resolve(statement.getValue());
-        resolve(statement.getStatementList());
+        resolve(statement.getLoopBody());
         currentScopeType = enclosingType;
         return null;
     }

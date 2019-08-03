@@ -1,7 +1,6 @@
 print("Before Repeat");
 
-repeat(10){
+repeat(10)
    print("Repeat");
-}
 
 print("After Repeat");

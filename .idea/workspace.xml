@@ -3,23 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="1902cc8a-5505-429b-90f6-b24b3a58e2aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lox/META-INF/Lox.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/META-INF/Tank.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/DoWhile.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/DoWhile.tank" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/ast/DoWhileStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/ast/DoWhileStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/ast/RepeatStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/ast/RepeatStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/ast/WhileStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/ast/WhileStatement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/visitors/StatementVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/visitors/StatementVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/RepeatStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/RepeatStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/SetExp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ast/DoWhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/DoWhileStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ast/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/WhileStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/callable/TankFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/callable/TankFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lexer/TankLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexer/TankLexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/token/TokenType.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,20 +34,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>BANG_EQUAL</find>
-      <find>BANG</find>
-      <find>var</find>
-      <find>AND</find>
-      <find>OR</find>
-      <find>tokens</find>
-      <find>keywords</find>
-      <find>error</find>
-      <find>NEW</find>
-      <find>assignment</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

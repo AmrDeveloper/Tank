@@ -168,14 +168,14 @@ public class Parser {
         consume(LEFT_PAREN, "Expect '(' after 'while'.");
         Expression condition = expression();
         consume(RIGHT_PAREN, "Expect ')' after while condition.");
-        consume(LEFT_BRACE, "Expect '{' to start while body.");
-        List<Statement> loopBody = block();
+        //consume(LEFT_BRACE, "Expect '{' to start while body.");
+        Statement loopBody = statement();
         return new WhileStatement(condition, loopBody);
     }
 
     private Statement doWhileStatement() {
-        consume(LEFT_BRACE, "Expect '{' to start do while body.");
-        List<Statement> loopBody = block();
+        //consume(LEFT_BRACE, "Expect '{' to start do while body.");
+        Statement loopBody = statement();
         consume(WHILE, "Expect while keyword.");
         consume(LEFT_PAREN, "Expect '(' after 'while'.");
         Expression condition = expression();

@@ -33,7 +33,7 @@ public class Interpreter implements
     public void interpret(List<Statement> statements) {
         try {
             for (Statement statement : statements) {
-                executeStatement(statement);
+                execute(statement);
             }
         } catch (RuntimeError error) {
             TankRuntime.runtimeError(error);
@@ -242,7 +242,7 @@ public class Interpreter implements
 
     @Override
     public Void visit(BlockStatement statement) {
-        executeBlock(statement.getStatementList(), new Environment(environment));
+        execute(statement.getStatementList(), new Environment(environment));
         return null;
     }
 
@@ -250,9 +250,9 @@ public class Interpreter implements
     public Void visit(IfStatement statement) {
         Object conditionResult = evaluate(statement.getCondition());
         if (isTruthy(conditionResult)) {
-            executeBlock(statement.getThenBranch(), new Environment(environment));
+            execute(statement.getThenBranch(), new Environment(environment));
         } else if (statement.getElseBranch() != null) {
-            executeBlock(statement.getElseBranch(), new Environment(environment));
+            execute(statement.getElseBranch(), new Environment(environment));
         }
         return null;
     }
@@ -265,7 +265,7 @@ public class Interpreter implements
 
         while (isTruthy(evaluate(statement.getCondition()))) {
             try {
-                executeStatementList(statement.getLoopBody());
+                execute(statement.getLoopBody());
             } catch (MoveKeyword moveKeyword) {
                 //Break;
                 if (moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK) {
@@ -285,7 +285,7 @@ public class Interpreter implements
 
         do {
             try {
-                executeStatementList(statement.getLoopBody());
+                execute(statement.getLoopBody());
             } catch (MoveKeyword moveKeyword) {
                 //Break;
                 if (moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK) {
@@ -314,7 +314,7 @@ public class Interpreter implements
         int counter = (int) Double.parseDouble(value.toString());
         for (int i = 0; i < counter; i++) {
             try {
-                executeStatement(statement.getLoopBody());
+                execute(statement.getLoopBody());
             } catch (MoveKeyword moveKeyword) {
                 //Break;
                 if (moveKeyword.getMoveType() == MoveKeyword.MoveType.BREAK) {
@@ -457,34 +457,28 @@ public class Interpreter implements
         throw new RuntimeError(operator, "Operands must the same type -> number.");
     }
 
-    private void executeStatement(Statement stmt) {
+    private void execute(Statement stmt) {
         stmt.accept(this);
     }
 
-    public void executeBlock(List<Statement> statementList, Environment localEnvironment) {
+    public void execute(List<Statement> statementList, Environment localEnvironment) {
         Environment previous = this.environment;
         try {
             //Make current environment is block local not global
             this.environment = localEnvironment;
             //Execute every statement in block
             for (Statement statement : statementList) {
-                executeStatement(statement);
+                try {
+                    execute(statement);
+                } catch (MoveKeyword type) {
+                    if (type.getMoveType() == MoveKeyword.MoveType.CONTINUE) {
+                        break;
+                    }
+                }
             }
         } finally {
             //Same like pop environment from stack
             this.environment = previous;
-        }
-    }
-
-    private void executeStatementList(List<Statement> statementList) {
-        for (Statement statementLine : statementList) {
-            try {
-                executeStatement(statementLine);
-            } catch (MoveKeyword type) {
-                if (type.getMoveType() == MoveKeyword.MoveType.CONTINUE) {
-                    break;
-                }
-            }
         }
     }
 

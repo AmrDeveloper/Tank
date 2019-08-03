@@ -38,7 +38,7 @@ public class TankFunction implements TankCallable {
             environment.define(declaration.getParams().get(i).lexeme,arguments.get(i));
         }
         try {
-            interpreter.executeBlock(declaration.getFunctionBody(), environment);
+            interpreter.execute(declaration.getFunctionBody(), environment);
         } catch (Return returnValue) {
             if (isInitializer) return closure.getAt(0, "this");
             return returnValue.getValue();

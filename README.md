@@ -40,3 +40,6 @@
 
 # Time package :
 - time : return current system time
+
+# Array package
+- arrayLength : take array and return array size

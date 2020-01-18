@@ -21,7 +21,7 @@ public class ScanPackage implements NativePackage {
 
     @Override
     public void bindNativeFunction(Environment global) {
-        NativeBinding.bindNativeFunction(global,stringScanner);
-        NativeBinding.bindNativeFunction(global,numberScanner);
+        NativeBinding.bindNativeFunction(global, stringScanner);
+        NativeBinding.bindNativeFunction(global, numberScanner);
     }
 }

@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d29ee606-8566-4374-b03c-558c605d93d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank - Learn.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/META-INF/Tank.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/META-INF/Tank.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/visitors/ExpressionVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/visitors/ExpressionVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/VariableIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/ArrayVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/semantic/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/semantic/Resolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visitors/ExpressionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visitors/ExpressionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/nativefunc/Packages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/nativefunc/Packages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nativefunc/Packages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nativefunc/Packages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/ScanPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/ScanPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/StringPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/StringPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/TimePackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/TimePackage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +28,13 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,6 +82,10 @@
     <configuration />
   </component>
   <component name="WindowStateProjectService">
+    <state x="445" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1579391329622">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="445" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1280.994@0.0.1280.994" timestamp="1579391329622" />
     <state x="248" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579390837366">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -95,22 +94,22 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="370" y="242" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.994@0.0.1280.994" timestamp="1579390801646" />
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1579391237775">
+    <state width="1236" height="530" key="GridCell.Tab.0.bottom" timestamp="1579391517206">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1579391237775" />
-    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1579391237774">
+    <state width="1236" height="530" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1579391517206" />
+    <state width="1236" height="530" key="GridCell.Tab.0.center" timestamp="1579391517205">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1579391237774" />
-    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1579391237774">
+    <state width="1236" height="530" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1579391517205" />
+    <state width="1236" height="530" key="GridCell.Tab.0.left" timestamp="1579391517205">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1579391237774" />
-    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1579391237774">
+    <state width="1236" height="530" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1579391517205" />
+    <state width="1236" height="530" key="GridCell.Tab.0.right" timestamp="1579391517205">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1579391237774" />
+    <state width="1236" height="530" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1579391517205" />
     <state x="120" y="70" key="SettingsEditor" timestamp="1579390860478">
       <screen x="0" y="0" width="1280" height="994" />
     </state>

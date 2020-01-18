@@ -5,6 +5,7 @@
 
 ## Features
 - Classes
+- Array data structure with dynamic types
 - Single Inheritance like Java
 - this keyword
 - Methods

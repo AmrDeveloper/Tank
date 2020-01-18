@@ -3,12 +3,12 @@ package ast;
 import token.Token;
 import visitors.ExpressionVisitor;
 
-public class VariableIndex extends Expression{
+public class ArrayVariable extends Expression{
 
     private Token name;
     private Expression index;
 
-    public VariableIndex(Token name, Expression index) {
+    public ArrayVariable(Token name, Expression index) {
         this.name = name;
         this.index = index;
     }

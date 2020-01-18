@@ -306,7 +306,7 @@ public class Resolver implements
     }
 
     @Override
-    public Void visit(VariableIndex expr) {
+    public Void visit(ArrayVariable expr) {
         declare(expr.getName());
         resolve(expr.getIndex());
         return null;

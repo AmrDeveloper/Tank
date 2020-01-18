@@ -195,26 +195,36 @@ public class Interpreter implements
         Double indexValue = (Double) evaluate(expr.getIndex());
         int index = indexValue.intValue();
 
-        //TODO : Assert that index is lower than array size
+        if(index < 0 || array.getLength() < index){
+            throw new ArrayIndexOutOfBoundsException("Size can't be negative or bigger than array size");
+        }
 
         Object value = evaluate(expr.getValue());
-        array.getArray()[index] = value;
+        array.setValue(value, index);
         return value;
     }
 
     @Override
     public Object visit(ArrayGetExp expr) {
         Double value = (Double) evaluate(expr.getSize());
-        //TODO : validate size
-        return new Array(value.intValue());
+        int length = value.intValue();
+        if(length < 0){
+            throw new ArrayIndexOutOfBoundsException("Size can't be negative");
+        }
+        return new Array(length);
     }
 
     @Override
-    public Object visit(VariableIndex expr) {
+    public Object visit(ArrayVariable expr) {
         Array array = (Array) environment.get(expr.getName());
         Double indexValue = (Double) evaluate(expr.getIndex());
         int index = indexValue.intValue();
-        return array.getArray()[index];
+
+        if(index < 0 || array.getLength() < index){
+            throw new ArrayIndexOutOfBoundsException("Size can't be negative or bigger than array size");
+        }
+
+        return array.getValue(index);
     }
 
     @Override

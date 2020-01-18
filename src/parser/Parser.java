@@ -238,10 +238,10 @@ public class Parser {
                 Token name = ((Variable) expr).getName();
                 return new AssignExp(name, value);
             }
-            else if(expr instanceof VariableIndex){
-                VariableIndex variableIndex = ((VariableIndex) expr);
-                Token name = variableIndex.getName();
-                return new ArraySetExp(name, variableIndex.getIndex(), value);
+            else if(expr instanceof ArrayVariable){
+                ArrayVariable arrayVariable = ((ArrayVariable) expr);
+                Token name = arrayVariable.getName();
+                return new ArraySetExp(name, arrayVariable.getIndex(), value);
             }
             else if (expr instanceof GetExp) {
                 GetExp get = (GetExp)expr;
@@ -441,7 +441,7 @@ public class Parser {
                 consume(ARRAY_OPEN, "Expect [");
                 Expression index = expression();
                 consume(ARRAY_CLOSE, "Expect ]");
-                return new VariableIndex(name, index);
+                return new ArrayVariable(name, index);
             }
             return new Variable(previous());
         }

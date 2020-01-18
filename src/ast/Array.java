@@ -4,24 +4,32 @@ import java.util.Arrays;
 
 public class Array {
 
-    private Object array[];
-    private int size;
+    private Object values[];
+    private int length;
 
-    public Array(int size){
-        this.size = size;
-        this.array = new Object[size];
+    public Array(int length){
+        this.length = length;
+        this.values = new Object[length];
     }
 
-    public Object[] getArray() {
-        return array;
+    public void setValue(Object value, int index){
+        values[index] = value;
     }
 
-    public int getSize() {
-        return size;
+    public Object getValue(int index){
+        return values[index];
+    }
+
+    public Object[] getValues() {
+        return values;
+    }
+
+    public int getLength() {
+        return length;
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(array);
+        return Arrays.toString(values);
     }
 }

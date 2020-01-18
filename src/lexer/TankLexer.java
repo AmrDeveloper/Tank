@@ -45,6 +45,8 @@ public class TankLexer {
         keywords.put("break", BREAK);
         keywords.put("continue", CONTINUE);
         keywords.put("extends", EXTENDS);
+        keywords.put("array", ARRAY);
+
     }
 
     public TankLexer(String source) {
@@ -63,6 +65,12 @@ public class TankLexer {
     private void scanToken() {
         char c = pointToNextChar();
         switch (c) {
+            case '[':
+                addToken(ARRAY_OPEN);
+                break;
+            case ']':
+                addToken(ARRAY_CLOSE);
+                break;
             case '(':
                 addToken(LEFT_PAREN);
                 break;

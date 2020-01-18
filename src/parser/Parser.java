@@ -15,7 +15,6 @@ public class Parser {
     /*
      * TODO : Create advanced error system for parser to show expect .... in line ....
      */
-
     private int current = 0;
     private final List<Token> tokens;
 
@@ -239,11 +238,15 @@ public class Parser {
                 Token name = ((Variable) expr).getName();
                 return new AssignExp(name, value);
             }
+            else if(expr instanceof VariableIndex){
+                VariableIndex variableIndex = ((VariableIndex) expr);
+                Token name = variableIndex.getName();
+                return new ArraySetExp(name, variableIndex.getIndex(), value);
+            }
             else if (expr instanceof GetExp) {
                 GetExp get = (GetExp)expr;
                 return new SetExp(get.getObject(), get.getName(), value);
             }
-
             error(equals, "Invalid assignment target.");
         }
         return expr;
@@ -431,11 +434,27 @@ public class Parser {
         if (match(NIL)) return new LiteralExp(null);
         if (match(THIS)) return new ThisExp(previous());
         if (match(NUMBER, STRING, CHAR)) return new LiteralExp(previous().literal);
-        if (match(IDENTIFIER)) return new Variable(previous());
+        if (match(IDENTIFIER)) {
+            Token next = peek();
+            if(next.type == ARRAY_OPEN){
+                Token name = previous();
+                consume(ARRAY_OPEN, "Expect [");
+                Expression index = expression();
+                consume(ARRAY_CLOSE, "Expect ]");
+                return new VariableIndex(name, index);
+            }
+            return new Variable(previous());
+        }
         if (match(LEFT_PAREN)) {
             Expression expr = expression();
             consume(RIGHT_PAREN, "Expect ')' after expression.");
             return new GroupingExp(expr);
+        }
+        if (match(ARRAY)){
+            consume(ARRAY_OPEN, "Expect [");
+            Expression size = expression();
+            consume(ARRAY_CLOSE, "Expect ]");
+            return new ArrayGetExp(size);
         }
         if (match(SUPER)) {
             Token keyword = previous();

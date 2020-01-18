@@ -190,6 +190,34 @@ public class Interpreter implements
     }
 
     @Override
+    public Object visit(ArraySetExp expr) {
+        Array array = (Array) environment.get(expr.getName());
+        Double indexValue = (Double) evaluate(expr.getIndex());
+        int index = indexValue.intValue();
+
+        //TODO : Assert that index is lower than array size
+
+        Object value = evaluate(expr.getValue());
+        array.getArray()[index] = value;
+        return value;
+    }
+
+    @Override
+    public Object visit(ArrayGetExp expr) {
+        Double value = (Double) evaluate(expr.getSize());
+        //TODO : validate size
+        return new Array(value.intValue());
+    }
+
+    @Override
+    public Object visit(VariableIndex expr) {
+        Array array = (Array) environment.get(expr.getName());
+        Double indexValue = (Double) evaluate(expr.getIndex());
+        int index = indexValue.intValue();
+        return array.getArray()[index];
+    }
+
+    @Override
     public Object visit(CallExp expr) {
         Object callee = evaluate(expr.getCallee());
 
@@ -270,7 +298,7 @@ public class Interpreter implements
     @Override
     public Void visit(PrintStatement statement) {
         Object value = evaluate(statement.getExpression());
-        System.out.println(stringify(value));
+        System.out.print(stringify(value));
         return null;
     }
 

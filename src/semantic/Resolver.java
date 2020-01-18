@@ -292,6 +292,27 @@ public class Resolver implements
     }
 
     @Override
+    public Void visit(ArraySetExp expr) {
+        declare(expr.getName());
+        resolve(expr.getIndex());
+        resolve(expr.getValue());
+        return null;
+    }
+
+    @Override
+    public Void visit(ArrayGetExp expr) {
+        resolve(expr.getSize());
+        return null;
+    }
+
+    @Override
+    public Void visit(VariableIndex expr) {
+        declare(expr.getName());
+        resolve(expr.getIndex());
+        return null;
+    }
+
+    @Override
     public Void visit(SuperExp expr) {
         if (currentClass == ClassType.NONE) {
             TankRuntime.error(expr.getKeyword(), "Cannot use 'super' outside of a class.");

@@ -17,4 +17,7 @@ public interface ExpressionVisitor<R> {
     R visit(Variable expr);
     R visit(ElvisExp expr);
     R visit(TernaryExp expr);
+    R visit(ArraySetExp expr);
+    R visit(ArrayGetExp expr);
+    R visit(VariableIndex expr);
 }

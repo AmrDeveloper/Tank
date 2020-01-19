@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d29ee606-8566-4374-b03c-558c605d93d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/nativefunc/Packages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/nativefunc/Packages.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nativefunc/Packages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nativefunc/Packages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/ScanPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/ScanPackage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/StringPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/StringPackage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/TimePackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/TimePackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +77,10 @@
     <configuration />
   </component>
   <component name="WindowStateProjectService">
+    <state x="401" y="298" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579445485640">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="401" y="298" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.994@0.0.1280.994" timestamp="1579445485640" />
     <state x="445" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1579391329622">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -94,25 +93,25 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="370" y="242" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.994@0.0.1280.994" timestamp="1579390801646" />
-    <state width="1236" height="530" key="GridCell.Tab.0.bottom" timestamp="1579391517206">
+    <state width="1236" height="239" key="GridCell.Tab.0.bottom" timestamp="1579445748765">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="530" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1579391517206" />
-    <state width="1236" height="530" key="GridCell.Tab.0.center" timestamp="1579391517205">
+    <state width="1236" height="239" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1579445748765" />
+    <state width="1236" height="239" key="GridCell.Tab.0.center" timestamp="1579445748765">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="530" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1579391517205" />
-    <state width="1236" height="530" key="GridCell.Tab.0.left" timestamp="1579391517205">
+    <state width="1236" height="239" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1579445748765" />
+    <state width="1236" height="239" key="GridCell.Tab.0.left" timestamp="1579445748765">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="530" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1579391517205" />
-    <state width="1236" height="530" key="GridCell.Tab.0.right" timestamp="1579391517205">
+    <state width="1236" height="239" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1579445748765" />
+    <state width="1236" height="239" key="GridCell.Tab.0.right" timestamp="1579445748765">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="530" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1579391517205" />
-    <state x="120" y="70" key="SettingsEditor" timestamp="1579390860478">
+    <state width="1236" height="239" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1579445748765" />
+    <state x="120" y="70" key="SettingsEditor" timestamp="1579391570223">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="120" y="70" key="SettingsEditor/0.0.1280.994@0.0.1280.994" timestamp="1579390860478" />
+    <state x="120" y="70" key="SettingsEditor/0.0.1280.994@0.0.1280.994" timestamp="1579391570223" />
   </component>
 </project>

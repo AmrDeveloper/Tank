@@ -1,0 +1,15 @@
+var counter = 0;
+var length = 5;
+var arr = array[length];
+
+while(counter < length){
+   arr[counter] = counter;
+   counter = counter + 1;
+}
+
+counter = 0;
+while(counter < length){
+   print(arr[counter] + " ");
+   counter = counter + 1;
+}
+

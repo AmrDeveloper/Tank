@@ -378,8 +378,9 @@ public class Interpreter implements
 
         Object value = evaluate(statement.getValue());
 
-        boolean isNotDouble = !(value instanceof Double);
-        if (isNotDouble) {
+        boolean isNotNumber = !(value instanceof Number);
+        
+        if (isNotNumber) {
             throw new RuntimeException("Repeat Counter must be number");
         }
 

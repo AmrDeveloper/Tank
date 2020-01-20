@@ -10,6 +10,7 @@ import runtime.Return;
 import runtime.RuntimeError;
 import runtime.TankRuntime;
 import token.Token;
+import token.TokenType;
 import visitors.ExpressionVisitor;
 import visitors.StatementVisitor;
 
@@ -563,6 +564,10 @@ public class Interpreter implements
     }
 
     private Object lookUpVariable(Token name, Expression expr) {
+        if(name.type == TokenType.THIS){
+            return environment.getAt(1, name.lexeme);
+        }
+
         Integer distance = locals.get(expr);
         if (distance != null) {
             //find variable value in locales score

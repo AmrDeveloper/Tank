@@ -212,8 +212,11 @@ public class Resolver implements
 
     @Override
     public Void visit(ExtensionStatement statement) {
+        ClassType enclosingClass = currentClass;
+        currentClass = ClassType.CLASS;
         declare(statement.getClassName());
         resolveFunction(statement.getFunctionStatement(), FunctionType.FUNCTION);
+        currentClass = enclosingClass;
         return null;
     }
 

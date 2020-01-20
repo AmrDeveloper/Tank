@@ -1,13 +1,21 @@
 class Car{
+
+   func init(name){
+      this.name = name;
+      print("Init\n");
+   }
+
    func carMethod(){
       print("Method from Car Class\n");
+      print(this.name);
    }
 }
 
 func Car:move(){
-   print("Extension from Car Class\n");
+   print("Car name from Extension : " + this.name + "\n");
 }
 
-var car = Car();
+var car = Car("BMW");
+
 car.move();
 car.carMethod();

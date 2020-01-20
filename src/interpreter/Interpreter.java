@@ -146,9 +146,13 @@ public class Interpreter implements
             case BANG: {
                 return !isTruthy(right);
             }
-            //TODO : next time add ++ and --
+            case PLUS_PLUS:{
+                return (double)right + 1;
+            }
+            case MINUS_MINUS: {
+                return (double) right - 1;
+            }
         }
-        // Unreachable.
         return null;
     }
 
@@ -564,6 +568,7 @@ public class Interpreter implements
     }
 
     private Object lookUpVariable(Token name, Expression expr) {
+        //TODO : Fix it should return distance 1 without check
         if(name.type == TokenType.THIS){
             return environment.getAt(1, name.lexeme);
         }

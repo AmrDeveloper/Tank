@@ -402,7 +402,7 @@ public class Parser {
     }
 
     private Expression unary() {
-        if (match(BANG, MINUS)) {
+        if (match(BANG, MINUS, PLUS_PLUS, MINUS_MINUS)) {
             Token operator = previous();
             Expression right = unary();
             return new UnaryExp(operator, right);

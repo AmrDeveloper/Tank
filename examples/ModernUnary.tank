@@ -1,0 +1,5 @@
+var value = 10;
+print(++value + "\n");
+print(--value + "\n");
+value = ++value;
+print(value + "\n");

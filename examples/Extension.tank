@@ -1,0 +1,13 @@
+class Car{
+   func carMethod(){
+      print("Method from Car Class\n");
+   }
+}
+
+func Car:move(){
+   print("Extension from Car Class\n");
+}
+
+var car = Car();
+car.move();
+car.carMethod();

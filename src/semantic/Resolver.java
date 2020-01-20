@@ -211,6 +211,13 @@ public class Resolver implements
     }
 
     @Override
+    public Void visit(ExtensionStatement statement) {
+        declare(statement.getClassName());
+        resolveFunction(statement.getFunctionStatement(), FunctionType.FUNCTION);
+        return null;
+    }
+
+    @Override
     public Void visit(Var statement) {
         //Resolving a variable declaration adds a new entry to the current innermost scope’s map
         declare(statement.getName());

@@ -13,6 +13,7 @@ public interface StatementVisitor<R>{
     R visit(BreakStatement statement);
     R visit(ContinueStatement statement);
     R visit(FunctionStatement statement);
+    R visit(ExtensionStatement statement);
     R visit(Var statement);
     R visit(ReturnStatement statement);
     R visit(ClassStatement statement);

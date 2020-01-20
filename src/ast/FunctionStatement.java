@@ -5,7 +5,7 @@ import visitors.StatementVisitor;
 
 import java.util.List;
 
-public class FunctionStatement extends Statement {
+public class FunctionStatement extends Function {
 
     private Token name;
     private List<Token> params;

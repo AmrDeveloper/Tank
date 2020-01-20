@@ -1,5 +1,6 @@
 package callable;
 
+import interpreter.Environment;
 import interpreter.Interpreter;
 
 import java.util.List;
@@ -9,12 +10,14 @@ public class TankClass implements TankCallable{
 
     private final String name;
     private final TankClass superClass;
+    private final Environment environment;
     private final Map<String, TankFunction> methods;
 
-    public TankClass(String name, TankClass superClass,Map<String, TankFunction> methods) {
+    public TankClass(String name, TankClass superClass, Environment environment, Map<String, TankFunction> methods) {
         this.name = name;
         this.superClass = superClass;
         this.methods = methods;
+        this.environment = environment;
     }
 
     public String getName() {
@@ -29,6 +32,10 @@ public class TankClass implements TankCallable{
         return methods;
     }
 
+    public void addMethod(String name, TankFunction function){
+        methods.put(name, function);
+    }
+
     public TankFunction findMethod(String name) {
         if (methods.containsKey(name)) {
             return methods.get(name);
@@ -38,6 +45,10 @@ public class TankClass implements TankCallable{
             return superClass.findMethod(name);
         }
         return null;
+    }
+
+    public Environment getEnvironment(){
+        return environment;
     }
 
     @Override

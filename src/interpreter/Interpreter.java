@@ -445,7 +445,7 @@ public class Interpreter implements
             methods.put(method.getName().lexeme, function);
         }
 
-        TankClass tankClass = new TankClass(statement.getName().lexeme, (TankClass) superclass, methods);
+        TankClass tankClass = new TankClass(statement.getName().lexeme, (TankClass) superclass, environment, methods);
 
         if (superclass != null) {
             environment = environment.enclosing;
@@ -469,6 +469,21 @@ public class Interpreter implements
     public Void visit(FunctionStatement statement) {
         TankFunction function = new TankFunction(statement, environment, false);
         environment.define(statement.getName().lexeme, function);
+        return null;
+    }
+
+    @Override
+    public Void visit(ExtensionStatement statement) {
+        TankClass extensionClass = (TankClass) environment.get(statement.getClassName());
+        if(extensionClass == null){
+            throw new RuntimeException("Can't find this extension class");
+        }
+        FunctionStatement functionStatement = statement.getFunctionStatement();
+        TankFunction extension = new TankFunction(functionStatement, extensionClass.getEnvironment(), false);
+        if(extensionClass.findMethod(functionStatement.getName().lexeme) != null){
+            throw new RuntimeException(extensionClass.getName() + " class already have method with same name = " + functionStatement.getName().lexeme);
+        }
+        extensionClass.addMethod(functionStatement.getName().lexeme ,extension);
         return null;
     }
 
@@ -501,7 +516,9 @@ public class Interpreter implements
             return text;
         }
 
-        return object.toString();
+        return object.toString()
+                .replaceAll("\\\\n", "\n")
+                .replaceAll("\\\\t","\t");
     }
 
     private void checkNumberOperand(Token operator, Object operand) {

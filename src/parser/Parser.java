@@ -47,7 +47,7 @@ public class Parser {
 
     private Statement declaration() {
         try {
-            if (match(FUN)) return funcDeclaration("function");
+            if (match(FUN)) return funcDeclaration();
             if (match(VAR)) return varDeclaration();
             if (match(CLASS)) return classDeclaration();
             //TODO : support class, list and map --> maybe struct :D
@@ -71,7 +71,7 @@ public class Parser {
 
         List<FunctionStatement> methods = new ArrayList<>();
         while (!check(RIGHT_BRACE) && !isAtEnd()) {
-            methods.add(methodDeclaration("method"));
+            methods.add(methodDeclaration());
         }
 
         consume(RIGHT_BRACE, "Expect '}' after class body.");
@@ -79,10 +79,10 @@ public class Parser {
         return new ClassStatement(name, superclass, methods);
     }
 
-    private FunctionStatement methodDeclaration(String kind) {
+    private FunctionStatement methodDeclaration() {
         consume(FUN, "Expect func keyword");
-        Token name = consume(IDENTIFIER, "Expect " + kind + " name.");
-        consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
+        Token name = consume(IDENTIFIER, "Expect method name.");
+        consume(LEFT_PAREN, "Expect '(' after method name.");
         List<Token> parameters = new ArrayList<>();
         if (!check(RIGHT_PAREN)) {
             do {
@@ -93,14 +93,21 @@ public class Parser {
             } while (match(COMMA));
         }
         consume(RIGHT_PAREN, "Expect ')' after parameters.");
-        consume(LEFT_BRACE, "Expect '{' before " + kind + " body.");
+        consume(LEFT_BRACE, "Expect '{' before method body.");
         List<Statement> body = block();
         return new FunctionStatement(name, parameters, body);
     }
 
-    private FunctionStatement funcDeclaration(String kind) {
-        Token name = consume(IDENTIFIER, "Expect " + kind + " name.");
-        consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
+    private Function funcDeclaration() {
+        Token name = consume(IDENTIFIER, "Expect function name.");
+        Token extensionName = null;
+
+        if(peek().type == COLON){
+            consume(COLON, "Expect : After Class name");
+            extensionName = consume(IDENTIFIER, "Expect extension name.");
+        }
+
+        consume(LEFT_PAREN, "Expect '(' after function name.");
         List<Token> parameters = new ArrayList<>();
         if (!check(RIGHT_PAREN)) {
             do {
@@ -111,9 +118,15 @@ public class Parser {
             } while (match(COMMA));
         }
         consume(RIGHT_PAREN, "Expect ')' after parameters.");
-        consume(LEFT_BRACE, "Expect '{' before " + kind + " body.");
+        consume(LEFT_BRACE, "Expect '{' before function body.");
         List<Statement> body = block();
-        return new FunctionStatement(name, parameters, body);
+
+        if(extensionName != null) {
+            FunctionStatement function = new FunctionStatement(extensionName, parameters, body);
+            return new ExtensionStatement(name, function);
+        }else{
+            return new FunctionStatement(name, parameters, body);
+        }
     }
 
     private Statement varDeclaration() {

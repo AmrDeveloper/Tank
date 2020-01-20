@@ -10,6 +10,7 @@
 - this keyword
 - Methods
 - Functions
+- Function Extenson
 - Local functions
 - Native Functions
 - Ternary (X ? Y : Z) and Elvis (X ? Y) Operators

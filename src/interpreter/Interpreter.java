@@ -322,9 +322,9 @@ public class Interpreter implements
     public Void visit(IfStatement statement) {
         Object conditionResult = evaluate(statement.getCondition());
         if (isTruthy(conditionResult)) {
-            execute(statement.getThenBranch(), new Environment(environment));
+            execute(statement.getThenBranch(), environment);
         } else if (statement.getElseBranch() != null) {
-            execute(statement.getElseBranch(), new Environment(environment));
+            execute(statement.getElseBranch(), environment);
         }
         return null;
     }
@@ -379,7 +379,7 @@ public class Interpreter implements
         Object value = evaluate(statement.getValue());
 
         boolean isNotNumber = !(value instanceof Number);
-        
+
         if (isNotNumber) {
             throw new RuntimeException("Repeat Counter must be number");
         }

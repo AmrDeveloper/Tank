@@ -87,19 +87,19 @@ public class Interpreter implements
             }
             case GREATER: {
                 checkNumberOperands(expr.getOperator(), left, right);
-                return (double) left > (double) right;
+                return Double.parseDouble(left.toString()) > Double.parseDouble(right.toString());
             }
             case GREATER_EQUAL: {
                 checkNumberOperands(expr.getOperator(), left, right);
-                return (double) left >= (double) right;
+                return Double.parseDouble(left.toString()) >= Double.parseDouble(right.toString());
             }
             case LESS: {
                 checkNumberOperands(expr.getOperator(), left, right);
-                return (double) left < (double) right;
+                return Double.parseDouble(left.toString()) < Double.parseDouble(right.toString());
             }
             case LESS_EQUAL: {
                 checkNumberOperands(expr.getOperator(), left, right);
-                return (double) left <= (double) right;
+                return Double.parseDouble(left.toString()) <= Double.parseDouble(right.toString());
             }
             case BANG_EQUAL: {
                 return !isEqual(left, right);
@@ -532,7 +532,7 @@ public class Interpreter implements
     }
 
     private void checkNumberOperands(Token operator, Object left, Object right) {
-        if (left instanceof Double && right instanceof Double) return;
+        if (left instanceof Number && right instanceof Number) return;
         throw new RuntimeError(operator, "Operands must the same type -> number.");
     }
 

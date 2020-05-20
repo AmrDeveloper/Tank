@@ -7,7 +7,7 @@ import loader.NativeFunction;
 
 public class StringModule implements Module {
 
-    private NativeFunction stringLength = new NativeFunction("len", 1, args -> {
+    private final NativeFunction stringLength = new NativeFunction("len", 1, args -> {
         if (args.size() != 1) {
             throw new RuntimeException("Invalid number of argument in len function");
         }
@@ -18,7 +18,7 @@ public class StringModule implements Module {
         }
     });
 
-    private NativeFunction stringIndex = new NativeFunction("charAt", 2, args -> {
+    private final NativeFunction stringIndex = new NativeFunction("charAt", 2, args -> {
         if (args.size() != 2) {
             throw new RuntimeException("invalid number of argument in len function");
         }

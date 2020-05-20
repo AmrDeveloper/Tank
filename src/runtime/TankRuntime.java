@@ -64,6 +64,10 @@ public class TankRuntime {
         report(line, "", message);
     }
 
+    public static void error(String message) {
+        report(message);
+    }
+
     public static void error(Token token, String message) {
         if (token.type == TokenType.EOF) {
             report(token.line, " at end", message);
@@ -75,6 +79,11 @@ public class TankRuntime {
     private static void report(int line, String where, String message) {
         System.err.println(
                 "[line " + line + "] Error" + where + ": " + message);
+        hadError = true;
+    }
+
+    private static void report(String message) {
+        System.err.println(message);
         hadError = true;
     }
 

@@ -35,6 +35,10 @@ public class Environment {
         valuesMap.put(name, value);
     }
 
+    public boolean isContain(String name){
+        return valuesMap.containsKey(name);
+    }
+
     public void assign(Token name, Object value) {
         if (valuesMap.containsKey(name.lexeme)) {
             valuesMap.put(name.lexeme, value);

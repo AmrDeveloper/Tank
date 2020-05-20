@@ -1,0 +1,8 @@
+module time;
+module scan;
+
+print("Put your name : ");
+var name = scanString();
+
+print("Your name : " + name + "\n");
+print("Time      : " + currentTime());

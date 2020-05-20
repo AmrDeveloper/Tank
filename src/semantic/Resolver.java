@@ -7,10 +7,7 @@ import token.Token;
 import visitors.ExpressionVisitor;
 import visitors.StatementVisitor;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Class to do Semantic Analysis and type checking if Tank converted to static type language
@@ -20,6 +17,7 @@ public class Resolver implements
         StatementVisitor<Void> {
 
     private final Interpreter interpreter;
+    private final Set<String> modulesSet = new HashSet<>();
     private final Stack<Map<String, Boolean>> scopes = new Stack<>();
 
     public Resolver(Interpreter interpreter) {
@@ -288,8 +286,14 @@ public class Resolver implements
 
     @Override
     public Void visit(ModuleStatement statement) {
-        // String name = statement.getName();
-        // TODO : make sure this first time to include this module
+        if(currentScopeType != MoveKeyword.ScopeType.NONE){
+            TankRuntime.error(statement.getName(), "Modules must defined in global scope.");
+        }
+        String name = statement.getName().lexeme;
+        boolean isUniqueModule = modulesSet.add(name);
+        if(!isUniqueModule){
+            TankRuntime.error(statement.getName(), "Can't define the same module twice.");
+        }
         return null;
     }
 

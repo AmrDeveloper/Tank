@@ -587,4 +587,8 @@ public class Interpreter implements
     public void resolve(Expression expr, int depth) {
         locals.put(expr, depth);
     }
+
+    public Environment getEnvironment() {
+        return environment;
+    }
 }

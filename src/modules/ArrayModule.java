@@ -1,10 +1,10 @@
-package packages;
+package modules;
 
 import ast.Array;
 import interpreter.Environment;
-import nativefunc.Module;
-import nativefunc.NativeBinding;
-import nativefunc.NativeFunction;
+import loader.Module;
+import loader.NativeBinding;
+import loader.NativeFunction;
 
 public class ArrayModule implements Module {
 

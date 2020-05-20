@@ -1,4 +1,4 @@
-package nativefunc;
+package loader;
 
 public class NativeFunction {
 

@@ -5,7 +5,7 @@ import callable.TankClass;
 import callable.TankFunction;
 import callable.TankCallable;
 import callable.TankInstance;
-import nativefunc.ModuleLoader;
+import loader.ModuleLoader;
 import runtime.Return;
 import runtime.RuntimeError;
 import runtime.TankRuntime;

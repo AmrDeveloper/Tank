@@ -2,112 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Tank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Extension.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Extension.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Scan.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Scan.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Time.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Time.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/META-INF/Tank - Learn.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/Tank.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/Array.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ArrayGetExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ArraySetExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/AssignExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/BinaryExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/BlockStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/BreakStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/CallExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ClassStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ContinueStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/DoWhileStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ElvisExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/Expression.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ExpressionStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/FunctionStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/GetExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/GroupingExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/IfStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/LiteralExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/LogicalExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/MoveKeyword$MoveType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/MoveKeyword$ScopeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/MoveKeyword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/PrintStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/RepeatStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ReturnStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/SetExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/Statement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/SuperExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/TernaryExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/ThisExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/UnaryExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/Var.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/Variable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/VariableIndex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/ast/WhileStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/callable/TankCallable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/callable/TankClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/callable/TankFunction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/callable/TankInstance.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/interpreter/Environment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/interpreter/Interpreter$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/interpreter/Interpreter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/lexer/TankLexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/nativefunc/FunctionValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/nativefunc/NativeBinding$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/nativefunc/NativeBinding.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/nativefunc/NativeFunction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/nativefunc/NativePackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/nativefunc/Packages.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/packages/ScanPackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/packages/StringPackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/packages/TimePackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/parser/ParseError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/parser/Parser$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/parser/Parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/runtime/Return.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/runtime/RuntimeError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/runtime/TankRuntime.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/semantic/Resolver$ClassType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/semantic/Resolver$FunctionType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/semantic/Resolver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/token/Token.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/token/TokenType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/visitors/ExpressionVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank - Learn/visitors/StatementVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/ast/ClassStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/ast/ClassStatement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/nativefunc/NativeFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/nativefunc/NativeFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/nativefunc/NativePackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/nativefunc/Packages.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/packages/ArrayPackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/packages/ScanPackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/packages/StringPackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/packages/TimePackage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/runtime/TankRuntime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/runtime/TankRuntime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/visitors/StatementVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/visitors/StatementVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/ClassStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/ClassStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lexer/TankLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexer/TankLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nativefunc/NativeFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nativefunc/NativeFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nativefunc/NativePackage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nativefunc/Packages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/ArrayPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/ArrayModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/ScanPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/ScanModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/StringPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/StringModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packages/TimePackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packages/TimeModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runtime/TankRuntime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runtime/TankRuntime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/semantic/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/semantic/Resolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/token/TokenType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visitors/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visitors/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nativefunc/ModuleLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nativefunc/ModuleLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/ArrayModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/ArrayModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/ScanModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/ScanModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/StringModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/StringModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packages/TimeModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/TimeModule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,21 +69,21 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="370" y="242" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.994@0.0.1280.994" timestamp="1589971777001" />
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1589971858403">
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1589971894363">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1589971858403" />
-    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1589971858403">
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1589971894363" />
+    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1589971894363">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1589971858403" />
-    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1589971858403">
+    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1589971894363" />
+    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1589971894363">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1589971858403" />
-    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1589971858403">
+    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1589971894363" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1589971894363">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1589971858403" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1589971894363" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-package nativefunc;
+package loader;
 
 import callable.TankCallable;
 import interpreter.Environment;

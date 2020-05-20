@@ -1,4 +1,4 @@
-package nativefunc;
+package loader;
 
 import interpreter.Environment;
 

@@ -9,6 +9,7 @@ public class ModuleLoader {
         String moduleClassName = moduleNameCap.concat("Module");
         try{
             Class moduleClass = Class.forName("modules." + moduleClassName);
+            assert moduleClass.isInstance(Module.class);
             Module moduleInstance = (Module) moduleClass.newInstance();
             moduleInstance.loadLibraries(environment);
         }catch (Exception e){

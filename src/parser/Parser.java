@@ -42,6 +42,7 @@ public class Parser {
         if (match(LEFT_BRACE)) return new BlockStatement(block());
         if (match(BREAK)) return breakStatement();
         if (match(CONTINUE)) return continueStatement();
+        if (match(MODULE)) return moduleStatement();
         return expressionStatement();
     }
 
@@ -151,6 +152,12 @@ public class Parser {
         Token keyword = previous();
         consume(SEMICOLON, "Expect ';' after value.");
         return new ContinueStatement(keyword);
+    }
+
+    private Statement moduleStatement() {
+        Token moduleName = consume(IDENTIFIER, "Expect module name.");
+        consume(SEMICOLON, "Expect ';' after value.");
+        return new ModuleStatement(moduleName);
     }
 
     //TODO : improve if to work with multi time of else if before get else

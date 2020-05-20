@@ -2,9 +2,9 @@ package nativefunc;
 
 public class NativeFunction {
 
-    private String name;
-    private int argsNum;
-    private FunctionValue funcBody;
+    private final String name;
+    private final int argsNum;
+    private final FunctionValue funcBody;
 
     public NativeFunction(String name, int argsNum, FunctionValue funcBody) {
         this.name = name;

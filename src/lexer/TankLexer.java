@@ -46,7 +46,7 @@ public class TankLexer {
         keywords.put("continue", CONTINUE);
         keywords.put("extends", EXTENDS);
         keywords.put("array", ARRAY);
-
+        keywords.put("module", MODULE);
     }
 
     public TankLexer(String source) {

@@ -5,7 +5,7 @@ import callable.TankClass;
 import callable.TankFunction;
 import callable.TankCallable;
 import callable.TankInstance;
-import nativefunc.NativePackage;
+import nativefunc.ModuleLoader;
 import runtime.Return;
 import runtime.RuntimeError;
 import runtime.TankRuntime;
@@ -461,6 +461,13 @@ public class Interpreter implements
     }
 
     @Override
+    public Void visit(ModuleStatement statement) {
+        String moduleName = statement.getName().lexeme;
+        ModuleLoader.loadEnvironmentModule(globals, moduleName);
+        return null;
+    }
+
+    @Override
     public Void visit(BreakStatement statement) {
         throw new MoveKeyword(MoveKeyword.MoveType.BREAK);
     }
@@ -558,12 +565,6 @@ public class Interpreter implements
         } finally {
             //Same like pop environment from stack
             this.environment = previous;
-        }
-    }
-
-    public void bindNativePackages(NativePackage... packages) {
-        for (NativePackage nativePackage : packages) {
-            nativePackage.bindNativeFunction(globals);
         }
     }
 

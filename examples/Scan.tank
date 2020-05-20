@@ -1,2 +1,4 @@
-val name = scanString();
+module scan;
+
+var name = scanString();
 print(name);

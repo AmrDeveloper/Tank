@@ -3,7 +3,6 @@ package runtime;
 import ast.Statement;
 import interpreter.Interpreter;
 import lexer.TankLexer;
-import nativefunc.Packages;
 import parser.Parser;
 import semantic.Resolver;
 import token.Token;
@@ -22,14 +21,6 @@ public class TankRuntime {
     private static boolean hadError = false;
     private static boolean hadRuntimeError = false;
     private static final Interpreter interpreter = new Interpreter();
-
-    static{
-        setInterpreterSetup();
-    }
-
-    private static void setInterpreterSetup(){
-        interpreter.bindNativePackages(Packages.getNativePackages());
-    }
 
     public static void runTankFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));

@@ -4,12 +4,12 @@ class Car{
       this.name = name;
    }
 
-   func move(){
+   func methodShowInfo(){
       print("Car name from Method : " + this.name + "\n");
    }
 }
 
-func Car:showInfo(){
+func Car:extensionShowInfo(){
    print("Car name from Extension : " + this.name + "\n");
 }
 
@@ -18,13 +18,13 @@ var carArray = array[length];
 var index = 0;
 while(index < length){
    carArray[index] = Car("BMW " + index);
-   index = ++index;
+   index = index + 1;
 }
 
 index = 0;
 while(index < length){
-   carArray[index].showInfo();
-   carArray[index].move();
+   carArray[index].extensionShowInfo();
+   carArray[index].methodShowInfo();
    print("\n");
-   index = ++index;
+   index = index + 1;
 }

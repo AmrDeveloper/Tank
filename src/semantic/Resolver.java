@@ -287,6 +287,13 @@ public class Resolver implements
     }
 
     @Override
+    public Void visit(ModuleStatement statement) {
+        // String name = statement.getName();
+        // TODO : make sure this first time to include this module
+        return null;
+    }
+
+    @Override
     public Void visit(ElvisExp statement) {
         resolve(statement.getCondition());
         resolve(statement.getRightExp());

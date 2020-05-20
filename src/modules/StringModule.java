@@ -31,10 +31,38 @@ public class StringModule implements Module {
         }
     });
 
+    private final NativeFunction stringUpperCase = new NativeFunction("toUpperCase", 1, args -> {
+        if (args.size() != 1) {
+            throw new RuntimeException("invalid number of argument in len function");
+        }
+        if (args.get(0) instanceof String) {
+            String string = args.get(0).toString();
+            return string.toUpperCase();
+        } else {
+            throw new RuntimeException("Argument mush be string type");
+        }
+    });
+
+    private final NativeFunction stringLowerCase = new NativeFunction("toLowerCase", 1, args -> {
+        if (args.size() != 1) {
+            throw new RuntimeException("invalid number of argument in len function");
+        }
+        if (args.get(0) instanceof String) {
+            String string = args.get(0).toString();
+            return string.toLowerCase();
+        } else {
+            throw new RuntimeException("Argument mush be string type");
+        }
+    });
     @Override
     public void loadLibraries(Environment environment) {
-        NativeBinding.bindNativeFunction(environment,
+        NativeFunction[] strFunctions = {
                 stringLength,
-                stringIndex);
+                stringIndex,
+                stringUpperCase,
+                stringLowerCase
+        };
+
+        NativeBinding.bindNativeFunction(environment,strFunctions);
     }
 }

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Scan.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Scan.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/scan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/scan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/system.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/system.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,8 @@
       <list>
         <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Interface" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -75,21 +75,25 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="370" y="242" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.994@0.0.1280.994" timestamp="1590070773469" />
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1590072735845">
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1590072795163">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1590072735845" />
-    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1590072735845">
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1590072795163" />
+    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1590072795163">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1590072735845" />
-    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1590072735845">
+    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1590072795163" />
+    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1590072795163">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1590072735845" />
-    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1590072735845">
+    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1590072795163" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1590072795163">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1590072735845" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1590072795163" />
+    <state x="296" y="223" key="run.anything.popup" timestamp="1590072867310">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="296" y="223" key="run.anything.popup/0.0.1280.994@0.0.1280.994" timestamp="1590072867310" />
   </component>
 </project>

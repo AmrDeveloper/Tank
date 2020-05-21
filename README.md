@@ -28,4 +28,20 @@
 - Semantic analysis
 - Arity Similar to Python that throw error if developer pass less or more than function arguments
 
-## For Examples see examples directory
+#### Simple Examples
+    module tank.scanner;
+    module tank.string;
+    
+    var name = scanString();
+    print("Hello " + name + "\n");
+    
+    var nameLength = strLength(name);
+    print(nameLength);
+    
+    -> Input
+    Amr
+    -> Output
+    Hello Amr
+    3
+    
+#### For all Examples see examples directory

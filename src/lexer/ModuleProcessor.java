@@ -55,7 +55,7 @@ public class ModuleProcessor {
 
     private void scanModuleName(String moduleNameStr) {
         String modulePath = "";
-        if(moduleNameStr.startsWith("echo.")){
+        if(moduleNameStr.startsWith("tank.")){
             modulePath = "src/modules/" + moduleNameStr.substring(5) + ".tank";
         } else {
             String parentPath = new File(currentFilePath).getParent();

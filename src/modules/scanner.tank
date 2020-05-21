@@ -1,0 +1,7 @@
+native func scanner.scanString();
+
+native func scanner.scanLine();
+
+native func scanner.scanDouble();
+
+native func scanner.scanInt();

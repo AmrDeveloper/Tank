@@ -1,4 +1,9 @@
-module echo.scan;
+module tank.scanner;
+module tank.string;
 
 var name = scanString();
-print(name);
+print(name + "\n");
+
+var nameLength = strLength(name);
+print(nameLength);
+

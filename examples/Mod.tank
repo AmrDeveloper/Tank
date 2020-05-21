@@ -1,6 +1,5 @@
 module prints;
 module echo.system;
 
-testArgs("hello");
 var instance = ClassTestValue();
 print(instance.serveOn());

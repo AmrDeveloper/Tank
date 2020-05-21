@@ -30,7 +30,7 @@ public class TankLibrary implements TankCallable{
             Method method;
             if(arguments.size() == 0) {
                 method = moduleClass.getMethod(functionName);
-                method.invoke(moduleClass.newInstance());
+                return method.invoke(moduleClass.newInstance());
             }
             else{
                 List<Class> classArgs = new ArrayList<>();
@@ -38,7 +38,7 @@ public class TankLibrary implements TankCallable{
                     classArgs.add(arg.getClass());
                 }
                 method = moduleClass.getMethod(functionName, classArgs.toArray(new Class[0]));
-                method.invoke(moduleClass.newInstance(), arguments.toArray(new Object[0]));
+                return method.invoke(moduleClass.newInstance(), arguments.toArray(new Object[0]));
             }
         }
         catch (Exception e) {

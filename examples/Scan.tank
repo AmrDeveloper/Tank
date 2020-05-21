@@ -1,4 +1,4 @@
-module scan;
+module echo.scan;
 
 var name = scanString();
 print(name);

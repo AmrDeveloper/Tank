@@ -285,15 +285,10 @@ public class Resolver implements
     }
 
     @Override
-    public Void visit(ModuleStatement statement) {
-        if(currentScopeType != MoveKeyword.ScopeType.NONE){
-            TankRuntime.error(statement.getName(), "Modules must defined in global scope.");
-        }
-        String name = statement.getName().lexeme;
-        boolean isUniqueModule = modulesSet.add(name);
-        if(!isUniqueModule){
-            TankRuntime.error(statement.getName(), "Can't define the same module twice.");
-        }
+    public Void visit(NativeFunctionStatement statement) {
+        declare(statement.getName());
+        define(statement.getName());
+
         return null;
     }
 

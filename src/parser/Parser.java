@@ -42,7 +42,6 @@ public class Parser {
         if (match(LEFT_BRACE)) return new BlockStatement(block());
         if (match(BREAK)) return breakStatement();
         if (match(CONTINUE)) return continueStatement();
-        if (match(MODULE)) return moduleStatement();
         return expressionStatement();
     }
 
@@ -51,6 +50,7 @@ public class Parser {
             if (match(FUN)) return funcDeclaration();
             if (match(VAR)) return varDeclaration();
             if (match(CLASS)) return classDeclaration();
+            if (match(NATIVE)) return nativeFuncDeclaration();
             //TODO : support class, list and map --> maybe struct :D
             return statement();
         } catch (ParseError error) {
@@ -130,6 +130,26 @@ public class Parser {
         }
     }
 
+    private Statement nativeFuncDeclaration() {
+        consume(FUN, "Expect func keyword");
+        Token moduleName = consume(IDENTIFIER, "Expect module name.");
+        consume(DOT, "Expect '.' before method body.");
+        Token funcName = consume(IDENTIFIER, "Expect function name.");
+        consume(LEFT_PAREN, "Expect '(' after method name.");
+        List<Token> parameters = new ArrayList<>();
+        if (!check(RIGHT_PAREN)) {
+            do {
+                if (parameters.size() >= MAX_NUM_OF_ARGUMENTS) {
+                    error(peek(), "Cannot have more than " + MAX_NUM_OF_ARGUMENTS + " parameters.");
+                }
+                parameters.add(consume(IDENTIFIER, "Expect parameter name."));
+            } while (match(COMMA));
+        }
+        consume(RIGHT_PAREN, "Expect ')' after parameters.");
+        consume(SEMICOLON, "Expect ';' after value.");
+        return new NativeFunctionStatement(funcName, moduleName ,parameters);
+    }
+
     private Statement varDeclaration() {
         Token name = consume(IDENTIFIER, "Expect variable name.");
 
@@ -152,12 +172,6 @@ public class Parser {
         Token keyword = previous();
         consume(SEMICOLON, "Expect ';' after value.");
         return new ContinueStatement(keyword);
-    }
-
-    private Statement moduleStatement() {
-        Token moduleName = consume(IDENTIFIER, "Expect module name.");
-        consume(SEMICOLON, "Expect ';' after value.");
-        return new ModuleStatement(moduleName);
     }
 
     //TODO : improve if to work with multi time of else if before get else

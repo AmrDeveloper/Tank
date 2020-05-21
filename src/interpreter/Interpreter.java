@@ -1,11 +1,7 @@
 package interpreter;
 
 import ast.*;
-import callable.TankClass;
-import callable.TankFunction;
-import callable.TankCallable;
-import callable.TankInstance;
-import loader.ModuleLoader;
+import callable.*;
 import runtime.Return;
 import runtime.RuntimeError;
 import runtime.TankRuntime;
@@ -461,9 +457,9 @@ public class Interpreter implements
     }
 
     @Override
-    public Void visit(ModuleStatement statement) {
-        String moduleName = statement.getName().lexeme;
-        ModuleLoader.loadEnvironmentModule(globals, moduleName);
+    public Void visit(NativeFunctionStatement statement) {
+        TankLibrary tankLibrary = new TankLibrary(statement);
+        environment.define(statement.getName().lexeme, tankLibrary);
         return null;
     }
 

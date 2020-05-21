@@ -1,0 +1,9 @@
+func hello () {
+   print("Hello World");
+}
+
+class ClassTestValue {
+  func serveOn() {
+    return "Scones";
+  }
+}

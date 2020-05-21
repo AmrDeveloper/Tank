@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TankFunction implements TankCallable {
 
-    private FunctionStatement declaration;
+    private final FunctionStatement declaration;
     private final Environment closure;
 
     private final boolean isInitializer;

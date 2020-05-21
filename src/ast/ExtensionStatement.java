@@ -5,8 +5,8 @@ import visitors.StatementVisitor;
 
 public class ExtensionStatement extends Function {
 
-    private Token className;
-    private FunctionStatement functionStatement;
+    private final Token className;
+    private final FunctionStatement functionStatement;
 
     public ExtensionStatement(Token className, FunctionStatement function) {
         this.className = className;

@@ -4,10 +4,7 @@ import runtime.TankRuntime;
 import token.Token;
 import token.TokenType;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static token.TokenType.*;
 
@@ -47,10 +44,12 @@ public class TankLexer {
         keywords.put("extends", EXTENDS);
         keywords.put("array", ARRAY);
         keywords.put("module", MODULE);
+        keywords.put("native", NATIVE);
     }
 
-    public TankLexer(String source) {
-        this.source = source;
+    public TankLexer(String filePath) {
+        ModuleProcessor processor = new ModuleProcessor();
+        this.source = processor.process(filePath);
     }
 
     public List<Token> scanTokens() {
@@ -201,7 +200,8 @@ public class TankLexer {
         String text = source.substring(start, current);
 
         TokenType type = keywords.get(text);
-        if (type == null) type = IDENTIFIER;
+
+        if(type == null) type = IDENTIFIER;
         addToken(type);
     }
 

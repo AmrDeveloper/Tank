@@ -1,0 +1,3 @@
+native func system.openTerminal();
+
+native func system.testArgs(name);

@@ -11,9 +11,7 @@ import token.TokenType;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.util.List;
 
 public class TankRuntime {
@@ -22,9 +20,8 @@ public class TankRuntime {
     private static boolean hadRuntimeError = false;
     private static final Interpreter interpreter = new Interpreter();
 
-    public static void runTankFile(String path) throws IOException {
-        byte[] bytes = Files.readAllBytes(Paths.get(path));
-        runTankCode(new String(bytes, Charset.defaultCharset()));
+    public static void runTankFile(String path) {
+        runTankCode(path);
         if (hadError) System.exit(65);
         if (hadRuntimeError) System.exit(70);
     }

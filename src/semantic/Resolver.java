@@ -92,6 +92,7 @@ public class Resolver implements
 
     @Override
     public Void visit(GetExp expr) {
+        resolve(expr.getObject());
         return null;
     }
 

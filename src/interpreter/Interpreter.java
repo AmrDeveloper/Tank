@@ -235,10 +235,11 @@ public class Interpreter implements
         List<Object> arguments = new ArrayList<>();
         for (Expression argument : expr.getArguments()) {
             arguments.add(evaluate(argument));
-            //Make sure this is callable type
-            if (!(callee instanceof TankCallable)) {
-                throw new RuntimeError(expr.getClosingParenthesis(), "Can only call functions and classes.");
-            }
+        }
+
+        //Make sure this is callable type
+        if (!(callee instanceof TankCallable)) {
+            throw new RuntimeError(expr.getClosingParenthesis(), "Can only call functions and classes.");
         }
 
         TankCallable function = (TankCallable) callee;

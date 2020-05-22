@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Mod.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Mod.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lexer/TankLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexer/TankLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,22 +96,22 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="92" y="92" width="1096" height="810" key="DiffContextDialog/0.0.1280.994@0.0.1280.994" timestamp="1590108241635" />
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1590109272580">
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1590109617308">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1590109272580" />
-    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1590109272580">
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
+    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1590109617308">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1590109272580" />
-    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1590109272580">
+    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
+    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1590109617308">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1590109272580" />
-    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1590109272580">
+    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1590109617308">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1590109272580" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
     <state x="296" y="223" key="run.anything.popup" timestamp="1590072867310">
       <screen x="0" y="0" width="1280" height="994" />
     </state>

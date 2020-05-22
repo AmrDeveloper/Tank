@@ -1,11 +1,20 @@
 native func math.log(num);
-
 native func math.log10(num);
 
 native func math.max(x, y);
-
 native func math.min(x, y);
 
 native func math.pow(x, y);
-
 native func math.sqrt(num);
+
+native func math.sin(num);
+native func math.cos(num);
+native func math.tan(num);
+
+native func math.asin(num);
+native func math.acos(num);
+native func math.atan(num);
+
+native func math.sinh(num);
+native func math.cosh(num);
+native func math.tanh(num);

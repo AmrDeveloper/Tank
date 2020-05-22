@@ -1,0 +1,7 @@
+module tank.system;
+
+print("Current os name is : " + osName() + "\n");
+
+print("JDK Path : " + osEnvVar("JAVA_HOME") + "\n");
+
+print("OS Arch : " + osArch() + "\n");

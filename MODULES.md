@@ -1,17 +1,39 @@
-## Native Functions in Tank
+## Native Functions in Tank Modules
 
-### String module :
-- strLength : take string and return length of it
-- charAt : take string and index and return char in this index from string
+#### system
+- winTerminal
+- osName
+- osEnvVar
+- osArch
 
-### Scanner module :
-- scanString    : Scan one string
-- scanLine      : Scan one line
-- scanDouble    : Scan double
-- scanInt       : scan integer
+#### math
+- log
+- log10
 
-### Time module :
-- time : return current system time
+- max
+- min
 
-#### Array module
-- arrayLength : take array and return array size
+- pow
+- sqrt
+
+- sin
+- cos
+- tan
+
+- asin
+- acos
+- atan
+
+- sinh
+- cosh
+- tanh
+
+#### string
+- strLength
+
+#### scanner
+- scanString
+- scanLine
+- scanDouble
+- scanInt
+

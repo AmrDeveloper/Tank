@@ -1,3 +1,7 @@
-native func system.openTerminal();
+native func system.winTerminal();
 
-native func system.testArgs(name);
+native func system.osName();
+
+native func system.osEnvVar(program);
+
+native func system.osArch();

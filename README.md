@@ -43,5 +43,18 @@
     -> Output
     Hello Amr
     3
+####
+    module tank.system;
+    
+    print("Current os name is : " + osName() + "\n");
+    
+    print("JDK Path : " + osEnvVar("JAVA_HOME") + "\n");
+    
+    print("OS Arch : " + osArch() + "\n");
+    
+    -> Output
+    Current os name is : Windows 10
+    JDK Path : C:\Program Files\Java\jdk1.8.0_171
+    OS Arch : amd64
     
 #### For all Examples see examples directory

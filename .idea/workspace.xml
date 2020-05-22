@@ -20,7 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Sys.tank" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MODULES.md" beforeDir="false" afterPath="$PROJECT_DIR$/MODULES.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/lexer/ModuleProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/lexer/ModuleProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/modules/system.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/modules/system.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/modules/system.tank" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/modules/system.tank" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lexer/ModuleProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexer/ModuleProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/system.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/system.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/system.tank" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/system.tank" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +61,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Software\LowLevel\Tank\src\modules\math" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -96,22 +113,22 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="92" y="92" width="1096" height="810" key="DiffContextDialog/0.0.1280.994@0.0.1280.994" timestamp="1590108241635" />
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1590109617308">
+    <state width="1236" height="409" key="GridCell.Tab.0.bottom" timestamp="1590133812739">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
-    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1590109617308">
+    <state width="1236" height="409" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1590133812739" />
+    <state width="1236" height="409" key="GridCell.Tab.0.center" timestamp="1590133812739">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
-    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1590109617308">
+    <state width="1236" height="409" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1590133812739" />
+    <state width="1236" height="409" key="GridCell.Tab.0.left" timestamp="1590133812739">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
-    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1590109617308">
+    <state width="1236" height="409" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1590133812739" />
+    <state width="1236" height="409" key="GridCell.Tab.0.right" timestamp="1590133812739">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1590109617308" />
+    <state width="1236" height="409" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1590133812739" />
     <state x="296" y="223" key="run.anything.popup" timestamp="1590072867310">
       <screen x="0" y="0" width="1280" height="994" />
     </state>

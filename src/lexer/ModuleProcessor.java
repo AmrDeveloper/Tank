@@ -47,7 +47,7 @@ public class ModuleProcessor {
                 }
             }
         } catch (IOException e) {
-            TankRuntime.error("Invalid File path : " + path);
+            TankRuntime.error("Invalid odule path : " + path);
             System.exit(1);
         }
         return lines.toString();
@@ -56,7 +56,8 @@ public class ModuleProcessor {
     private void scanModuleName(String moduleNameStr) {
         String modulePath = "";
         if(moduleNameStr.startsWith("tank.")){
-            modulePath = "src/modules/" + moduleNameStr.substring(5) + ".tank";
+            String fileName = moduleNameStr.substring(5);
+            modulePath = "src/modules/" + fileName + ".tank";
         } else {
             String parentPath = new File(currentFilePath).getParent();
             modulePath = parentPath + "/" + moduleNameStr + ".tank";

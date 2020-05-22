@@ -1,0 +1,13 @@
+module tank.math;
+
+var x = 9;
+var y = 2;
+
+print("Log x : " + log(x) + "\n");
+print("Log 10 x : " + log10(x) + "\n");
+
+print("Max x, y : " + max(x, y) + "\n");
+print("Min x, y : " + min(x, y) + "\n");
+
+print("Pow x, y : " + pow(x, y) + "\n");
+print("Square root 25 : " + sqrt(x) + "\n");

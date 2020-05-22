@@ -1,0 +1,11 @@
+native func math.log(num);
+
+native func math.log10(num);
+
+native func math.max(x, y);
+
+native func math.min(x, y);
+
+native func math.pow(x, y);
+
+native func math.sqrt(num);

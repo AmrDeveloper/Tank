@@ -1,0 +1,13 @@
+class Function {
+    func accept () {
+        print(1);
+    }
+}
+
+var function = Function();
+
+func callback(caller) {
+   caller.accept();
+}
+
+callback(function);

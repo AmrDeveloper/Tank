@@ -1,5 +1,5 @@
 module prints;
-module echo.system;
+module tank.system;
 
 var instance = ClassTestValue();
 print(instance.serveOn());

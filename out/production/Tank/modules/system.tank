@@ -1,4 +1,4 @@
-native func system.openTerminal();
+native func system.winTerminal();
 
 native func system.osName();
 

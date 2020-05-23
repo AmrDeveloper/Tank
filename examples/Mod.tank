@@ -1,5 +1,9 @@
 module prints;
 module tank.system;
+module tank.string;
 
 var instance = ClassTestValue();
 print(instance.serveOn());
+
+var isMatch = strMatch("AmrDeveloper", "[a-zA-Z]+");
+print(isMatch);

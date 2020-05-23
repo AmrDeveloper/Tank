@@ -1,1 +1,3 @@
 native func string.strLength(str);
+
+native func string.strMatch(str, regex);

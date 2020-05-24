@@ -133,6 +133,14 @@ public class Parser {
     private Statement nativeFuncDeclaration() {
         consume(FUN, "Expect func keyword");
         Token moduleName = consume(IDENTIFIER, "Expect module name.");
+
+        while (match(COLON)) {
+            Token token = new Token(DOT, ".", moduleName.line);
+            moduleName.concat(token);
+            Token moduleName2 = consume(IDENTIFIER, "Expect module name.");
+            moduleName.concat(moduleName2);
+        }
+
         consume(DOT, "Expect '.' before method body.");
         Token funcName = consume(IDENTIFIER, "Expect function name.");
         consume(LEFT_PAREN, "Expect '(' after method name.");

@@ -30,6 +30,7 @@
 
 #### string
 - strLength
+- strMatch
 
 #### scanner
 - scanString

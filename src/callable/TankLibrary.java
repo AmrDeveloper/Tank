@@ -41,19 +41,19 @@ public class TankLibrary implements TankCallable {
                 return method.invoke(moduleClass.newInstance(), arguments.toArray(new Object[0]));
             }
         } catch (InstantiationException e) {
-            System.out.println("Invalid Module Loader : " + e.getMessage());
+            System.err.println("Invalid Module Loader : " + e.getMessage());
             System.exit(1);
         } catch (InvocationTargetException e) {
-            System.out.println("Invalid Module Loader : " + e.getMessage());
+            System.err.println("Invalid Module Loader : " + e.getMessage());
             System.exit(1);
         } catch (ClassNotFoundException e) {
-            System.out.println("Module Loader : Can't find class with name : " + functionName);
+            System.err.println("Module Loader : Can't find class with name : " + functionName);
             System.exit(1);
         } catch (NoSuchMethodException e) {
-            System.out.println("Module Loader : Can't find function with name : " + functionName);
+            System.err.println("Module Loader : Can't find function with name : " + functionName);
             System.exit(1);
         } catch (IllegalAccessException e) {
-            System.out.println("Module Loader : Can't access module " + moduleName);
+            System.err.println("Module Loader : Can't access module " + moduleName);
             System.exit(1);
         }
         return null;

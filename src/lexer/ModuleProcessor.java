@@ -57,6 +57,7 @@ public class ModuleProcessor {
         String modulePath = "";
         if(moduleNameStr.startsWith("tank.")){
             String fileName = moduleNameStr.substring(5);
+            fileName = fileName.replaceAll("\\.", "/");
             modulePath = "src/modules/" + fileName + ".tank";
         } else {
             String parentPath = new File(currentFilePath).getParent();

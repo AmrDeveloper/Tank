@@ -4,7 +4,7 @@ import visitors.ExpressionVisitor;
 
 public class ArrayGetExp extends Expression {
 
-    private Expression size;
+    private final Expression size;
 
     public ArrayGetExp(Expression size){
         this.size = size;

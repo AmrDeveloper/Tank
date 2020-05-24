@@ -5,8 +5,8 @@ import visitors.ExpressionVisitor;
 
 public class ArrayVariable extends Expression{
 
-    private Token name;
-    private Expression index;
+    private final Token name;
+    private final Expression index;
 
     public ArrayVariable(Token name, Expression index) {
         this.name = name;

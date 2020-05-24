@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Mod.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Mod.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/string.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/string.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/string.tank" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/string.tank" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ast/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ast/Array.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/callable/TankLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/callable/TankLibrary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

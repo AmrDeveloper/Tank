@@ -3,15 +3,16 @@ package callable;
 import ast.NativeFunctionStatement;
 import interpreter.Interpreter;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TankLibrary implements TankCallable{
+public class TankLibrary implements TankCallable {
 
     private final NativeFunctionStatement declaration;
 
-    public TankLibrary(NativeFunctionStatement declaration){
+    public TankLibrary(NativeFunctionStatement declaration) {
         this.declaration = declaration;
     }
 
@@ -25,24 +26,34 @@ public class TankLibrary implements TankCallable{
         String moduleName = declaration.getModuleName().lexeme;
         String functionName = declaration.getName().lexeme;
 
-        try{
+        try {
             Class moduleClass = Class.forName("modules." + moduleName);
             Method method;
-            if(arguments.size() == 0) {
+            if (arguments.size() == 0) {
                 method = moduleClass.getMethod(functionName);
                 return method.invoke(moduleClass.newInstance());
-            }
-            else{
+            } else {
                 List<Class> classArgs = new ArrayList<>();
-                for(Object arg : arguments) {
+                for (Object arg : arguments) {
                     classArgs.add(arg.getClass());
                 }
                 method = moduleClass.getMethod(functionName, classArgs.toArray(new Class[0]));
                 return method.invoke(moduleClass.newInstance(), arguments.toArray(new Object[0]));
             }
-        }
-        catch (Exception e) {
-            System.out.println("Invalid Module Loader : " + moduleName);
+        } catch (InstantiationException e) {
+            System.out.println("Invalid Module Loader : " + e.getMessage());
+            System.exit(1);
+        } catch (InvocationTargetException e) {
+            System.out.println("Invalid Module Loader : " + e.getMessage());
+            System.exit(1);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Module Loader : Can't find class with name : " + functionName);
+            System.exit(1);
+        } catch (NoSuchMethodException e) {
+            System.out.println("Module Loader : Can't find function with name : " + functionName);
+            System.exit(1);
+        } catch (IllegalAccessException e) {
+            System.out.println("Module Loader : Can't access module " + moduleName);
             System.exit(1);
         }
         return null;

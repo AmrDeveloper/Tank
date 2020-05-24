@@ -5,9 +5,9 @@ import visitors.ExpressionVisitor;
 
 public class ArraySetExp extends Expression{
 
-    private Token name;
-    private Expression index;
-    private Expression value;
+    private final Token name;
+    private final Expression index;
+    private final Expression value;
 
     public ArraySetExp(Token name, Expression index, Expression value) {
         this.name = name;

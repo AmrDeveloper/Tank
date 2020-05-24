@@ -4,12 +4,17 @@ import java.util.Arrays;
 
 public class Array {
 
-    private Object values[];
-    private int length;
+    private final Object[] values;
+    private final int length;
 
     public Array(int length){
         this.length = length;
         this.values = new Object[length];
+    }
+
+    public Array(Object[] values) {
+        this.values = values;
+        this.length = values.length;
     }
 
     public void setValue(Object value, int index){

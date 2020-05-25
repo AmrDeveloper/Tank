@@ -18,6 +18,10 @@ native func string.strEndWith(str, sequence);
 
 native func string.strIndexOf(str, sequence);
 
+native func string.strLastIndexOf(str, sequence);
+
+native func string.strReplaceFirst(str, regex, replacement);
+
 native func string.strReplaceAll(str, regex, replacement);
 
 native func string.strCharAt(str, index);

@@ -1,0 +1,9 @@
+native func parsers:json.jsonObject(source);
+
+native func parsers:json.jsonArray(source);
+
+native func parsers:json.jsonObjectValue(jsonObject, key);
+
+native func parsers:json.jsonArrayObject(jsonArray, index);
+
+native func parsers:json.jsonArrayLength(jsonArray);

@@ -1,0 +1,13 @@
+module tank.parsers.json;
+
+var source = "[{ id : 123}, {id : 345}, {id : 678}]";
+
+var jsonArr = jsonArray(source);
+var length = jsonArrayLength(jsonArr);
+
+var counter = 0;
+while(counter < length) {
+   var firstObject = jsonArrayObject(jsonArr, counter);
+   print("Id : " + jsonObjectValue(firstObject, "id") + "\n");
+   counter = counter + 1;
+}

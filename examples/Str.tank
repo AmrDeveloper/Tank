@@ -1,0 +1,27 @@
+module tank.string;
+
+var name = "Amr Developer";
+
+print("Test String Package\n");
+
+print(strLength(name) + "\n");
+
+print(strIndexOf(name, "A") + "\n");
+
+print(strUpperCase(name) + "\n");
+
+print(strStartWith(name, "A") + "\n");
+
+print(strEndWith(name, "r") + "\n");
+
+print(strContains(name, "Amr") + "\n");
+
+print(strReplaceAll(name, "Developer", "Engineer") + "\n");
+
+print(strSubstring(name, 0, 3) + "\n");
+
+print(strIsEmpty(name) + "\n");
+
+print(strSplit(name, " ") + "\n");
+
+print(strCompareTo(name, "Amr Engineer") + "\n");

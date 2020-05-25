@@ -1,3 +1,35 @@
 native func string.strLength(str);
 
 native func string.strMatch(str, regex);
+
+native func string.strConcat(first, second);
+
+native func string.strContains(str, sequence);
+
+native func string.strTrim(str);
+
+native func string.strUpperCase(str);
+
+native func string.strLowerCase(str);
+
+native func string.strStartWith(str, sequence);
+
+native func string.strEndWith(str, sequence);
+
+native func string.strIndexOf(str, sequence);
+
+native func string.strLastIndexOf(str, sequence);
+
+native func string.strReplaceFirst(str, regex, replacement);
+
+native func string.strReplaceAll(str, regex, replacement);
+
+native func string.strCharAt(str, index);
+
+native func string.strSubstring(str, start, end);
+
+native func string.strIsEmpty(str);
+
+native func string.strSplit(str, regex);
+
+native func string.strCompareTo(first, second);

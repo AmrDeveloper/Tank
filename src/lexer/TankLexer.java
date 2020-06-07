@@ -46,9 +46,8 @@ public class TankLexer {
         keywords.put("native", NATIVE);
     }
 
-    public TankLexer(String filePath) {
-        ModuleProcessor processor = new ModuleProcessor();
-        this.source = processor.process(filePath);
+    public TankLexer(String source) {
+        this.source = source;
     }
 
     public List<Token> scanTokens() {

@@ -2,6 +2,7 @@ package runtime;
 
 import ast.Statement;
 import interpreter.Interpreter;
+import lexer.ModuleProcessor;
 import lexer.TankLexer;
 import parser.Parser;
 import semantic.Resolver;
@@ -21,7 +22,9 @@ public class TankRuntime {
     private static final Interpreter interpreter = new Interpreter();
 
     public static void runTankFile(String path) {
-        runTankCode(path);
+        ModuleProcessor preProcessor = new ModuleProcessor();
+        String source = preProcessor.process(path);
+        runTankCode(source);
         if (hadError) System.exit(65);
         if (hadRuntimeError) System.exit(70);
     }

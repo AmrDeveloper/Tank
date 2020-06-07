@@ -6,4 +6,6 @@ native func parsers:json.jsonObjectValue(jsonObject, key);
 
 native func parsers:json.jsonArrayObject(jsonArray, index);
 
+native func parsers:json.jsonObjectArray(jsonArray, key);
+
 native func parsers:json.jsonArrayLength(jsonArray);

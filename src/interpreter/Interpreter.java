@@ -109,7 +109,7 @@ public class Interpreter implements
 
     @Override
     public Object visit(GroupingExp expr) {
-        return evaluate(expr);
+        return evaluate(expr.getExpression());
     }
 
     @Override

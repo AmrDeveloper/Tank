@@ -24,6 +24,11 @@ public class json {
     }
 
     @LibraryFunction
+    public JSONArray jsonObjectArray(JSONObject jsonObject, String key) {
+        return jsonObject.getJSONArray(key);
+    }
+
+    @LibraryFunction
     public Integer jsonArrayLength(JSONArray jsonArray) {
         return jsonArray.length();
     }

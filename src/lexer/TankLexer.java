@@ -149,7 +149,9 @@ public class TankLexer {
     }
 
     private void scanNumber() {
-        while (isDigit(getCurrentChar())) pointToNextChar();
+        while (isDigit(getCurrentChar()) || getCurrentChar() == '_') {
+            pointToNextChar();
+        }
 
         // Look for a fractional part.
         if (getCurrentChar() == '.' && isDigit(getNextChar())) {
@@ -157,7 +159,10 @@ public class TankLexer {
             pointToNextChar();
             while (isDigit(getCurrentChar())) pointToNextChar();
         }
-        addToken(NUMBER, Double.parseDouble(source.substring(start, current)));
+
+        String number = source.substring(start, current);
+        number = number.replaceAll("_", "");
+        addToken(NUMBER, Double.parseDouble(number));
     }
 
     private void scanString() {

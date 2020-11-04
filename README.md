@@ -23,6 +23,7 @@
 - super, this keywords for oop
 - Break and Continue keyword for loops
 - Logical operators AND, OR, XOR
+- Bitwise operators <<, >>, >>>
 - Function can take other Function as Parameter
 - Runtime error
 - Semantic analysis

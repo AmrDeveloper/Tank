@@ -18,6 +18,9 @@ public enum TokenType {
     //Special assignments
     PLUS_EQUAL, MINUS_EQUAL, STAR_EQUAL, SLASH_EQUAL, STAR_STAR_EQUAL,
 
+    //Bitwise operations
+    SHIFT_RIGHT, SHIFT_LEFT, LOGICAL_SHIFT_RIGHT,
+
     //Conditional
     QUESTION_MARK, COLON,ELVIS,
 

@@ -80,6 +80,13 @@ public class Resolver implements
     }
 
     @Override
+    public Void visit(BitwiseExp expr) {
+        resolve(expr.getLeftExp());
+        resolve(expr.getRightExp());
+        return null;
+    }
+
+    @Override
     public Void visit(CallExp expr) {
         resolve(expr.getCallee());
 

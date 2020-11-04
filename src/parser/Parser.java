@@ -305,7 +305,7 @@ public class Parser {
     }
 
     private Expression ternaryExp(){
-        Expression expr = or();
+        Expression expr = bitwise();
 
         if (match(QUESTION_MARK)) {
             Token question = previous();
@@ -317,6 +317,18 @@ public class Parser {
             }
             TankRuntime.error(colon,"Expected Expression after COLON");
         }
+        return expr;
+    }
+
+    private Expression bitwise() {
+        Expression expr = or();
+
+        while (match(SHIFT_LEFT, SHIFT_RIGHT, LOGICAL_SHIFT_RIGHT)) {
+            Token operator = previous();
+            Expression right = xor();
+            expr = new BitwiseExp(expr, operator, right);
+        }
+
         return expr;
     }
 

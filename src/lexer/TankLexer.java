@@ -111,10 +111,11 @@ public class TankLexer {
                 addToken(match('=') ? EQUAL_EQUAL : EQUAL);
                 break;
             case '<':
-                addToken(match('=') ? LESS_EQUAL : LESS);
+                addToken(match('=') ? LESS_EQUAL : match('<') ? SHIFT_LEFT : LESS);
                 break;
             case '>':
-                addToken(match('=') ? GREATER_EQUAL : GREATER);
+                addToken(match('=') ? GREATER_EQUAL :
+                        match('>') ? match('>') ? LOGICAL_SHIFT_RIGHT : SHIFT_RIGHT : GREATER);
                 break;
             case '/':
                 if (match('/')) {

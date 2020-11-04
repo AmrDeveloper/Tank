@@ -21,7 +21,23 @@
   <component name="ChangeListManager">
     <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/lexer/TankLexer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/parser/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/semantic/Resolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/token/TokenType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/visitors/ExpressionVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/visitors/ExpressionVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lexer/TankLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lexer/TankLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/semantic/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/semantic/Resolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/token/TokenType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visitors/ExpressionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/visitors/ExpressionVisitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +94,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -94,53 +111,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="402" y="297" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590070599620">
+    <state x="445" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1604511752603">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="402" y="297" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.994@0.0.1280.994" timestamp="1590070599620" />
-    <state x="445" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1590070508054">
+    <state x="445" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1280.994@0.0.1280.994" timestamp="1604511752603" />
+    <state width="1236" height="121" key="GridCell.Tab.0.bottom" timestamp="1604512144074">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="445" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1280.994@0.0.1280.994" timestamp="1590070508054" />
-    <state x="370" y="242" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590070773469">
+    <state width="1236" height="121" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1604512144074" />
+    <state width="1236" height="121" key="GridCell.Tab.0.center" timestamp="1604512144074">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="370" y="242" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.994@0.0.1280.994" timestamp="1590070773469" />
-    <state x="92" y="92" width="1096" height="810" key="DiffContextDialog" timestamp="1590108241635">
+    <state width="1236" height="121" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1604512144074" />
+    <state width="1236" height="121" key="GridCell.Tab.0.left" timestamp="1604512144074">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="92" y="92" width="1096" height="810" key="DiffContextDialog/0.0.1280.994@0.0.1280.994" timestamp="1590108241635" />
-    <state width="1236" height="273" key="GridCell.Tab.0.bottom" timestamp="1591516992781">
+    <state width="1236" height="121" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1604512144074" />
+    <state width="1236" height="121" key="GridCell.Tab.0.right" timestamp="1604512144074">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1236" height="273" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1591516992781" />
-    <state width="1236" height="273" key="GridCell.Tab.0.center" timestamp="1591516992781">
-      <screen x="0" y="0" width="1280" height="994" />
-    </state>
-    <state width="1236" height="273" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1591516992781" />
-    <state width="1236" height="273" key="GridCell.Tab.0.left" timestamp="1591516992781">
-      <screen x="0" y="0" width="1280" height="994" />
-    </state>
-    <state width="1236" height="273" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1591516992781" />
-    <state width="1236" height="273" key="GridCell.Tab.0.right" timestamp="1591516992781">
-      <screen x="0" y="0" width="1280" height="994" />
-    </state>
-    <state width="1236" height="273" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1591516992781" />
-    <state x="120" y="70" key="SettingsEditor" timestamp="1593172374767">
-      <screen x="0" y="0" width="1280" height="994" />
-    </state>
-    <state x="120" y="70" key="SettingsEditor/0.0.1280.994@0.0.1280.994" timestamp="1593172374767" />
-    <state x="344" y="387" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1590407939292">
-      <screen x="0" y="0" width="1280" height="994" />
-    </state>
-    <state x="344" y="387" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.994@0.0.1280.994" timestamp="1590407939292" />
-    <state x="296" y="223" key="run.anything.popup" timestamp="1590072867310">
-      <screen x="0" y="0" width="1280" height="994" />
-    </state>
-    <state x="296" y="223" key="run.anything.popup/0.0.1280.994@0.0.1280.994" timestamp="1590072867310" />
-    <state x="296" y="138" width="672" height="676" key="search.everywhere.popup" timestamp="1591516386819">
-      <screen x="0" y="0" width="1280" height="994" />
-    </state>
-    <state x="296" y="138" width="672" height="676" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1591516386819" />
+    <state width="1236" height="121" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1604512144074" />
   </component>
 </project>

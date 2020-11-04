@@ -173,6 +173,31 @@ public class Interpreter implements
     }
 
     @Override
+    public Object visit(BitwiseExp expr) {
+        Object left = evaluate(expr.getLeftExp());
+        Object right = evaluate(expr.getRightExp());
+
+        if(left instanceof Double && right instanceof Double) {
+            int iLeft = (int) (double) left;
+            int iRight = (int) (double) right;
+
+            switch (expr.getOperator().type) {
+                case SHIFT_RIGHT: {
+                    return iLeft >> iRight;
+                }
+                case SHIFT_LEFT: {
+                    return iLeft << iRight;
+                }
+                case LOGICAL_SHIFT_RIGHT: {
+                    return iLeft >>> iRight;
+                }
+            }
+        }
+
+        throw new RuntimeError(expr.getOperator(), "Bitwise left and right must be a numbsers");
+    }
+
+    @Override
     public Object visit(ElvisExp expr) {
         Object condition = evaluate(expr.getCondition());
         if(isTruthy(condition)){

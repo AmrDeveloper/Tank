@@ -9,6 +9,7 @@ public interface ExpressionVisitor<R> {
     R visit(AssignExp expr);
     R visit(UnaryExp expr);
     R visit(LogicalExp expr);
+    R visit(BitwiseExp expr);
     R visit(CallExp expr);
     R visit(GetExp expr);
     R visit(SetExp expr);

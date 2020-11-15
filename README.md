@@ -29,33 +29,21 @@
 - Semantic analysis
 - Arity Similar to Python that throw error if developer pass less or more than function arguments
 
-#### Simple Examples
-    module tank.scanner;
-    module tank.string;
-    
-    var name = scanString();
-    print("Hello " + name + "\n");
-    
-    var nameLength = strLength(name);
-    print(nameLength);
-    
-    -> Input
-    Amr
-    -> Output
-    Hello Amr
-    3
-####
-    module tank.system;
-    
-    print("Current os name is : " + osName() + "\n");
-    
-    print("JDK Path : " + osEnvVar("JAVA_HOME") + "\n");
-    
-    print("OS Arch : " + osArch() + "\n");
-    
-    -> Output
-    Current os name is : Windows 10
-    JDK Path : C:\Program Files\Java\jdk1.8.0_171
-    OS Arch : amd64
-    
-#### For all Examples see examples directory
+##### Arrays
+![Arrays](screenshots/arrays_screen.PNG)
+
+##### Function Extension.
+![Function Extension](screenshots/extension_screen.PNG)
+
+##### Parse Json.
+![Json](screenshots/json_screen.PNG)
+
+##### Make Network Request.
+![Network](screenshots/network_screen.PNG)
+
+##### Get system information.
+![system](screenshots/sys_screen.PNG)
+
+##### Test statement to show request result in the runtime.
+![Test](screenshots/test_screen.PNG)
+#### For all Examples see examples directory.

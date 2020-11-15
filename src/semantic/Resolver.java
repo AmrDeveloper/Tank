@@ -28,13 +28,14 @@ public class Resolver implements
         NONE,
         FUNCTION,
         METHOD,
-        INITIALIZER
+        INITIALIZER,
+        TEST
     }
 
     private enum ClassType {
         NONE,
         CLASS,
-        SUBCLASS
+        SUBCLASS,
     }
 
     private ClassType currentClass = ClassType.NONE;
@@ -162,7 +163,7 @@ public class Resolver implements
     @Override
     public Void visit(WhileStatement statement) {
         MoveKeyword.ScopeType enclosingType = currentScopeType;
-        currentScopeType =  MoveKeyword.ScopeType.LOOP;
+        currentScopeType = MoveKeyword.ScopeType.LOOP;
         resolve(statement.getCondition());
         resolve(statement.getLoopBody());
         currentScopeType = enclosingType;
@@ -297,6 +298,17 @@ public class Resolver implements
         declare(statement.getName());
         define(statement.getName());
 
+        return null;
+    }
+
+    @Override
+    public Void visit(TestStatement statement) {
+        FunctionType enclosingClass = currentFunction;
+        currentFunction = FunctionType.TEST;
+        declare(statement.getName());
+        resolve(statement.getBody());
+        resolve(statement.getReturnValue());
+        currentFunction = enclosingClass;
         return null;
     }
 

@@ -490,6 +490,22 @@ public class Interpreter implements
     }
 
     @Override
+    public Void visit(TestStatement statement) {
+        String name = statement.getName().literal.toString();
+        Environment environment = new Environment(globals);
+        execute(statement.getBody(), environment);
+        try{
+            execute(statement.getReturnValue());
+        }catch (Return r) {
+            Object value = r.getValue();
+            boolean val = isTruthy(value);
+            String state = (val) ? "Ok" : "Fail";
+            System.out.println("\nTest with name (" + name + ") is -> " + state);
+        }
+        return null;
+    }
+
+    @Override
     public Void visit(BreakStatement statement) {
         throw new MoveKeyword(MoveKeyword.MoveType.BREAK);
     }

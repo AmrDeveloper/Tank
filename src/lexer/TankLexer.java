@@ -44,6 +44,7 @@ public class TankLexer {
         keywords.put("extends", EXTENDS);
         keywords.put("array", ARRAY);
         keywords.put("native", NATIVE);
+        keywords.put("test", TEST);
     }
 
     public TankLexer(String source) {

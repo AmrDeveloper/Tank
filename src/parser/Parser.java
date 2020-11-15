@@ -42,6 +42,7 @@ public class Parser {
         if (match(LEFT_BRACE)) return new BlockStatement(block());
         if (match(BREAK)) return breakStatement();
         if (match(CONTINUE)) return continueStatement();
+        if (match(TEST)) return testStatement();
         return expressionStatement();
     }
 
@@ -247,6 +248,26 @@ public class Parser {
         }
         consume(SEMICOLON, "Expect ';' after return value.");
         return new ReturnStatement(keyword, value);
+    }
+
+    private Statement testStatement() {
+        consume(LEFT_PAREN, "Expect '(' after 'while'.");
+        Token name = consume(STRING, "Expect test name.");
+        consume(RIGHT_PAREN, "Expect ')' after repeat value.");
+        consume(LEFT_BRACE, "Expect '{' before function body.");
+        List<Statement> statements = new ArrayList<>();
+        Statement returnStatement = null;
+        while (!check(RIGHT_BRACE) && !isAtEnd()) {
+            Statement statement = declaration();
+            if(statement instanceof ReturnStatement) {
+                returnStatement = statement;
+                consume(RIGHT_BRACE, "Expect '}' after block.");
+                break;
+            }else{
+                statements.add(statement);
+            }
+        }
+        return new TestStatement(name, statements, returnStatement);
     }
 
     private Statement expressionStatement() {

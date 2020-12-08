@@ -6,7 +6,9 @@ import token.Token;
 import token.TokenType;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static token.TokenType.*;
 
@@ -17,11 +19,15 @@ public class Parser {
      */
     private int current = 0;
     private final List<Token> tokens;
+    private final Set<String> functionSet;
+    private final Set<String> classesSet;
 
     private static final int MAX_NUM_OF_ARGUMENTS = 8;
 
     public Parser(List<Token> tokens) {
         this.tokens = tokens;
+        this.functionSet = new HashSet<>();
+        this.classesSet = new HashSet<>();
     }
 
     public List<Statement> parse() {
@@ -62,6 +68,8 @@ public class Parser {
 
     private Statement classDeclaration() {
         Token name = consume(IDENTIFIER, "Expect class name.");
+
+        checkIfClassNameIsUnique(name);
 
         Variable superclass = null;
         if (match(EXTENDS)) {
@@ -107,6 +115,11 @@ public class Parser {
         if(peek().type == COLON){
             consume(COLON, "Expect : After Class name");
             extensionName = consume(IDENTIFIER, "Expect extension name.");
+
+            checkIfExtensionNameIsUnique(name, extensionName);
+        }
+        else {
+            checkIfFunctionNameIsUnique(name);
         }
 
         consume(LEFT_PAREN, "Expect '(' after function name.");
@@ -568,6 +581,24 @@ public class Parser {
                     return;
             }
             advance();
+        }
+    }
+
+    private void checkIfFunctionNameIsUnique(Token funcName) {
+        if(!functionSet.add(funcName.lexeme)) {
+            throw error(funcName, "Can't declare two functions with the same name");
+        }
+    }
+
+    private void checkIfExtensionNameIsUnique(Token funcName, Token className) {
+        if(!functionSet.add(className.lexeme + ":" + className.lexeme)) {
+            throw error(funcName, "Can't declare two extensions with the same name");
+        }
+    }
+
+    private void checkIfClassNameIsUnique(Token className) {
+        if(!classesSet.add(className.lexeme)) {
+            throw error(className, "Can't declare two classes with the same name");
         }
     }
 }

@@ -251,10 +251,10 @@ public class Parser {
     }
 
     private Statement testStatement() {
-        consume(LEFT_PAREN, "Expect '(' after 'while'.");
+        consume(LEFT_PAREN, "Expect '(' after 'test statement'.");
         Token name = consume(STRING, "Expect test name.");
-        consume(RIGHT_PAREN, "Expect ')' after repeat value.");
-        consume(LEFT_BRACE, "Expect '{' before function body.");
+        consume(RIGHT_PAREN, "Expect ')' after test statement name value.");
+        consume(LEFT_BRACE, "Expect '{' before test body.");
         List<Statement> statements = new ArrayList<>();
         Statement returnStatement = null;
         while (!check(RIGHT_BRACE) && !isAtEnd()) {

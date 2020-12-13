@@ -1,9 +1,5 @@
-func one(x) {
-   print("One");
-}
+func Test() {}
+func Test() {}
 
-func one(x) {
-   print("X and Y\n");
-}
-
-one(1);
+class Car {}
+class Car {}

@@ -17,11 +17,13 @@ public class Resolver implements
         StatementVisitor<Void> {
 
     private final Interpreter interpreter;
-    private final Set<String> modulesSet = new HashSet<>();
     private final Stack<Map<String, Boolean>> scopes = new Stack<>();
 
     public Resolver(Interpreter interpreter) {
         this.interpreter = interpreter;
+
+        //Map<String, Boolean> globalScope = new HashMap<>();
+        //scopes.push(globalScope);
     }
 
     private enum FunctionType {
@@ -192,7 +194,7 @@ public class Resolver implements
 
     @Override
     public Void visit(BreakStatement statement) {
-        //TODO : add this case inside semantic to make sure it inside loop
+        // add this case inside semantic to make sure it inside loop
         if (currentScopeType == MoveKeyword.ScopeType.NONE) {
             TankRuntime.error(statement.getKeyword(), "Continue can only used be inside loops.");
         }
@@ -201,7 +203,7 @@ public class Resolver implements
 
     @Override
     public Void visit(ContinueStatement statement) {
-        //TODO : add this case inside semantic to make sure it inside loop
+        // add this case inside semantic to make sure it inside loop
         if (currentScopeType == MoveKeyword.ScopeType.NONE) {
             TankRuntime.error(statement.getKeyword(), "Break can only used be inside loops.");
         }
@@ -257,6 +259,7 @@ public class Resolver implements
     public Void visit(ClassStatement statement) {
         ClassType enclosingClass = currentClass;
         currentClass = ClassType.CLASS;
+
         declare(statement.getName());
 
         //Class must not extends same class

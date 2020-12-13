@@ -58,7 +58,6 @@ public class Parser {
             if (match(VAR)) return varDeclaration();
             if (match(CLASS)) return classDeclaration();
             if (match(NATIVE)) return nativeFuncDeclaration();
-            //TODO : support class, list and map --> maybe struct :D
             return statement();
         } catch (ParseError error) {
             synchronize();
@@ -68,8 +67,6 @@ public class Parser {
 
     private Statement classDeclaration() {
         Token name = consume(IDENTIFIER, "Expect class name.");
-
-        checkIfClassNameIsUnique(name);
 
         Variable superclass = null;
         if (match(EXTENDS)) {
@@ -115,11 +112,6 @@ public class Parser {
         if(peek().type == COLON){
             consume(COLON, "Expect : After Class name");
             extensionName = consume(IDENTIFIER, "Expect extension name.");
-
-            checkIfExtensionNameIsUnique(name, extensionName);
-        }
-        else {
-            checkIfFunctionNameIsUnique(name);
         }
 
         consume(LEFT_PAREN, "Expect '(' after function name.");
@@ -581,24 +573,6 @@ public class Parser {
                     return;
             }
             advance();
-        }
-    }
-
-    private void checkIfFunctionNameIsUnique(Token funcName) {
-        if(!functionSet.add(funcName.lexeme)) {
-            throw error(funcName, "Can't declare two functions with the same name");
-        }
-    }
-
-    private void checkIfExtensionNameIsUnique(Token funcName, Token className) {
-        if(!functionSet.add(className.lexeme + ":" + className.lexeme)) {
-            throw error(funcName, "Can't declare two extensions with the same name");
-        }
-    }
-
-    private void checkIfClassNameIsUnique(Token className) {
-        if(!classesSet.add(className.lexeme)) {
-            throw error(className, "Can't declare two classes with the same name");
         }
     }
 }

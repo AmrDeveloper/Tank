@@ -6,6 +6,7 @@ import lexer.ModuleProcessor;
 import lexer.TankLexer;
 import parser.Parser;
 import semantic.Resolver;
+import style.TankCheckStyle;
 import token.Token;
 import token.TokenType;
 
@@ -58,6 +59,19 @@ public class TankRuntime {
 
         //Start Tank Interpreter
         interpreter.interpret(statements);
+    }
+
+    public static void checkFileCodeStyle(String path) {
+        ModuleProcessor preProcessor = new ModuleProcessor();
+        String source = preProcessor.process(path);
+
+        TankLexer tankLexer = new TankLexer(source);
+        List<Token> tokens = tankLexer.scanTokens();
+        Parser parser = new Parser(tokens);
+        List<Statement> statements = parser.parse();
+
+        TankCheckStyle checkStyle = new TankCheckStyle();
+        checkStyle.checkCodeStyle(statements);
     }
 
     public static void error(int line, String message) {

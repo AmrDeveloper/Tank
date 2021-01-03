@@ -46,4 +46,18 @@
 
 ##### Test statement to show request result in the runtime.
 ![Test](screenshots/test_screen.PNG)
+
+## Tools:
+#### Code Style Check for Tank code to check if your code style is match your check configuration
+- Check class name and super class name.
+- Check method name and parameters.
+- Check function name and parameters.
+- Check function extension name and parameters.
+- Check variables name.
+- Check test block tag.
+- Check if constants folding is possible.
+
+#### For Example.  
+![Style](screenshots/style_screen.PNG)
+
 #### For all Examples see examples directory.

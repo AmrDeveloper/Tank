@@ -205,7 +205,7 @@ public class Interpreter implements
             }
         }
 
-        throw new RuntimeError(expr.getOperator(), "Bitwise left and right must be a numbsers");
+        throw new RuntimeError(expr.getOperator(), "Bitwise left and right must be a Numbers");
     }
 
     @Override

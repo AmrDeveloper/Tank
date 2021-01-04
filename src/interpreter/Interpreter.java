@@ -154,10 +154,16 @@ public class Interpreter implements
                 return !isTruthy(right);
             }
             case PLUS_PLUS:{
-                return (double)right + 1;
+                if(right instanceof Double) {
+                    return (double)right + 1;
+                }
+                checkNumberOperand(expr.getOperator(), right);
             }
             case MINUS_MINUS: {
-                return (double) right - 1;
+                if(right instanceof Double) {
+                    return (double) right - 1;
+                }
+                checkNumberOperand(expr.getOperator(), right);
             }
         }
         return null;

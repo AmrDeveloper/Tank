@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +59,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/screenshots" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -101,7 +101,8 @@
       <updated>1609609643473</updated>
       <workItem from="1609609651187" duration="3451000" />
       <workItem from="1609746612342" duration="469000" />
-      <workItem from="1609747087520" duration="371000" />
+      <workItem from="1609747087520" duration="659000" />
+      <workItem from="1609747972160" duration="133000" />
     </task>
     <servers />
   </component>

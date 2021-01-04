@@ -65,18 +65,20 @@ public class Interpreter implements
                     int value = (Character) right;
                     return (double) left + value;
                 }
-                throw new RuntimeError(expr.getOperator(), "Operands must be two numbers or two strings.");
+                throw new RuntimeError(expr.getOperator(), "UnSupported childes for Operator.\n");
             }
             case MINUS: {
                 checkNumberOperands(expr.getOperator(), left, right);
                 return (double) left - (double) right;
             }
             case STAR: {
-                if ((left instanceof String || left instanceof Character)
-                        && right instanceof Double) {
-                    StringBuilder result = new StringBuilder(left.toString());
-                    for (int i = 1; i < (double) right; i++) {
-                        result.append(left.toString());
+                if ((left instanceof String || left instanceof Character) && right instanceof Double) {
+                    int times = (int) ((double) right);
+                    int finalLen = left.toString().length() * times;
+                    StringBuilder result = new StringBuilder(finalLen);
+                    String strValue = left.toString();
+                    for (int i = 0; i < times; i++) {
+                        result.append(strValue);
                     }
                     return result.toString();
                 }

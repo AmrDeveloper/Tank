@@ -224,7 +224,7 @@ public class Parser {
         consume(WHILE, "Expect while keyword.");
         consume(LEFT_PAREN, "Expect '(' after 'while'.");
         Expression condition = expression();
-        consume(RIGHT_PAREN, "Expect ')' after while condition.");
+        consume(RIGHT_PAREN, "Expect ')' after do while condition.");
         consume(SEMICOLON, "Expect ';' after do while condition.");
         return new DoWhileStatement(condition, loopBody);
     }
@@ -238,9 +238,9 @@ public class Parser {
     }
 
     private Statement printStatement() {
-        consume(LEFT_PAREN, "Expect '(' after 'while'.");
+        consume(LEFT_PAREN, "Expect '(' after 'print'.");
         Expression value = expression();
-        consume(RIGHT_PAREN, "Expect ')' after while condition.");
+        consume(RIGHT_PAREN, "Expect ')' after print expression.");
         consume(SEMICOLON, "Expect ';' after value.");
         return new PrintStatement(value);
     }

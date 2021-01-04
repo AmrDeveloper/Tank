@@ -55,7 +55,16 @@ public class Interpreter implements
                 if ((left instanceof Character && right instanceof Character)) {
                     return String.valueOf(left) + right;
                 }
-                //TODO : add Character with number
+                //Character + Double
+                if((left instanceof Character) && (right instanceof Double)) {
+                    int value = (Character) left;
+                    return (double) right + value;
+                }
+                //Double + Character
+                if((left instanceof Double) && (right instanceof Character)) {
+                    int value = (Character) right;
+                    return (double) left + value;
+                }
                 throw new RuntimeError(expr.getOperator(), "Operands must be two numbers or two strings.");
             }
             case MINUS: {

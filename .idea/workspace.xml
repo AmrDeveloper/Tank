@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/Style.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Style.tank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tank/interpreter/Interpreter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/TankCheckStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/TankCheckStyle.java" afterDir="false" />
-    </list>
+    <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

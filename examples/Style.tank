@@ -1,2 +1,4 @@
   var value = 5 + 10;
-  var NAME = "AmrDeveloper";
+  var NAME = "Amr" + "Developer";
+  var zero = 5 * 0;
+  var divide = 5 / 0;

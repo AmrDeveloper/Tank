@@ -26,10 +26,51 @@ public class TankCheckStyle
             LiteralExp leftExp = (LiteralExp) left;
             LiteralExp rightExp = (LiteralExp) right;
 
-            String leftValue = leftExp.getValue().toString();
-            String rightValue = rightExp.getValue().toString();
+            Object leftValue = leftExp.getValue();
+            Object rightValue = rightExp.getValue();
 
-            System.out.printf("Values %s and %s can be folded as constants.\n", leftValue, rightValue);
+            String leftClassName = leftValue.getClass().getSimpleName();
+            String rightClassName = rightValue.getClass().getSimpleName();
+
+            if("Double".equals(leftClassName) && "Double".equals(rightClassName)) {
+                double leftVal = (Double) leftValue;
+                double rightVal = (Double) rightValue;
+
+                Token operator = expr.getOperator();
+                switch (operator.type) {
+                    case STAR:
+                        if(leftVal == 0.0 || rightVal == 0.0) {
+                            System.err.printf("- You can replace %s * %s by zero.\n",
+                                    leftValue.toString(),
+                                    rightValue.toString());
+                        } else {
+                            System.err.printf("- Values %s and %s can be folded as constants.\n",
+                                    leftValue.toString(),
+                                    rightValue.toString());
+                        }
+                        break;
+                    case SLASH:
+                        if(rightVal == 0.0) {
+                            System.err.printf("- You can't divide %s by zero.\n",
+                                    leftValue.toString());
+                        } else {
+                            System.err.printf("- Values %s and %s can be folded as constants.\n",
+                                    leftValue.toString(),
+                                    rightValue.toString());
+                        }
+                        break;
+                    default:
+                        System.err.printf("- Values %s and %s can be folded as constants.\n",
+                                leftValue.toString(),
+                                rightValue.toString());
+                        break;
+                }
+            }
+            else {
+                System.err.printf("- Values %s and %s can be folded as constants.\n",
+                        leftValue.toString(),
+                        rightValue.toString());
+            }
         }
         return null;
     }
@@ -210,7 +251,7 @@ public class TankCheckStyle
         String varName = statement.getName().lexeme;
         boolean isValidName = CheckStyleConfig.varNamePattern.matcher(varName).matches();
         if(!isValidName) {
-            System.out.printf("Var name -> %s is not match your config.\n", varName);
+            System.err.printf("- Var name -> %s is not match your config.\n", varName);
         }
 
         statement.getInitializer().accept(this);
@@ -227,7 +268,7 @@ public class TankCheckStyle
         String className = statement.getName().lexeme;
         boolean isValidClassName = CheckStyleConfig.classNamePattern.matcher(className).matches();
         if(!isValidClassName) {
-            System.out.printf("Class Name -> %s is not match your config.\n", className);
+            System.err.printf("- Class Name -> %s is not match your config.\n", className);
         }
 
         Variable superClass = statement.getSuperClass();
@@ -235,7 +276,7 @@ public class TankCheckStyle
             String superClassName = superClass.getName().lexeme;
             boolean isValidSuperName = CheckStyleConfig.classNamePattern.matcher(superClassName).matches();
             if(!isValidSuperName) {
-                System.out.printf("Super Class Name -> %s is not match your config.\n", superClassName);
+                System.err.printf("- Super Class Name -> %s is not match your config.\n", superClassName);
             }
         }
 
@@ -256,7 +297,7 @@ public class TankCheckStyle
         String tag = statement.getName().lexeme;
         boolean isValidTag = CheckStyleConfig.testNamePattern.matcher(tag).matches();
         if(!isValidTag) {
-            System.out.printf("Test tag -> %s is not match your Config.\n", tag);
+            System.err.printf("- Test tag -> %s is not match your Config.\n", tag);
         }
         return null;
     }

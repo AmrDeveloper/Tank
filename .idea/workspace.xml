@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="" />
+    <list default="true" id="018e9a8f-761e-4507-8917-6b3036c8ec32" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/Style.tank" beforeDir="false" afterPath="$PROJECT_DIR$/examples/Style.tank" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interpreter/Interpreter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/screenshots" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -138,6 +143,24 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="184" key="GridCell.Tab.0.bottom" timestamp="1614657138733">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1614657138733" />
+    <state width="1237" height="184" key="GridCell.Tab.0.center" timestamp="1614657138733">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1614657138733" />
+    <state width="1237" height="184" key="GridCell.Tab.0.left" timestamp="1614657138733">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1614657138733" />
+    <state width="1237" height="184" key="GridCell.Tab.0.right" timestamp="1614657138733">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1614657138733" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

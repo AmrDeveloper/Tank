@@ -175,11 +175,13 @@ public class Interpreter implements
         switch (expr.getOperator().type) {
             case AND: {
                 Object right = evaluate(expr.getRightExp());
-                return isTruthy(left) && isTruthy(right);
+                if (isTruthy(left)) return isTruthy(right);
+                else return false;
             }
             case OR: {
                 Object right = evaluate(expr.getRightExp());
-                return isTruthy(left) || isTruthy(right);
+                if (isTruthy(left)) return true;
+                else return isTruthy(right);
             }
             case XOR: {
                 Object right = evaluate(expr.getRightExp());

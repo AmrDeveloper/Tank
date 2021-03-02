@@ -26,7 +26,7 @@ public class ModuleProcessor {
         while (!modulesStack.isEmpty()){
             currentFilePath = modulesStack.pop();
             currentFileSource = readFileSource(currentFilePath);
-            source = source.append(currentFileSource).append(System.getProperty("line.separator"));
+            source.append(currentFileSource);
         }
         return source.toString();
     }
@@ -43,11 +43,11 @@ public class ModuleProcessor {
                                     .trim();
                     scanModuleName(moduleName);
                 } else{
-                    lines.append(line);
+                    lines.append(line).append("\n");
                 }
             }
         } catch (IOException e) {
-            TankRuntime.error("Invalid odule path : " + path);
+            TankRuntime.error("Invalid module path : " + path);
             System.exit(1);
         }
         return lines.toString();

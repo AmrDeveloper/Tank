@@ -13,7 +13,7 @@ public class PrefixExpression extends Expression {
         this.rightExpression = rightExpression;
     }
 
-    public Token getPrefixFunName() {
+    public Token getPrefixOperatorName() {
         return prefixFunName;
     }
 

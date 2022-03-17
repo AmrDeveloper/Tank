@@ -1,0 +1,6 @@
+infix func sum(x, y) {
+   return x + y;
+}
+
+var sumResult = 10 sum 20;
+print(sumResult);

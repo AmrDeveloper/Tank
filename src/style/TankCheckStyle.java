@@ -165,10 +165,20 @@ public class TankCheckStyle
 
     @Override
     public Void visit(PrefixExpression expr) {
-        String name = expr.getPrefixFunName().lexeme;
+        String name = expr.getPrefixOperatorName().lexeme;
         boolean isValidName = CheckStyleConfig.functionNamePattern.matcher(name).matches();
         if(!isValidName) {
             System.out.printf("Prefix Function name -> %s is not match your Config.\n", name);
+        }
+        return null;
+    }
+
+    @Override
+    public Void visit(InfixExpression expr) {
+        String name = expr.getInfixOperatorName().lexeme;
+        boolean isValidName = CheckStyleConfig.functionNamePattern.matcher(name).matches();
+        if(!isValidName) {
+            System.out.printf("infix Function name -> %s is not match your Config.\n", name);
         }
         return null;
     }

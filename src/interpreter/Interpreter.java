@@ -274,9 +274,18 @@ public class Interpreter implements
 
     @Override
     public Object visit(PrefixExpression expr) {
-        TankCallable value = (TankCallable) environment.get(expr.getPrefixFunName());
+        TankCallable value = (TankCallable) environment.get(expr.getPrefixOperatorName());
         List<Object> args = new ArrayList<>();
         args.add(evaluate(expr.getRightExpression()));
+        return value.call(this, args);
+    }
+
+    @Override
+    public Object visit(InfixExpression expr) {
+        TankCallable value = (TankCallable) environment.get(expr.getInfixOperatorName());
+        List<Object> args = new ArrayList<>();
+        args.add(evaluate(expr.getLeftExp()));
+        args.add(evaluate(expr.getRightExp()));
         return value.call(this, args);
     }
 

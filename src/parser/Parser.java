@@ -472,12 +472,24 @@ public class Parser {
     }
 
     private Expression multiplication() {
-        Expression expr = unary();
+        Expression expr = parseInfixExpressions();
 
         while (match(SLASH, STAR)) {
             Token operator = previous();
-            Expression right = unary();
+            Expression right = parseInfixExpressions();
             expr = new BinaryExp(expr, operator, right);
+        }
+        return expr;
+    }
+
+    private Expression parseInfixExpressions() {
+        Expression expr = unary();
+
+        if (check(IDENTIFIER) && infixFunctions.contains(tokens.get(current).lexeme)) {
+            current++;
+            Token operator = previous();
+            Expression right = unary();
+            expr = new InfixExpression(expr, operator, right);
         }
         return expr;
     }

@@ -355,6 +355,13 @@ public class Resolver implements
     }
 
     @Override
+    public Void visit(InfixExpression expr) {
+        resolve(expr.getLeftExp());
+        resolve(expr.getRightExp());
+        return null;
+    }
+
+    @Override
     public Void visit(SuperExp expr) {
         if (currentClass == ClassType.NONE) {
             TankRuntime.error(expr.getKeyword(), "Cannot use 'super' outside of a class.");

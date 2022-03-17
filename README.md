@@ -1,7 +1,6 @@
 # Tank
 
 ## It's Dynamic type Object oriented and scripting language written in Java
-## Porting version of Jlox
 
 ## Features
 - import native modules
@@ -28,6 +27,8 @@
 - Runtime error
 - Semantic analysis
 - Arity Similar to Python that throw error if developer pass less or more than function arguments
+- Create custom prefix operators
+- Create custom infix Operators
 
 ##### Arrays
 ![Arrays](screenshots/arrays_screen.PNG)
@@ -42,10 +43,46 @@
 ![Network](screenshots/network_screen.PNG)
 
 ##### Get system information.
-![system](screenshots/sys_screen.PNG)
+```
+module tank.system;
+
+print("Current os name is : " + osName() + "\n");
+
+print("JDK Path : " + osEnvVar("JAVA_HOME") + "\n");
+
+print("OS Arch : " + osArch() + "\n");
+```
 
 ##### Test statement to show request result in the runtime.
-![Test](screenshots/test_screen.PNG)
+```
+func sum(x, y) {
+   return x + y;
+}
+
+test ("test sum function") {
+   return sum(1, 1) == 2;
+}
+```
+
+##### Custom infix Operator function
+```
+infix func sum(x, y) {
+   return x + y;
+}
+
+var sumResult = 10 sum 20;  // will be 30
+print(sumResult);
+```
+
+##### Custom prefix Operator function
+```
+prefix func multiByTen(x) {
+   return x * 10;
+}
+
+var result = multiByTen 10;  // will be 100
+```
+
 
 ## Tools:
 #### Code Style Check for Tank code to check if your code style is match your check configuration

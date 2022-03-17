@@ -164,6 +164,16 @@ public class TankCheckStyle
     }
 
     @Override
+    public Void visit(PrefixExpression expr) {
+        String name = expr.getPrefixFunName().lexeme;
+        boolean isValidName = CheckStyleConfig.functionNamePattern.matcher(name).matches();
+        if(!isValidName) {
+            System.out.printf("Prefix Function name -> %s is not match your Config.\n", name);
+        }
+        return null;
+    }
+
+    @Override
     public Void visit(ExpressionStatement statement) {
         statement.getExpression().accept(this);
         return null;

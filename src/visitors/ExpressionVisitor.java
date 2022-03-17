@@ -21,4 +21,5 @@ public interface ExpressionVisitor<R> {
     R visit(ArraySetExp expr);
     R visit(ArrayGetExp expr);
     R visit(ArrayVariable expr);
+    R visit(PrefixExpression expr);
 }

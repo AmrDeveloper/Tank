@@ -45,6 +45,9 @@ public class TankLexer {
         keywords.put("array", ARRAY);
         keywords.put("native", NATIVE);
         keywords.put("test", TEST);
+
+        keywords.put("prefix", PREFIX);
+        keywords.put("infix", INFIX);
     }
 
     public TankLexer(String source) {

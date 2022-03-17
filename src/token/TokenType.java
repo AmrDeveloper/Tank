@@ -12,12 +12,6 @@ public enum TokenType {
     LESS, LESS_EQUAL,
     PLUS_PLUS, MINUS_MINUS,
 
-    //Exponent
-    STAR_STAR,
-
-    //Special assignments
-    PLUS_EQUAL, MINUS_EQUAL, STAR_EQUAL, SLASH_EQUAL, STAR_STAR_EQUAL,
-
     //Bitwise operations
     SHIFT_RIGHT, SHIFT_LEFT, LOGICAL_SHIFT_RIGHT,
 
@@ -25,7 +19,9 @@ public enum TokenType {
     QUESTION_MARK, COLON,ELVIS,
 
     // Literals.
-    IDENTIFIER, STRING, NUMBER, CHAR, LIST, MODULE, NATIVE,
+    IDENTIFIER, STRING, NUMBER, CHAR, NATIVE,
+
+    PREFIX, INFIX,
 
     // Keywords.
     CLASS, ELSE, FALSE, FUN, FOR, REPEAT, IF, NONE, OR, AND, XOR, EXTENDS,

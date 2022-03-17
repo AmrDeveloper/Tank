@@ -1,6 +1,7 @@
 package parser;
 
 import ast.*;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import runtime.TankRuntime;
 import token.Token;
 import token.TokenType;
@@ -19,15 +20,14 @@ public class Parser {
      */
     private int current = 0;
     private final List<Token> tokens;
-    private final Set<String> functionSet;
-    private final Set<String> classesSet;
 
     private static final int MAX_NUM_OF_ARGUMENTS = 8;
 
+    private final Set<String> prefixFunctions = new HashSet<>();
+    private final Set<String> infixFunctions = new HashSet<>();
+
     public Parser(List<Token> tokens) {
         this.tokens = tokens;
-        this.functionSet = new HashSet<>();
-        this.classesSet = new HashSet<>();
     }
 
     public List<Statement> parse() {
@@ -54,7 +54,10 @@ public class Parser {
 
     private Statement declaration() {
         try {
-            if (match(FUN)) return funcDeclaration();
+            if (match(PREFIX, INFIX) && match(FUN)) {
+                return funcDeclaration(tokens.get(current - 2));
+            }
+            if (match(FUN)) return funcDeclaration(previous());
             if (match(VAR)) return varDeclaration();
             if (match(CLASS)) return classDeclaration();
             if (match(NATIVE)) return nativeFuncDeclaration();
@@ -105,8 +108,19 @@ public class Parser {
         return new FunctionStatement(name, parameters, body);
     }
 
-    private Function funcDeclaration() {
+    private Function funcDeclaration(Token token) {
         Token name = consume(IDENTIFIER, "Expect function name.");
+        switch (token.type) {
+            case PREFIX:  {
+                prefixFunctions.add(name.lexeme);
+                break;
+            }
+            case INFIX:  {
+                infixFunctions.add(name.lexeme);
+                break;
+            }
+        }
+
         Token extensionName = null;
 
         if(peek().type == COLON){
@@ -474,6 +488,16 @@ public class Parser {
             Expression right = unary();
             return new UnaryExp(operator, right);
         }
+        return parsePrefixFunctionCall();
+    }
+
+    private Expression parsePrefixFunctionCall() {
+        if (check(IDENTIFIER) && prefixFunctions.contains(tokens.get(current).lexeme)) {
+            current++;
+            Token prefixFunctionName = previous();
+            Expression right = unary();
+            return new PrefixExpression(prefixFunctionName, right);
+        }
         return call();
     }
 
@@ -542,7 +566,7 @@ public class Parser {
             Token method = consume(IDENTIFIER,"Expect superclass method name.");
             return new SuperExp(keyword, method);
         }
-        throw error(peek(), "Expect expression.");
+        throw error(peek(), "Expect expression. " + tokens.get(current));
     }
 
     private ParseError error(Token token, String message) {

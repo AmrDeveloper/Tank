@@ -21,9 +21,6 @@ public class Resolver implements
 
     public Resolver(Interpreter interpreter) {
         this.interpreter = interpreter;
-
-        //Map<String, Boolean> globalScope = new HashMap<>();
-        //scopes.push(globalScope);
     }
 
     private enum FunctionType {
@@ -348,6 +345,12 @@ public class Resolver implements
     public Void visit(ArrayVariable expr) {
         declare(expr.getName());
         resolve(expr.getIndex());
+        return null;
+    }
+
+    @Override
+    public Void visit(PrefixExpression expr) {
+        resolve(expr.getRightExpression());
         return null;
     }
 

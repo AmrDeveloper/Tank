@@ -1,0 +1,6 @@
+prefix func multiByTen(x) {
+   return x * 10;
+}
+
+var result = multiByTen 10;
+print(result);

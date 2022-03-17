@@ -70,8 +70,8 @@ infix func sum(x, y) {
    return x + y;
 }
 
-var sumResult = 10 sum 20;  // will be 30
-print(sumResult);
+var sumResult = 10 sum 20;     // will be 30
+var sumResult2 = sum(10, 20);  // will be 30
 ```
 
 ##### Custom prefix Operator function
@@ -80,7 +80,8 @@ prefix func multiByTen(x) {
    return x * 10;
 }
 
-var result = multiByTen 10;  // will be 100
+var result = multiByTen 10;    // will be 100
+var result2 = multiByTen(10);  // will be 100
 ```
 
 

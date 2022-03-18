@@ -394,10 +394,6 @@ public class Interpreter implements
 
     @Override
     public Void visit(WhileStatement statement) {
-        Environment whileEnvironment = new Environment(environment);
-        Environment previous = this.environment;
-        this.environment = whileEnvironment;
-
         while (isTruthy(evaluate(statement.getCondition()))) {
             try {
                 execute(statement.getLoopBody());
@@ -408,7 +404,6 @@ public class Interpreter implements
                 }
             }
         }
-        this.environment = previous;
         return null;
     }
 

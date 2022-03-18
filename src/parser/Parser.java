@@ -54,9 +54,7 @@ public class Parser {
 
     private Statement declaration() {
         try {
-            if (match(PREFIX, INFIX) && match(FUN)) {
-                return funcDeclaration(tokens.get(current - 2));
-            }
+            if (match(PREFIX, INFIX) && match(FUN)) return funcDeclaration(tokens.get(current - 2));
             if (match(FUN)) return funcDeclaration(previous());
             if (match(VAR)) return varDeclaration();
             if (match(CLASS)) return classDeclaration();
@@ -110,15 +108,15 @@ public class Parser {
 
     private Function funcDeclaration(Token token) {
         Token name = consume(IDENTIFIER, "Expect function name.");
-        switch (token.type) {
-            case PREFIX:  {
-                prefixFunctions.add(name.lexeme);
-                break;
-            }
-            case INFIX:  {
-                infixFunctions.add(name.lexeme);
-                break;
-            }
+
+        int expectedNumberOrArguments = 8;
+        if (token.type == PREFIX) {
+            prefixFunctions.add(name.lexeme);
+            expectedNumberOrArguments = 1;
+        }
+        else if (token.type == INFIX) {
+            infixFunctions.add(name.lexeme);
+            expectedNumberOrArguments = 2;
         }
 
         Token extensionName = null;
@@ -132,12 +130,13 @@ public class Parser {
         List<Token> parameters = new ArrayList<>();
         if (!check(RIGHT_PAREN)) {
             do {
-                if (parameters.size() >= MAX_NUM_OF_ARGUMENTS) {
-                    error(peek(), "Cannot have more than " + MAX_NUM_OF_ARGUMENTS + " parameters.");
+                if (parameters.size() >= expectedNumberOrArguments) {
+                    error(peek(), "Cannot have more than " + expectedNumberOrArguments + " parameters for " + token.type + " functions");
                 }
                 parameters.add(consume(IDENTIFIER, "Expect parameter name."));
             } while (match(COMMA));
         }
+
         consume(RIGHT_PAREN, "Expect ')' after parameters.");
         consume(LEFT_BRACE, "Expect '{' before function body.");
         List<Statement> body = block();

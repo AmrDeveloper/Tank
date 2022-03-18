@@ -1,0 +1,22 @@
+var length = 2;
+
+func arrayContains(arr, obj) {
+   var index = 0;
+   while (index < length) {
+      if (arr[index] == obj) {
+          return true;
+      }
+      index = index + 1;
+   }
+   return false;
+}
+
+var arr = array[length];
+arr[0] = "One";
+arr[1] = "Two";
+
+infix func in(obj, arr) {
+    return arrayContains(arr, obj);
+}
+
+print("One" in arr);

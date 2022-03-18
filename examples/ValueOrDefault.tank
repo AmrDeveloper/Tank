@@ -1,0 +1,9 @@
+infix func orDefault(value, default) {
+    if (value == nil) {
+        return default;
+    }
+    return value;
+}
+
+var result = nil orDefault "Default Value";
+print(result);

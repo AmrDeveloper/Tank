@@ -1,0 +1,13 @@
+prefix func say(message) {
+   print(message + "\n");
+}
+
+infix func to(left, right) {
+   return left + " " + right;
+}
+
+// Option 1
+say "Hello" to "Amr";
+
+// Option 2
+say(to("Hello", "Amr"));

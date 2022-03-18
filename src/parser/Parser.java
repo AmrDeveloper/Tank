@@ -407,11 +407,11 @@ public class Parser {
     }
 
     private Expression equality() {
-        Expression expr = comparison();
+        Expression expr = parsePrefixFunctionCall();
 
         while (match(BANG_EQUAL, EQUAL_EQUAL)) {
             Token operator = previous();
-            Expression right = comparison();
+            Expression right = parsePrefixFunctionCall();
             expr = new BinaryExp(expr, operator, right);
         }
         return expr;
@@ -447,6 +447,16 @@ public class Parser {
 
     private Token previous() {
         return tokens.get(current - 1);
+    }
+
+    private Expression parsePrefixFunctionCall() {
+        if (check(IDENTIFIER) && prefixFunctions.contains(tokens.get(current).lexeme)) {
+            current++;
+            Token prefixFunctionName = previous();
+            Expression right = comparison();
+            return new PrefixExpression(prefixFunctionName, right);
+        }
+        return comparison();
     }
 
     private Expression comparison() {
@@ -485,7 +495,7 @@ public class Parser {
     private Expression parseInfixExpressions() {
         Expression expr = unary();
 
-        if (check(IDENTIFIER) && infixFunctions.contains(tokens.get(current).lexeme)) {
+        while (check(IDENTIFIER) && infixFunctions.contains(tokens.get(current).lexeme)) {
             current++;
             Token operator = previous();
             Expression right = unary();
@@ -499,16 +509,6 @@ public class Parser {
             Token operator = previous();
             Expression right = unary();
             return new UnaryExp(operator, right);
-        }
-        return parsePrefixFunctionCall();
-    }
-
-    private Expression parsePrefixFunctionCall() {
-        if (check(IDENTIFIER) && prefixFunctions.contains(tokens.get(current).lexeme)) {
-            current++;
-            Token prefixFunctionName = previous();
-            Expression right = unary();
-            return new PrefixExpression(prefixFunctionName, right);
         }
         return call();
     }

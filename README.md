@@ -84,6 +84,23 @@ var result = multiByTen 10;    // will be 100
 var result2 = multiByTen(10);  // will be 100
 ```
 
+##### Example of Infix and prefix functions
+```
+prefix func say(message) {
+   print(message + "\n");
+}
+
+infix func to(left, right) {
+   return left + " " + right;
+}
+
+// Option 1
+say "Hello" to "Amr";
+
+// Option 2
+say(to("Hello", "Amr"));
+```
+
 
 ## Tools:
 #### Code Style Check for Tank code to check if your code style is match your check configuration
